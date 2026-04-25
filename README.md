@@ -136,16 +136,6 @@ initialize_rag()          — embed data into ChromaDB (once per session)
 | Skeptic Agent | Gemini 2.5 Flash | Challenges contradictions, flags overlooked risks |
 | Leader Agent | Gemini 2.5 Flash | Final synthesis → BUY / SELL / HOLD |
 
-### Scoring weights
-
-| Agent | Weight |
-|---|---|
-| Earnings | 30% |
-| Market | 25% |
-| Risk | 25% |
-| Sentiment | 20% |
-
----
 
 ## Output Structure (Python Dict)
 
