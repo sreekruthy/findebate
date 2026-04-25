@@ -137,6 +137,13 @@ initialize_rag()          — embed data into ChromaDB (once per session)
 | Leader Agent | Gemini 2.5 Flash | Final synthesis → BUY / SELL / HOLD |
 
 
+### Scoring
+
+Each agent produces a score from 0–10. These are displayed individually
+in the UI as reference. The final BUY / SELL / HOLD decision is made by
+the Leader Agent based on debate argument strength, not a numerical average.
+
+
 ## Output Structure (Python Dict)
 
 `run_debate("Apple")` returns a single dict with everything the UI needs:
