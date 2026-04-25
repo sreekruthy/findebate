@@ -15,10 +15,16 @@ Usage:
 import os
 import json
 import re
+import sys
 from datetime import datetime
 from dotenv import load_dotenv
 
-import google.generativeai as genai
+from google import genai
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "Earnings_Analyst"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "Market_Analyst"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "risk_analyst"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "sentiment_analyst"))
 
 # ── Agent imports ────────────────────────────────────────────────────────────
 from earnings_agent import earnings_agent
@@ -32,8 +38,7 @@ from rag_module import initialize_rag, retrieve_filtered
 load_dotenv()
 
 # ── Gemini setup ──────────────────────────────────────────────────────────────
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-_gemini = genai.GenerativeModel("gemini-2.5-flash")
+_gemini = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 _RAG_INITIALIZED = False   # guard: call initialize_rag only once per process
 
@@ -147,7 +152,10 @@ def _score_to_confidence(score: float) -> float:
 
 def _call_gemini(prompt: str) -> str:
     try:
-        resp = _gemini.generate_content(prompt)
+        resp = _gemini.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
         return resp.text.strip()
     except Exception as e:
         return json.dumps({"error": str(e)})

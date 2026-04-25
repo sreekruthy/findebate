@@ -2,12 +2,12 @@
 
 import os
 from rag_module import initialize_rag, retrieve_filtered
+from dotenv import load_dotenv
+load_dotenv()
 
+from google import genai 
 
-import google.generativeai as genai
-
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-2.5-flash")
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 
 GPT_PROMPT = """
@@ -131,7 +131,12 @@ def run_gemini(company, context):
 
     #print("\n[DEBUG] Prompt preview:\n", prompt[:300])   # Debug
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents=prompt
+    )
+    
+    return response.text
 
     #print("\n[DEBUG] Raw model output:\n", response.text)  #debug
 

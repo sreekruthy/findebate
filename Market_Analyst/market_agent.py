@@ -6,13 +6,10 @@ from dotenv import load_dotenv
 from google import genai
 from rag_module import initialize_rag, retrieve_filtered
 
-# 🔥 Load environment variables
+# Load environment variables
 load_dotenv()
 
-# 🔧 Ensure correct working directory
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
-# 🔑 Initialize Gemini client
+# Initialize Gemini client
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 
