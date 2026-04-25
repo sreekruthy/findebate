@@ -20,7 +20,7 @@ def _error_result(company: str, error_msg: str) -> dict:
         "reasoning": f"Error during analysis: {error_msg}",
     }
 
-#hi
+
 def run_sentiment_analyst(
     company: str,
     context_chunks: list,
