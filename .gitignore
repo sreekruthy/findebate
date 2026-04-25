@@ -5,3 +5,4 @@ chroma_db/
 data/
 *.pyc
 test_both.py
+debate_output_apple.json
