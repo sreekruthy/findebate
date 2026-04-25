@@ -6,3 +6,10 @@ data/
 *.pyc
 test_both.py
 debate_output_apple.json
+*.pages
+outputs/
+__pycache__/
+*.pyc
+debate_output_*.json
+chroma_db/
+chunks.json
