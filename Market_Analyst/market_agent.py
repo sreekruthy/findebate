@@ -4,7 +4,7 @@ import re
 from datetime import datetime
 from dotenv import load_dotenv
 from google import genai
-from rag import initialize_rag, retrieve_filtered
+from rag_module import initialize_rag, retrieve_filtered
 
 # 🔥 Load environment variables
 load_dotenv()

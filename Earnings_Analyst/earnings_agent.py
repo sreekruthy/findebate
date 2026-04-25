@@ -6,7 +6,7 @@ from rag_module import initialize_rag, retrieve_filtered
 
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyBn-86fV6HvaFKF_KIfFL2IgbwsZgjKb6k")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 
