@@ -2,11 +2,17 @@
 
 Sample transcripts (`apple/`, `tesla/`) are included for testing.
 
-Full dataset: Request access to Earnings2Insights at:
-https://forms.gle/k8Nzk2ganbURbzcv9
+## Dataset Setup
 
-Once downloaded, place as:
-data/
-├── Earnings2Insights/
-│   ├── ECTsum/
-│   └── Professional/
+Clone the dataset manually:
+
+git clone https://github.com/rajdeep345/ECTSum.git
+
+OR download from:
+https://github.com/rajdeep345/ECTSum
+
+Place it in the project root:
+
+/project
+  /ECTSum
+  rag_part1.ipynb
