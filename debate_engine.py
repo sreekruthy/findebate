@@ -85,9 +85,10 @@ def _run_all_agents(company: str) -> dict:
     # 2. Market Analyst (uses RAG internally via rag module in market_agent)
     try:
         raw = market_analyst(company)
+        results["market"] = extract_json(raw)
         s = results["market"].get("score", 5.0)
         results["market"]["score"] = round(min(float(s), 10.0), 1)
-        results["market"] = extract_json(raw)
+        
     except Exception as e:
         results["market"] = _agent_error("Market Analyst", company, str(e))
 
@@ -160,6 +161,7 @@ def _call_gemini(prompt: str) -> str:
         )
         return resp.text.strip()
     except Exception as e:
+        print(f"[GEMINI ERROR] {type(e).__name__}: {e}")
         return json.dumps({"error": str(e)})
 
 
@@ -342,6 +344,14 @@ def _run_debate(company: str, agents: dict, num_rounds: int = 2) -> dict:
         skeptic = _skeptic_agent(company, trust, agents, r)
         leader  = _leader_agent(company, current_report, trust, skeptic, agents, r, is_final)
 
+        print(f"\n[DEBUG] Round {r} Trust keys:   {list(trust.keys()) if trust else 'NONE'}")
+        print(f"[DEBUG] Round {r} Trust enhanced_reasoning: {trust.get('enhanced_reasoning', 'MISSING')[:100] if trust else 'NONE'}")
+        print(f"[DEBUG] Round {r} Skeptic keys:  {list(skeptic.keys()) if skeptic else 'NONE'}")
+        print(f"[DEBUG] Round {r} Skeptic verdict: {skeptic.get('skeptic_verdict', 'MISSING')[:100] if skeptic else 'NONE'}")
+        print(f"[DEBUG] Round {r} Leader keys:   {list(leader.keys()) if leader else 'NONE'}")
+        print(f"[DEBUG] Round {r} Leader thesis: {leader.get('key_investment_thesis', 'MISSING')}")
+        print(f"[DEBUG] Round {r} Leader summary: {str(leader.get('report_summary', 'MISSING'))[:100]}")
+
         rounds.append({
             "round": r,
             "trust":   trust,
@@ -389,16 +399,12 @@ def _build_chart_data(agents: dict) -> dict:
 
 
 def _build_debate_summary(debate: dict) -> list[dict]:
-    """
-    Flatten the debate rounds into a timeline list for the UI.
-    Each entry is one agent turn across all rounds.
-    """
     timeline = []
     for rd in debate["rounds"]:
         r = rd["round"]
-        t = rd["trust"]
-        s = rd["skeptic"]
-        l = rd["leader"]
+        t = rd.get("trust") or {}
+        s = rd.get("skeptic") or {}
+        l = rd.get("leader") or {}
 
         timeline.append({
             "round": r,
@@ -406,7 +412,7 @@ def _build_debate_summary(debate: dict) -> list[dict]:
             "stance": "Supportive",
             "key_action": f"Strengthened thesis with {len(t.get('supporting_evidence', []))} evidence points",
             "confidence_boost": t.get("confidence_boost", 0.0),
-            "summary": t.get("enhanced_reasoning" or t.get("report_summary") or t.get("raw", "No summary available"))[:300],
+            "summary": str(t.get("enhanced_reasoning") or t.get("report_summary") or t.get("raw") or "No summary available")[:300],
         })
         timeline.append({
             "round": r,
@@ -414,7 +420,7 @@ def _build_debate_summary(debate: dict) -> list[dict]:
             "stance": "Critical",
             "key_action": f"Flagged {len(s.get('contradictions_found', []))} contradictions, concern level: {s.get('concern_level', 'N/A')}",
             "concern_level": s.get("concern_level", "N/A"),
-            "summary": s.get("skeptic_verdict" or s.get("raw", "No verdict available"))[:300],
+            "summary": str(s.get("skeptic_verdict") or s.get("raw") or "No verdict available")[:300],
         })
         timeline.append({
             "round": r,
@@ -422,7 +428,7 @@ def _build_debate_summary(debate: dict) -> list[dict]:
             "stance": "Synthesis",
             "key_action": f"Round {r} decision: {l.get('decision', 'N/A')} ({l.get('conviction', 'N/A')} conviction)",
             "decision": l.get("decision", "N/A"),
-            "summary": l.get("report_summary", l.get("raw", ""))[:400],
+            "summary": str(l.get("report_summary") or l.get("raw") or "No summary available")[:400],
         })
     return timeline
 

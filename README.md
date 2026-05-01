@@ -1,210 +1,225 @@
-# FinDebate — Multi-Agent Financial Analysis System
+# FinDebate — AI Financial Analysis (MVP)
 
-An MVP implementation of the [FinDebate research paper](https://arxiv.org/abs/2509.17395) — a multi-agent debate framework for institutional-grade financial analysis. Built for Apple and Tesla using Q1 2025 earnings and news data.
+An AI-powered financial debate system that uses multiple specialized agents to analyze stocks and produce investment recommendations through a structured debate process. Built with Google Gemini, RAG (Retrieval-Augmented Generation), and a Streamlit dashboard.
 
 ---
 
 ## What It Does
 
-Four specialized AI analysts (Earnings, Market, Risk, Sentiment) independently analyze a company, then a three-agent debate loop (Trust → Skeptic → Leader) refines their conclusions into a final **BUY / SELL / HOLD** investment decision with full reasoning and risk assessment.
+FinDebate runs four analyst AI agents — Earnings, Market, Risk, and Sentiment — each independently analyzing a company using retrieved financial data. The agents then enter a 2-round structured debate (Trust Agent → Skeptic Agent → Leader Agent) to produce a final BUY / SELL / HOLD recommendation with conviction level, time horizons, investment thesis, and risk summary.
+
+Currently supports: **Apple** and **Tesla**
 
 ---
 
 ## Project Structure
 
 ```
-FINDEBATE/
-├── debate_engine.py            ← Main orchestrator — run this
-├── rag_module.py               ← Shared RAG (ChromaDB + embeddings)
-├── streamlit_ui.py             ← Streamlit dashboard (UI)
-├── .env                        ← API keys (not committed)
-├── data/
-│   ├── apple/                  ← Apple Q1 2025 cleaned text files
-│   └── tesla/                  ← Tesla Q1 2025 cleaned text files
+findebate/
+├── debate_engine.py          # Main pipeline — runs all agents + debate
+├── streamlit.py              # Streamlit dashboard UI
+├── rag_module.py             # RAG: chunking, embedding, retrieval (ChromaDB)
+├── .env                      # API keys (create this yourself)
+│
 ├── Earnings_Analyst/
-│   ├── earnings_agent.py
-│   └── rag_module.py           ← Local RAG for earnings
+│   └── earnings_agent.py     # Earnings analyst agent
+│
 ├── Market_Analyst/
-│   ├── market_agent.py
-│   ├── rag_module.py           ← Local RAG for market
-│   └── rag/
+│   └── market_agent.py       # Market analyst agent
+│
 ├── risk_analyst/
-│   ├── risk_agent.py
-│   ├── prompts.py
-│   └── __init__.py
+│   └── risk_agent.py         # Risk analyst agent
+│
 ├── sentiment_analyst/
-│   ├── sentiment_agent.py
-│   ├── prompts.py
-│   └── __init__.py
-└── README.md
+│   └── sentiment_agent.py    # Sentiment analyst agent
+│
+└── data/                     # Financial data used by RAG
+```
+
+---
+
+## How It Works
+
+```
+Financial Data (data/)
+        ↓
+   RAG Module (ChromaDB + sentence-transformers)
+        ↓
+  ┌─────────────────────────────────┐
+  │  4 Analyst Agents (Gemini LLM)  │
+  │  • Earnings   • Market          │
+  │  • Risk       • Sentiment       │
+  └─────────────────────────────────┘
+        ↓
+  2-Round Structured Debate
+  • Trust Agent    → strengthens thesis
+  • Skeptic Agent  → challenges weaknesses
+  • Leader Agent   → synthesizes final decision
+        ↓
+  Final Output: BUY / SELL / HOLD + full analysis
 ```
 
 ---
 
 ## Setup
 
-### 1. Clone the repo
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/findebate.git
+git clone <your-repo-url>
 cd findebate
 ```
 
-### 2. Install dependencies
+### 2. Create your `.env` file
 
+Create a file named `.env` in the root of the project and add your API keys:
+
+```
+GEMINI_API_KEY=your_gemini_api_key_here
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+- **Gemini API key** → get it from [https://ai.google.dev](https://ai.google.dev)
+- **Groq API key** → get it from [https://console.groq.com](https://console.groq.com)
+
+> Never commit your `.env` file to GitHub. It's already in `.gitignore`.
+
+### 3. Install dependencies
+
+**Core pipeline dependencies:**
 ```bash
-pip install google-genai groq python-dotenv sentence-transformers chromadb nltk streamlit plotly
+pip install google-genai groq python-dotenv sentence-transformers chromadb nltk
 ```
 
-### 3. Create your `.env` file
-
-Create a file called `.env` in the root `FINDEBATE/` folder:
-
-```env
-GEMINI_API_KEY=your_gemini_key_here
-GROQ_API_KEY=your_groq_key_here
-```
-
-**Getting API keys:**
-- **Gemini** → https://aistudio.google.com/app/apikey (free tier available)
-- **Groq** → https://console.groq.com/keys (free, very fast)
-
----
-
-## Running the Project
-
-### Option A — Test the debate engine directly (CLI)
-
+**Streamlit dashboard dependencies:**
 ```bash
-python3 debate_engine.py Apple
-python3 debate_engine.py Tesla
+pip install streamlit plotly torchvision torch
 ```
 
-This runs the full pipeline and saves a `debate_output_apple.json` for inspection. Expected runtime: **2–5 minutes** (first run takes longer due to ChromaDB initialization).
-
-### Option B — Run the Streamlit UI
-
+If you're on Python 3.14 or using a system-managed environment, add `--break-system-packages`:
 ```bash
-streamlit run streamlit_ui.py
-```
-
-Then open `http://localhost:8501` in your browser. Select Apple or Tesla, click Run Analysis, and wait for results.
-
----
-
-## How It Works
-
-### Pipeline
-
-```
-User selects company (Apple / Tesla)
-            ↓
-initialize_rag()          — embed data into ChromaDB (once per session)
-            ↓
-┌─────────────────────────────────────┐
-│         4 Analyst Agents            │
-│  Earnings  Market  Risk  Sentiment  │
-│  (Gemini) (Gemini)(Groq) (Groq)    │
-└──────────────┬──────────────────────┘
-               ↓
-        Initial Report
-               ↓
-    ┌──── Round 1 Debate ────┐
-    │  Trust Agent           │  ← strengthens thesis
-    │  Skeptic Agent         │  ← flags contradictions & risks
-    │  Leader Agent          │  ← synthesizes → interim decision
-    └────────────────────────┘
-               ↓
-    ┌──── Round 2 Debate ────┐
-    │  Trust Agent           │
-    │  Skeptic Agent         │
-    │  Leader Agent          │  ← final BUY / SELL / HOLD
-    └────────────────────────┘
-               ↓
-        Python dict returned to Streamlit UI
-```
-
-### Agents
-
-| Agent | Model | Role |
-|---|---|---|
-| Earnings Analyst | Gemini 2.5 Flash | Revenue, profitability, margins, guidance |
-| Market Analyst | Gemini 2.5 Flash | Market trends, stock movement, industry outlook |
-| Risk Analyst | Groq / Llama 3.1 8B | Risk identification, severity scoring |
-| Sentiment Analyst | Groq / Llama 3.1 8B | Management tone, investor sentiment |
-| Trust Agent | Gemini 2.5 Flash | Strengthens the investment thesis |
-| Skeptic Agent | Gemini 2.5 Flash | Challenges contradictions, flags overlooked risks |
-| Leader Agent | Gemini 2.5 Flash | Final synthesis → BUY / SELL / HOLD |
-
-
-### Scoring
-
-Each agent produces a score from 0–10. These are displayed individually
-in the UI as reference. The final BUY / SELL / HOLD decision is made by
-the Leader Agent based on debate argument strength, not a numerical average.
-
-
-## Output Structure (Python Dict)
-
-`run_debate("Apple")` returns a single dict with everything the UI needs:
-
-```
-result
-├── meta                     pipeline info, timestamp
-├── final_decision
-│   ├── decision             "BUY" | "SELL" | "HOLD"
-│   ├── conviction           "Strong" | "Moderate" | "Weak"
-│   ├── rationale            2-3 sentence explanation
-│   ├── time_horizons        {1_day, 1_week, 1_month} decisions
-│   └── investment_thesis    list of key thesis points
-├── risk_summary
-│   ├── risk_score           float 0-10 (10=safe, 0=danger)
-│   ├── risk_level           "Critical|High|Moderate|Low|Minimal"
-│   ├── primary_risk         single most important risk
-│   ├── identified_risks     list of {category, description, severity}
-│   └── mitigation_factors   list of strings
-├── agent_outputs            per-agent {score, confidence, key_points, reasoning}
-├── scores
-│   ├── weighted_average     float 0-10
-│   └── individual           {earnings, market, risk, sentiment} scores
-├── chart_data
-│   ├── radar                {labels, scores} for radar chart
-│   └── bar                  {agents, scores, weights, weighted_contributions}
-└── debate_summary
-    ├── timeline             list of per-turn debate entries
-    ├── rounds_detail        per-round {trust_evidence, contradictions, decision}
-    ├── initial_report       pre-debate analyst summary
-    └── final_report         post-debate synthesis paragraph
+pip install streamlit plotly torchvision torch --break-system-packages
 ```
 
 ---
 
-## Streamlit Integration
+## Running the Analysis
 
+### Option A — Terminal (CLI)
+
+Run the debate engine directly for Apple or Tesla:
+
+```bash
+python debate_engine.py Apple
+```
+```bash
+python debate_engine.py Tesla
+```
+
+**What you'll see in the terminal:**
+```
+[FinDebate] Running analyst agents for Apple...
+[FinDebate] Starting 2-round debate...
+[FinDebate] ✅ Done. Decision: BUY (Strong conviction)
+
+==================================================
+  COMPANY:    Apple
+  DECISION:   BUY
+  CONVICTION: Strong
+  RATIONALE:  ...
+  RISK LEVEL: Moderate
+  W. SCORE:   7.2/10
+==================================================
+```
+
+**Output file** — a full JSON report is saved automatically:
+```
+debate_output_apple.json
+debate_output_tesla.json
+```
+
+This JSON contains everything: all agent scores, debate rounds, investment thesis, risk breakdown, time horizon recommendations, and chart data.
+
+### Option B — Streamlit Dashboard
+
+Launch the visual dashboard:
+
+```bash
+streamlit run streamlit.py
+```
+
+Then open your browser at: **http://localhost:8501**
+
+The dashboard shows:
+- Final decision card (BUY / SELL / HOLD) with conviction
+- Risk score gauge
+- Individual agent score cards (Earnings, Market, Risk, Sentiment)
+- Radar chart + bar chart of agent scores
+- Full debate summary timeline (all rounds)
+- Time horizon recommendations (1 Day / 1 Week / 1 Month)
+- Investment thesis bullet points
+- Primary risk summary
+
+---
+
+## API Quota Notes
+
+The free tier of Gemini API (`gemini-2.5-flash`) has a limit of **20 requests per day**. Each full run uses ~10 requests (4 analyst agents + 6 debate agents across 2 rounds), so you get about **2 full runs per day** on the free tier.
+
+**If you hit the quota limit:**
+- Wait until midnight (Pacific Time) for the daily reset
+- Or switch to `gemini-1.5-flash` in the code — it has 1,500 requests/day free
+- Or enable billing at [https://ai.dev](https://ai.dev) (very cheap, ~$0.15/million tokens)
+
+To switch models, change this line in `debate_engine.py` and all agent files:
 ```python
-from debate_engine import run_debate
-
-result = run_debate("Apple")  # returns Python dict directly
-
-# Use anywhere in Streamlit:
-result["final_decision"]["decision"]        # "BUY"
-result["risk_summary"]["risk_score"]        # 6.2
-result["scores"]["weighted_average"]        # 7.1
-result["chart_data"]["radar"]["scores"]     # [7.2, 6.8, 5.1, 7.5]
-result["debate_summary"]["timeline"]        # list of debate turns
+model="gemini-1.5-flash"  # instead of gemini-2.5-flash
 ```
 
 ---
 
-## Notes
+## Output JSON Structure
 
-- **ChromaDB is local** — no account or cloud service needed. A `chroma_db/` folder is auto-created on first run.
-- **First run is slower** (~90 seconds extra) because ChromaDB embeds all chunks. Subsequent runs reuse the cached DB.
-- The `debate_output_*.json` files saved to root are for debugging only — the Streamlit UI uses the live Python dict.
-- Data is scoped to **Q1 2025** for Apple and Tesla only.
+The generated `debate_output_<company>.json` contains:
+
+```json
+{
+  "meta": { "company", "generated_at", "num_rounds" },
+  "final_decision": { "decision", "conviction", "rationale", "time_horizons", "investment_thesis" },
+  "risk_summary": { "risk_score", "risk_level", "primary_risk", "identified_risks" },
+  "agent_outputs": { "earnings", "market", "risk", "sentiment" },
+  "scores": { "weighted_average", "individual" },
+  "chart_data": { "radar", "bar" },
+  "debate_summary": { "timeline", "rounds_detail", "final_report" }
+}
+```
 
 ---
 
-## Based On
+## Tech Stack
 
-> Cai et al., *FinDebate: Multi-Agent Collaborative Intelligence for Financial Analysis*, arXiv:2509.17395, 2025.
+| Component | Technology |
+|---|---|
+| LLM (analysis + debate) | Google Gemini 2.5 Flash |
+| Embeddings | `sentence-transformers` (all-MiniLM-L6-v2) |
+| Vector store | ChromaDB |
+| Text chunking | NLTK |
+| Dashboard | Streamlit + Plotly |
+| API calls | `google-genai`, `groq` |
+| Config | `python-dotenv` |
+
+---
+
+## Known Limitations (MVP)
+
+- **Only Apple and Tesla** are supported — data is pre-loaded for these two companies
+- **Free tier quota** — limited to ~2 runs/day on Gemini free tier
+- **Data is static** — financial data is from Q1 2025; not live/real-time
+- **No authentication** on the Streamlit app — suitable for local use only
+- The debate runs sequentially (not in parallel), so each run takes ~1-2 minutes
+
+---
+
+## MVP Status
+
+This is an **early MVP** built to demonstrate the multi-agent debate architecture. The core pipeline (RAG → 4 agents → 3-agent debate → structured output) is fully functional. Future versions could add more companies, live data feeds, and parallel agent execution.
