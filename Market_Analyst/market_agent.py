@@ -41,7 +41,7 @@ Format:
     "company": "{company}",
     "agent": "Market Analyst",
     "key_points": ["...", "...", "..."],
-    "score": number,
+    "score": <float between 0.0 and 10.0 only>,
     "reasoning": "..."
 }}
 

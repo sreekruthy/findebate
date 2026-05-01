@@ -85,6 +85,8 @@ def _run_all_agents(company: str) -> dict:
     # 2. Market Analyst (uses RAG internally via rag module in market_agent)
     try:
         raw = market_analyst(company)
+        s = results["market"].get("score", 5.0)
+        results["market"]["score"] = round(min(float(s), 10.0), 1)
         results["market"] = extract_json(raw)
     except Exception as e:
         results["market"] = _agent_error("Market Analyst", company, str(e))
@@ -404,7 +406,7 @@ def _build_debate_summary(debate: dict) -> list[dict]:
             "stance": "Supportive",
             "key_action": f"Strengthened thesis with {len(t.get('supporting_evidence', []))} evidence points",
             "confidence_boost": t.get("confidence_boost", 0.0),
-            "summary": t.get("enhanced_reasoning", t.get("raw", ""))[:300],
+            "summary": t.get("enhanced_reasoning" or t.get("report_summary") or t.get("raw", "No summary available"))[:300],
         })
         timeline.append({
             "round": r,
@@ -412,7 +414,7 @@ def _build_debate_summary(debate: dict) -> list[dict]:
             "stance": "Critical",
             "key_action": f"Flagged {len(s.get('contradictions_found', []))} contradictions, concern level: {s.get('concern_level', 'N/A')}",
             "concern_level": s.get("concern_level", "N/A"),
-            "summary": s.get("skeptic_verdict", s.get("raw", ""))[:300],
+            "summary": s.get("skeptic_verdict" or s.get("raw", "No verdict available"))[:300],
         })
         timeline.append({
             "round": r,
@@ -495,14 +497,14 @@ def run_debate(company: str, num_rounds: int = 2) -> dict:
             "time_horizons": final_leader.get("time_horizons", {
                 "1_day": "HOLD", "1_week": "HOLD", "1_month": "HOLD"
             }),
-            "investment_thesis": final_leader.get("key_investment_thesis", []),
+            "investment_thesis": final_leader.get("key_investment_thesis") or ["Analysis pending - rerun"],
         },
 
         # ── Risk Score (UI risk gauge) ────────────────────────────────────────
         "risk_summary": {
             "risk_score":      float(agents.get("risk", {}).get("score", 5.0)),
             "risk_level":      agents.get("risk", {}).get("risk_level", "Moderate"),
-            "primary_risk":    final_leader.get("primary_risk", ""),
+            "primary_risk":    final_leader.get("primary_risk") or agents.get("risk", {}).get("reasoning", "See risk agent output") ,
             "identified_risks": _extract_risks(agents, final_leader),
             "mitigation_factors": agents.get("risk", {}).get("mitigation_factors", []),
         },
