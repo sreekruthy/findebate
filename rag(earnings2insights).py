@@ -25,7 +25,6 @@ nltk.download('punkt', quiet=True)
 nltk.download('punkt_tab', quiet=True)
 print("All imports done")
 
-# ── Fixed paths — filter .DS_Store + correct filename ──
 DRIVE_BASE        = "/content/drive/MyDrive"
 CHROMA_PATH       = f"{DRIVE_BASE}/findebate_chromadb"
 ECTSUM_PATH       = f"{DRIVE_BASE}/Earnings2Insights/Earnings2Insights/ECTsum"
@@ -37,9 +36,7 @@ print("Model loaded")
 
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
 
-# ── SAFE: only delete if you explicitly set this to True ──
-FRESH_START = False   # ← set True ONLY if you want to wipe and re-index
-
+FRESH_START = False   
 if FRESH_START:
     try:
         chroma_client.delete_collection("findebate_rag")
@@ -56,15 +53,7 @@ print(f"Collection ready: '{collection.name}'")
 print(f"Current chunk count: {collection.count()}")
 
 def chunk_text(text, max_tokens=200):
-    """
-    Context-sensitive segmentation: paragraph -> sentence -> token.
-    Exactly mirrors Section 2.1 of the FinDebate paper.
-
-    Priority order:
-    1. Preserve paragraph boundaries
-    2. Preserve sentence boundaries
-    3. Split at token level only when sentence exceeds max_tokens
-    """
+   
     paragraphs = text.split("\n\n")
     chunks = []
 
@@ -80,14 +69,11 @@ def chunk_text(text, max_tokens=200):
             words = sent.split()
 
             if len(current_chunk) + len(words) <= max_tokens:
-                # Sentence fits — add to current chunk
                 current_chunk.extend(words)
             else:
-                # Current chunk full — save it
                 if current_chunk:
                     chunks.append(" ".join(current_chunk))
 
-                # Sentence itself too long — split at token level
                 if len(words) > max_tokens:
                     for i in range(0, len(words), max_tokens):
                         chunks.append(" ".join(words[i:i + max_tokens]))
@@ -98,10 +84,9 @@ def chunk_text(text, max_tokens=200):
         if current_chunk:
             chunks.append(" ".join(current_chunk))
 
-    # Drop fragments under 20 chars — too short to carry financial meaning
+    
     return [c for c in chunks if len(c.strip()) > 20]
 
-# Wipe old collection (6344 chunks were from wrong data)
 chroma_client.delete_collection("findebate_rag")
 collection = chroma_client.get_or_create_collection(
     name="findebate_rag",
@@ -110,22 +95,9 @@ collection = chroma_client.get_or_create_collection(
 print("Fresh collection ready")
 
 def ingest_subset(base_path, doc_type):
-    """
-    Indexes all source.md files from one dataset subset into ChromaDB.
-
-    Args:
-        base_path : path to ECTsum/ or Professional/ folder
-        doc_type  : "earnings" | "analyst_report"
-                    stored as metadata, used by retrieve() for filtering
-
-    Note:
-        Chunks are NOT pre-labelled with dimensions.
-        Multi-dimensional retrieval is achieved at QUERY TIME
-        by running different queries against the full index.
-        This is the correct interpretation of Appendix B.
-    """
+   
     if not os.path.exists(base_path):
-        print(f"❌ Path not found: {base_path}")
+        print(f" Path not found: {base_path}")
         return 0
 
     folders = [
@@ -141,7 +113,7 @@ def ingest_subset(base_path, doc_type):
         source_path = os.path.join(base_path, folder, "source", "source.md")
 
         if not os.path.exists(source_path):
-            print(f"  ⚠️  No source.md in {folder}, skipping")
+            print(f" No source.md in {folder}, skipping")
             skipped += 1
             continue
 
@@ -151,7 +123,7 @@ def ingest_subset(base_path, doc_type):
         chunks = chunk_text(text)
 
         if not chunks:
-            print(f"  ⚠️  No chunks from {folder}, using full text as fallback")
+            print(f" No chunks from {folder}, using full text as fallback")
             chunks = [text[:3000]]
 
         embeddings = model.encode(
@@ -190,14 +162,13 @@ def ingest_subset(base_path, doc_type):
             )
             total_chunks += len(new_mask)
 
-    print(f"✅ {doc_type:>15} | {len(folders)-skipped:>3} docs "
+    print(f" {doc_type:>15} | {len(folders)-skipped:>3} docs "
           f"| {total_chunks:>5} new chunks indexed "
           f"| {skipped} skipped")
     return total_chunks
 
 import os
 
-# Skip .DS_Store and get first real folder
 ectsum_folders = [f for f in os.listdir(ECTSUM_PATH)
                   if not f.startswith('.') and
                   os.path.isdir(os.path.join(ECTSUM_PATH, f))]
@@ -209,7 +180,6 @@ pro_folders = [f for f in os.listdir(PROFESSIONAL_PATH)
 print(f"ECTsum: {len(ectsum_folders)} real folders")
 print(f"Professional: {len(pro_folders)} real folders")
 
-# Check actual filenames in first real folder
 print("\nECTsum sample:")
 sample = os.path.join(ECTSUM_PATH, ectsum_folders[0])
 print(f"  Folder: {ectsum_folders[0]}")
@@ -226,17 +196,7 @@ n2 = ingest_subset(PROFESSIONAL_PATH, doc_type="analyst_report")
 print(f"\nTotal chunks in ChromaDB: {collection.count()}")
 
 def retrieve(query, top_k=5, doc_type_filter=None):
-    """
-    Semantic retrieval against the full index.
 
-    Args:
-        query           : natural language query string
-        top_k           : number of results to return
-        doc_type_filter : "earnings" | "analyst_report" | None (both)
-
-    Returns:
-        list of dicts — chunk, source_file, chunk_id, type, score
-    """
     q_emb       = model.encode([query], convert_to_numpy=True).tolist()
     where_clause = {"type": doc_type_filter} if doc_type_filter else None
 
@@ -258,12 +218,11 @@ def retrieve(query, top_k=5, doc_type_filter=None):
             "source_file" : meta["source_file"],
             "chunk_id"    : meta["chunk_index"],
             "type"        : meta["type"],
-            "score"       : round(1 - dist, 4)  # cosine distance → similarity
+            "score"       : round(1 - dist, 4) 
         })
 
     return output
 
-# ── 4 dimensions from Appendix B of the paper ────────────────────────────────
 DIMENSION_QUERIES = {
     "general_financial": [
         "financial performance revenue earnings beat miss surprise results",
@@ -288,13 +247,7 @@ DIMENSION_QUERIES = {
 }
 
 def retrieve_by_dimension(dimension, doc_type_filter=None, top_k=5):
-    """
-    Runs all queries for a given dimension and merges results.
-    Deduplicates by chunk ID. Returns top_k by score.
-
-    This is the correct Appendix B implementation:
-    same index, different queries per dimension — not pre-labelled buckets.
-    """
+  
     if dimension not in DIMENSION_QUERIES:
         raise ValueError(f"Unknown dimension '{dimension}'. "
                          f"Choose from: {list(DIMENSION_QUERIES.keys())}")
@@ -310,16 +263,12 @@ def retrieve_by_dimension(dimension, doc_type_filter=None, top_k=5):
                 seen.add(uid)
                 merged.append(r)
 
-    # Sort by score, return top_k
     merged.sort(key=lambda x: x["score"], reverse=True)
     return merged[:top_k]
 
 
 def retrieve_all_dimensions(doc_type_filter=None, top_k=3):
-    """
-    Runs all 4 dimensions. Returns dict keyed by dimension name.
-    This is what P2/P3 agents will call to get their context.
-    """
+  
     return {
         dim: retrieve_by_dimension(dim, doc_type_filter=doc_type_filter, top_k=top_k)
         for dim in DIMENSION_QUERIES
@@ -348,14 +297,12 @@ print("=" * 60)
 print("RAG RETRIEVAL VALIDATION")
 print("=" * 60)
 
-# ── Test 1: Basic retrieval ───────────────────────────────────
 print("\n── Test 1: Basic retrieval (no filter) ──")
 results = retrieve("revenue growth earnings per share guidance", top_k=3)
 for r in results:
     print(f"  [{r['score']}] {r['source_file']} ({r['type']})")
     print(f"  {r['chunk'][:150]}...\n")
 
-# ── Test 2: Filter by doc type ────────────────────────────────
 print("\n── Test 2: Earnings only ──")
 results = retrieve("net interest margin capital adequacy", top_k=2,
                    doc_type_filter="earnings")
@@ -370,7 +317,6 @@ for r in results:
     print(f"  [{r['score']}] {r['source_file']} ({r['type']})")
     print(f"  {r['chunk'][:150]}...\n")
 
-# ── Test 4: Multi-dimensional retrieval ──────────────────────
 print("\n── Test 4: All 4 dimensions ──")
 all_dims = retrieve_all_dimensions(top_k=2)
 for dim, results in all_dims.items():
@@ -379,13 +325,12 @@ for dim, results in all_dims.items():
         print(f"    [{r['score']}] {r['source_file']}")
         print(f"    {r['chunk'][:120]}...")
 
-# ── Test 5: Agent context ─────────────────────────────────────
 print("\n── Test 5: Agent context ──")
 context = get_agent_context(top_k=2)
 for agent, chunks in context.items():
     print(f"  {agent}: {len(chunks)} chunks retrieved")
 
-# ── Final count ───────────────────────────────────────────────
+
 print(f"\n{'='*60}")
 print(f"Total chunks in ChromaDB: {collection.count()}")
 print(f"{'='*60}")
