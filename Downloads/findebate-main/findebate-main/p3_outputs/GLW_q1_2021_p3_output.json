@@ -1,0 +1,44 @@
+{
+  "source_file": "GLW_q1_2021",
+  "timestamp": "2026-05-11T20:32:16.669338",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "GLW_q1_2021",
+      "key_points": [
+        "Revenue growth driven by 15% YoY increase in display technologies and 18% YoY growth in optical communications",
+        "Profitability impacted by freight & logistics costs, but expected to normalize in Q2",
+        "Earnings quality appears strong with 3% sequential growth in display technologies and 18% YoY growth in optical communications",
+        "Management guidance indicates strong demand and positive momentum across businesses, with Q2 core EPS $0.49-$0.53 and sales $3.3-$3.5 billion"
+      ],
+      "score": 7.0,
+      "reasoning": "GLW's Q1 performance was mixed, with strong revenue growth in display technologies and optical communications, but profitability impacted by freight & logistics costs. Management guidance is positive, with strong demand and positive momentum expected to continue throughout 2021, but the impact of cost normalization in Q2 is uncertain."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "GLW_q1_2021",
+      "key_points": [
+        "Analysis failed \u2014 see reasoning"
+      ],
+      "score": 5.0,
+      "reasoning": "Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kq0q3sa0f0btb3387c0d2xs1` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 499843, Requested 863. Please try again in 2m1.9968s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "GLW_q1_2021",
+      "key_points": [
+        "Analysis failed \u2014 see reasoning"
+      ],
+      "score": 5.0,
+      "confidence": 0.7,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": false,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Not identified"
+      },
+      "reasoning": "Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kq0q3sa0f0btb3387c0d2xs1` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 499843, Requested 1193. Please try again in 2m59.0208s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    }
+  }
+}

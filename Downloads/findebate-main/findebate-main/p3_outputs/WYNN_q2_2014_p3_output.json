@@ -1,0 +1,49 @@
+{
+  "source_file": "WYNN_q2_2014",
+  "timestamp": "2026-05-11T21:34:41.289027",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "WYNN_q2_2014",
+      "key_points": [
+        "Revenue growth was strong, beating expectations, but guidance was cautious due to market volatility in China.",
+        "Profitability was mixed, with gross margin and operating margin slightly below expectations, but EPS growth was strong.",
+        "Earnings quality was weak due to one-time components from Cotai construction, but cash flow was strong.",
+        "Management guidance was mixed, with a focus on the integrated resorts concept and comparisons to The Sands, but cautious on market prospects in China."
+      ],
+      "score": 6.2,
+      "reasoning": "Wynn Resorts' Q2 2014 earnings were mixed, with strong revenue growth but cautious guidance due to market volatility in China. Profitability was slightly below expectations, but EPS growth was strong. Earnings quality was weak due to one-time components from Cotai construction, but cash flow was strong. Management guidance was mixed, with a focus on the integrated resorts concept and comparisons to The Sands, but cautious on market prospects in China."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "WYNN_q2_2014",
+      "key_points": [
+        "1-day market reaction signal: Positive earnings reaction due to on-budget construction of Wynn Palace hotel in Cotai, Macau.",
+        "1-week momentum driver: Strong retail sales and profitability in Macau, with Wynn Resorts being half as profitable as Sands, but with only 10% of the rooms.",
+        "1-month fundamental positioning: Guidance on integrated resorts concept and comparisons to Sands, with a focus on customer appeal and facility integration.",
+        "Key risk or macro factor: Uncertainty around Chinese economy and potential cannibalization of existing properties when Wynn Palace opens."
+      ],
+      "score": 7.2,
+      "reasoning": "The 1-day market reaction is positive due to the on-budget construction of Wynn Palace hotel in Cotai, Macau. The 1-week momentum driver is strong retail sales and profitability in Macau, with Wynn Resorts being half as profitable as Sands, but with only 10% of the rooms. The 1-month fundamental positioning is guided by the integrated resorts concept and comparisons to Sands, with a focus on customer appeal and facility integration. However, there is uncertainty around the Chinese economy and potential cannibalization of existing properties when Wynn Palace opens."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "WYNN_q2_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO Steve Wynn demonstrates transparency and language precision by providing specific numbers and comparisons to The Sands, indicating a high level of credibility.",
+        "Anchoring or confirmation bias observation: CEO Steve Wynn uses The Sands as a benchmark to frame Wynn Resorts' business plan and performance, which may create an anchoring effect and reinforce a positive narrative.",
+        "Loss aversion or overconfidence signal: CEO Steve Wynn's tone is confident and optimistic, with a focus on the company's strengths and progress, which may indicate overconfidence, but also frames the company's prospects in a positive light."
+      ],
+      "score": 7.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "CEO Steve Wynn frames the company's prospects in a positive light, focusing on strengths and progress, rather than addressing potential risks or negatives."
+      },
+      "reasoning": "CEO Steve Wynn's transparency and language precision demonstrate a high level of credibility, but his use of The Sands as a benchmark may create an anchoring effect and reinforce a positive narrative. Additionally, his confident tone and focus on the company's strengths and progress may indicate overconfidence, but also frames the company's prospects in a positive light."
+    }
+  }
+}

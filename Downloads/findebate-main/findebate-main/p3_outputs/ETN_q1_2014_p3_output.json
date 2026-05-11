@@ -1,0 +1,49 @@
+{
+  "source_file": "ETN_q1_2014",
+  "timestamp": "2026-05-11T20:26:12.768137",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "ETN_q1_2014",
+      "key_points": [
+        "Revenue growth was 4.5% organically, beating expectations, but negatively impacted by 1% ForEx.",
+        "Profitability improved with 21% operating earnings growth and 50 basis points increase in segment margins.",
+        "Earnings quality is mixed due to one-time $13 million weather-related costs and $40 million restructuring charge.",
+        "Management guidance is confirmed with full-year EPS of $4.70 and second-quarter EPS of $1.10 to $1.15."
+      ],
+      "score": 6.5,
+      "reasoning": "Eaton's Q1 2014 earnings were largely in line with expectations, but revenue growth was impacted by ForEx. Profitability improved with strong operating earnings growth and margin expansion. However, earnings quality is mixed due to one-time weather-related costs and restructuring charges. Management guidance is confirmed, but the company's ability to execute on its synergies and restructuring plans will be key to achieving its full-year targets."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "ETN_q1_2014",
+      "key_points": [
+        "1-day market reaction signal: Beat earnings expectations with operating EPS of $1.01, exceeding expectations.",
+        "1-week momentum driver: Core growth of 4.5% and confirmation of full year guidance $4.70 with synergies from Cooper integration.",
+        "1-month fundamental positioning: Restructuring charge of $40 million and guidance for operating earnings per share of $1.05 to $1.15.",
+        "Key risk or macro factor: Negative impact of challenging winter in the U.S. on revenue and higher costs due to expediting and overtime."
+      ],
+      "score": 7.2,
+      "reasoning": "Eaton's Q1 2014 earnings call shows a strong 1-day market reaction signal with a beat on operating EPS. The 1-week momentum driver is sustained by core growth of 4.5% and confirmation of full year guidance. However, the 1-month fundamental positioning shows a restructuring charge of $40 million and a negative impact from the challenging winter. Despite this, the company's guidance for operating earnings per share and synergies from Cooper integration remain positive."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "ETN_q1_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO Sandy Cutler frames Q1 results as 'largely in line with our own expectations', addressing concerns about winter impact, and highlights core growth of 4.5% and confirming full year guidance.",
+        "Anchoring or confirmation bias observation: CEO Sandy Cutler's initial number of $1.01 operating EPS sets the tone for Q1 results, and subsequent details reinforce this narrative, with no major surprises.",
+        "Loss aversion or overconfidence signal: CEO Sandy Cutler addresses the $40 million restructuring charge as a 'hit' in the second quarter, but frames it as part of a 'very powerful' self-help story with $185 million in synergies."
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral/mixed",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames the $40 million restructuring charge as a 'hit' in the second quarter, but emphasizes the positive aspects of the self-help story."
+      },
+      "reasoning": "CEO Sandy Cutler's framing of Q1 results as 'largely in line with our own expectations' sets a positive tone, but the discussion of the $40 million restructuring charge and the winter impact on Electrical Systems and Services business introduces some caution. The overall narrative is mixed, with some positives (core growth of 4.5%, confirming full year guidance) and some negatives (winter impact, restructuring charge)."
+    }
+  }
+}

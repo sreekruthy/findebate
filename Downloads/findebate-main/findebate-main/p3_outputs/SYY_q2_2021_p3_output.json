@@ -1,0 +1,49 @@
+{
+  "source_file": "SYY_q2_2021",
+  "timestamp": "2026-05-11T21:27:37.131216",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "SYY_q2_2021",
+      "key_points": [
+        "Revenue declined 23.1% to $11.6 billion, missing expectations.",
+        "Adjusted EPS of $0.17, with profitability impacted by pandemic disruptions.",
+        "Earnings quality appears mixed, with some one-time components, but cash flow not explicitly discussed.",
+        "Management guidance is cautious, with a focus on business transformation and long-term growth."
+      ],
+      "score": 5.0,
+      "reasoning": "Sysco's Q2 results were impacted by the pandemic, with revenue declining 23.1% and adjusted EPS of $0.17. While the company's business transformation remains on track, the current environment and disruptions to the food-away-from-home sector have negatively affected profitability. Management guidance is cautious, but the company is confident in its long-term growth prospects."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "SYY_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Sysco's q2 adjusted earnings per share of $0.17 beat expectations, but qtrly sales decreased 23.1% to $11.6 billion.",
+        "1-week momentum driver: CEO Kevin Hourican's confidence in business transformation and preparation for recovery environment.",
+        "1-month fundamental positioning: Sysco's strategic initiatives to differentiate from competitors and enable profitable future growth.",
+        "Key risk or macro factor: COVID-19 pandemic's ongoing impact on food-away-from-home sector and marketplace disruption."
+      ],
+      "score": 5.0,
+      "reasoning": "Sysco's q2 earnings beat expectations, but sales decline raises concerns. CEO's confidence in business transformation and preparation for recovery environment provides some momentum. However, ongoing COVID-19 pandemic and marketplace disruption pose key risks. Overall, mixed signals with a slight lean towards caution."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "SYY_q2_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO Kevin Hourican maintains a neutral tone, addressing the pandemic's impact on the business, but also highlights the company's transformation and confidence in future growth.",
+        "Anchoring or confirmation bias observation from context: The CEO frames the 23.1% decrease in sales as a necessary step to transform the business, potentially anchoring investor expectations for future growth.",
+        "Loss aversion or overconfidence signal: The CEO frames the company's transformation as a positive, emphasizing confidence in future growth, but also acknowledges the pandemic's disruption, suggesting a balanced tone."
+      ],
+      "score": 5.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "The CEO frames the pandemic's disruption as a necessary step to transform the business, focusing on the company's long-term growth prospects."
+      },
+      "reasoning": "The CEO's tone is neutral, acknowledging the pandemic's impact on the business, but also highlighting the company's transformation and confidence in future growth. The framing of the 23.1% decrease in sales as a necessary step to transform the business may anchor investor expectations for future growth, but the CEO's balanced tone suggests a neutral sentiment."
+    }
+  }
+}

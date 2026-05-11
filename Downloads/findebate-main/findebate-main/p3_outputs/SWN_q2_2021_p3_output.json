@@ -1,0 +1,49 @@
+{
+  "source_file": "SWN_q2_2021",
+  "timestamp": "2026-05-11T21:26:36.986040",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "SWN_q2_2021",
+      "key_points": [
+        "Revenue growth was driven by the announced acquisition of Indigo Natural Resources, with expected accretion to key financial metrics including improvement in corporate returns and increase in free cash flow.",
+        "Profitability was expected to improve due to Indigo's low-cost structure and strong balance sheet, with accelerated delivery of deleveraging goal later this year.",
+        "Earnings quality was impacted by one-time components from the acquisition, but cash flow was expected to improve due to the transaction.",
+        "Management guidance was positive, with expected synergies from the Indigo acquisition and a strengthened credit profile."
+      ],
+      "score": 7.0,
+      "reasoning": "Southwestern Energy's Q2 2021 earnings call showed mixed signals, with revenue growth driven by the Indigo acquisition and expected profitability improvements. However, earnings quality was impacted by one-time components, and management guidance was positive but dependent on the successful integration of the acquisition."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "SWN_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat and positive management tone on Indigo acquisition and ESG strategy.",
+        "1-week momentum driver: Momentum sustained by acquisition-driven growth prospects and improving commodity prices.",
+        "1-month fundamental positioning: Fundamental positioning strengthened by scale-enhancing transaction, improved free cash flow, and ESG initiatives.",
+        "Key risk or macro factor: Potential risks from integration challenges, commodity price volatility, and regulatory changes."
+      ],
+      "score": 8.2,
+      "reasoning": "Southwestern Energy's Q2 2021 earnings call showcased a strong earnings beat and positive management tone, driven by the Indigo acquisition and ESG strategy. The acquisition is expected to deliver immediate accretion to key financial metrics, including improvement in corporate returns and increase in free cash flow. The company's commitment to sustainability and ESG initiatives, such as responsibly sourced gas and basinwide well certification, further strengthens its positioning. While there are potential risks from integration challenges, commodity price volatility, and regulatory changes, the company's scale-enhancing transaction and improved free cash flow generation provide a solid foundation for sustained growth."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "SWN_q2_2021",
+      "key_points": [
+        "Management credibility signal: CEO's confidence and conviction in the Indigo acquisition and its benefits, as well as the emphasis on ESG strategy and sustainability.",
+        "Anchoring or confirmation bias observation: CEO's statement that the acquisition expands the scope and scale of the company, implying a positive outcome, and the emphasis on the benefits of scale, which may reinforce a bullish narrative.",
+        "Loss aversion or overconfidence signal: CEO's confidence in delivering promised synergies and potential for additional value enhancements, which may indicate overconfidence, but also a clear commitment to ESG strategy and sustainability, which suggests a more cautious approach."
+      ],
+      "score": 7.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management framed negatives (risks and uncertainties) in the context of forward-looking statements and emphasized the benefits of the Indigo acquisition and ESG strategy."
+      },
+      "reasoning": "The CEO's confidence and conviction in the Indigo acquisition and its benefits, as well as the emphasis on ESG strategy and sustainability, suggest a bullish narrative. However, the CEO's overconfidence in delivering promised synergies and potential for additional value enhancements may indicate a bias towards a positive outcome. The framing of negatives in the context of forward-looking statements and the emphasis on ESG strategy and sustainability suggest a more cautious approach, but overall, the tone is confident and bullish."
+    }
+  }
+}

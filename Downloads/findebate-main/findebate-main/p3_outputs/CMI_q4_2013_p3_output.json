@@ -1,0 +1,49 @@
+{
+  "source_file": "CMI_q4_2013",
+  "timestamp": "2026-05-11T20:12:55.869425",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "CMI_q4_2013",
+      "key_points": [
+        "Revenue growth of 7% YoY in Q4 2013, driven by 21% growth in Power Generation business in North America.",
+        "Profitability impacted by lower EBIT margin of 12.5% in 2013, due to weaker demand for power generation equipment and high horsepower engines.",
+        "Earnings quality affected by one-time items, including write-down of investment in technology venture and legal settlement costs.",
+        "Management guidance for 2014 includes expectation of margin improvement in Power Generation business, driven by cost reduction initiatives."
+      ],
+      "score": 5.5,
+      "reasoning": "Cummins' Q4 2013 earnings were mixed, with revenue growth and gross margin improvement offset by lower EBIT margin and one-time items. Management guidance for 2014 suggests potential for margin improvement, but overall fundamentals are weak due to industry headwinds and one-time charges."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "CMI_q4_2013",
+      "key_points": [
+        "1-day market reaction signal: Earnings beat expectations with 7% revenue growth, but EBIT margin below forecast.",
+        "1-week momentum driver: Stronger demand for engines and components in on-highway markets in China and Brazil.",
+        "1-month fundamental positioning: Ongoing restructuring actions and cost reduction initiatives to drive margin improvement in Power Generation business.",
+        "Key risk or macro factor: Weak demand for power generation equipment and high horsepower engines, and weaker than expected industry orders from North American heavy duty trucks."
+      ],
+      "score": 5.5,
+      "reasoning": "The 1-day market reaction signal is neutral as earnings beat expectations but EBIT margin was below forecast. The 1-week momentum driver is positive due to stronger demand for engines and components in on-highway markets in China and Brazil. However, the 1-month fundamental positioning is mixed as ongoing restructuring actions and cost reduction initiatives may drive margin improvement in the Power Generation business, but weak demand for power generation equipment and high horsepower engines, and weaker than expected industry orders from North American heavy duty trucks are key risks."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "CMI_q4_2013",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management demonstrates transparency and language precision, but tone is cautious, indicating a bearish sentiment.",
+        "Anchoring or confirmation bias observation from context: Management frames initial numbers (7% revenue growth) and then provides context for the decline in EBIT margins, potentially influencing investor expectations.",
+        "Loss aversion or overconfidence signal: Management addresses negative news (decline in EBIT margins, weaker demand) but frames it as a 'near two percentage point decline' and emphasizes the 'ongoing restructuring actions' to improve margins."
+      ],
+      "score": 3.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bearish",
+      "management_tone": "Cautious",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negative news as a 'near two percentage point decline' to downplay its impact."
+      },
+      "reasoning": "Management demonstrates transparency and language precision in addressing the decline in EBIT margins, but the cautious tone and framing of negative news suggest a bearish sentiment. The anchoring effect is observed in the framing of initial numbers, which may influence investor expectations."
+    }
+  }
+}

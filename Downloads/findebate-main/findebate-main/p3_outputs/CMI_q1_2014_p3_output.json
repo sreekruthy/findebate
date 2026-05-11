@@ -1,0 +1,49 @@
+{
+  "source_file": "CMI_q1_2014",
+  "timestamp": "2026-05-11T20:09:31.066331",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "CMI_q1_2014",
+      "key_points": [
+        "Revenue growth of 12% YoY, driven by 11% increase in Engine business and 21% increase in Components business",
+        "Profitability improved with 19% incremental EBIT margins, driven by stronger performance in Engine and Components businesses",
+        "Earnings quality concerns due to negative impact of currency movements and costs associated with distributor acquisitions in Distribution segment",
+        "Management raised guidance for Engine and Components businesses, but lowered guidance for Power Generation business due to currency impact"
+      ],
+      "score": 6.5,
+      "reasoning": "The company reported a 12% revenue growth in Q1 2014, driven by strong performance in Engine and Components businesses. However, profitability was impacted by negative currency movements and costs associated with distributor acquisitions in the Distribution segment. Management raised guidance for Engine and Components businesses, but lowered guidance for Power Generation business due to currency impact. Overall, the company's fundamentals are mixed, with some areas showing strength and others showing weakness."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "CMI_q1_2014",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat and positive management tone on Q1 2014 results, with 12% revenue growth and 200bps EBIT margin expansion in engine business.",
+        "1-week momentum driver: Improved end market demand in North America and China, driving 25% revenue growth in North America and 11% in engine business.",
+        "1-month fundamental positioning: Raised outlook for both engine and components businesses, with full year revenue growth expected in the range of 22-30% and EBIT to be in the range of 9-10%.",
+        "Key risk or macro factor: Negative impact of currency movements, particularly the appreciation of the UK pound against the U.S. dollar, on Power Generation business EBIT margin."
+      ],
+      "score": 7.5,
+      "reasoning": "Cummins' Q1 2014 earnings call showed a strong earnings beat and positive management tone, driven by 12% revenue growth and 200bps EBIT margin expansion in the engine business. Improved end market demand in North America and China is expected to drive growth in the coming months. However, the negative impact of currency movements on the Power Generation business EBIT margin is a key risk to consider. Overall, the company's raised outlook for both engine and components businesses suggests a positive fundamental positioning."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "CMI_q1_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO Tom Linebarger's tone is generally confident, but acknowledges challenges in Power Generation business.",
+        "Anchoring or confirmation bias observation from context: CEO's emphasis on 12% revenue growth and 12% EBIT margin reinforces positive market narrative.",
+        "Loss aversion or overconfidence signal: CEO addresses negative news in Power Generation business, but also highlights opportunities in other segments."
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "CEO frames negative news in Power Generation business as a challenge to be overcome, rather than a major concern."
+      },
+      "reasoning": "CEO Tom Linebarger's tone is generally confident, but acknowledges challenges in Power Generation business. The emphasis on 12% revenue growth and 12% EBIT margin reinforces positive market narrative, suggesting anchoring bias. However, the CEO addresses negative news in Power Generation business in a way that frames it as a challenge to be overcome, rather than a major concern, indicating some loss aversion framing."
+    }
+  }
+}

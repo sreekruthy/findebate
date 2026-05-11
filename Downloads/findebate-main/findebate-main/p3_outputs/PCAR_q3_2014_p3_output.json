@@ -1,0 +1,49 @@
+{
+  "source_file": "PCAR_q3_2014",
+  "timestamp": "2026-05-11T21:20:34.983671",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "PCAR_q3_2014",
+      "key_points": [
+        "Revenue growth was 15% YoY, driven by increased truck deliveries in North America and records for quarterly sales of PACCAR parts.",
+        "Profitability improved, with net income increasing 20% YoY and after-tax return on revenues of 7.5%.",
+        "Earnings quality is strong, with recurring components driving growth in PACCAR Parts and PACCAR Financial Services.",
+        "Management guidance is positive, with expectations for 5-7% increase in global truck deliveries in Q4 and increased production levels."
+      ],
+      "score": 8.2,
+      "reasoning": "PACCAR's strong revenue growth and improved profitability across multiple dimensions, including gross margin and operating margin, suggest a solid fundamental performance. The company's earnings quality is also strong, with recurring components driving growth in key business segments. Management guidance is positive, with expectations for continued growth in the North American Class 8 market and increased production levels in Europe. Overall, these factors support a high score of 8.2."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "PCAR_q3_2014",
+      "key_points": [
+        "1-day market reaction signal: Positive earnings surprise, 15% revenue growth, and 20% net income increase.",
+        "1-week momentum driver: Increased truck deliveries in North America, record quarterly sales of PACCAR parts, and strong portfolio performance at PACCAR Financial Services.",
+        "1-month fundamental positioning: Positive economic trends, record freight tonnage, and higher fleet utilization in the US and Canada, with growth expected in the UK and Eurozone economies.",
+        "Key risk or macro factor: Uncertainty in global economic growth, potential impact of lower fuel prices on customers' operating costs, and competition in the global truck market."
+      ],
+      "score": 8.2,
+      "reasoning": "The company reported record quarterly revenues and increased net income, driven by increased truck deliveries in North America and record quarterly sales of PACCAR parts. The strong results reflect positive economic trends, record freight tonnage, and higher fleet utilization in the US and Canada. However, there are risks associated with global economic growth, lower fuel prices, and competition in the global truck market."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "PCAR_q3_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 8.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames positive news (e.g., record revenues, increased net income) more prominently than negative news (e.g., risks, uncertainties)"
+      },
+      "reasoning": "Management's confident tone and emphasis on positive results (e.g., record revenues, increased net income) suggest a bullish sentiment. The use of specific numbers and language precision (e.g., '15% increase in revenues') also indicates a high level of transparency and credibility. However, management's framing of negative news (e.g., risks, uncertainties) is relatively subtle, which may indicate some degree of overconfidence."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source_file": "KW_q3_2021",
+  "timestamp": "2026-05-11T21:05:45.073087",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "KW_q3_2021",
+      "key_points": [
+        "Revenue growth was strong, with adjusted EBITDA increasing 165% YoY, driven by growth in in-place annual NOI and fee-bearing capital.",
+        "Profitability was strong, with adjusted EBITDA margin not explicitly mentioned but implied to be high given the 165% YoY growth.",
+        "Earnings quality was strong, with a significant increase in cash flow from operations, but one-time components such as the $399 million acquisition of multifamily assets.",
+        "Management guidance was positive, with a strong pipeline of new transactions expected to close by year-end, and a 9% increase to the quarterly dividend."
+      ],
+      "score": 7.5,
+      "reasoning": "The company's strong revenue growth and profitability suggest a positive earnings quality, but the presence of one-time components such as the acquisition of multifamily assets reduces the score. Management guidance is positive, with a strong pipeline of new transactions and a dividend increase, but the score is tempered by the lack of explicit guidance on profitability and cash flow."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "KW_q3_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat ($0.47 EPS) with 165% YoY increase in adjusted EBITDA, driving 9% dividend hike.",
+        "1-week momentum driver: Institutional demand for real estate remains high, with trillions of dollars of capital globally seeking sound risk-adjusted returns.",
+        "1-month fundamental positioning: Record $20.5B AUM, 17% YoY growth, and strong pipeline of new transactions expected to close by year-end.",
+        "Key risk or macro factor: Global transaction volumes remain healthy, but potential risks from inflation and interest rate hikes could impact real estate market fundamentals."
+      ],
+      "score": 7.5,
+      "reasoning": "Kennedy-Wilson's strong Q3 earnings beat, driven by 165% YoY increase in adjusted EBITDA, supports a bullish outlook. Institutional demand for real estate remains high, and the company's record AUM and strong pipeline of new transactions further bolster its fundamentals. However, potential risks from inflation and interest rate hikes could impact real estate market fundamentals, limiting the upside."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "KW_q3_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO provides specific numbers and metrics, demonstrating transparency and language precision.",
+        "Anchoring or confirmation bias observation from context: CEO frames Q3 results as 'strong' and 'record-breaking', setting a positive anchor for investor expectations.",
+        "Loss aversion or overconfidence signal: CEO addresses potential risks and challenges, but maintains a confident tone, potentially indicating overconfidence."
+      ],
+      "score": 8.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "CEO addresses potential risks, but maintains a focus on positive outcomes and 'record-breaking' results."
+      },
+      "reasoning": "The CEO's use of specific numbers and metrics demonstrates transparency and language precision, while framing Q3 results as 'strong' and 'record-breaking' sets a positive anchor for investor expectations. However, the CEO's confident tone and focus on positive outcomes may indicate overconfidence, particularly when addressing potential risks and challenges."
+    }
+  }
+}

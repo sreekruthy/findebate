@@ -1,0 +1,49 @@
+{
+  "source_file": "FIS_q4_2020",
+  "timestamp": "2026-05-11T20:27:51.613710",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "FIS_q4_2020",
+      "key_points": [
+        "Revenue growth was impacted by COVID-19, with no specific growth rate mentioned.",
+        "Profitability was affected by the pandemic, with no specific margin or EPS growth rate mentioned.",
+        "Earnings quality is a concern due to the one-time impact of COVID-19, with no clear indication of recurring components.",
+        "Management guidance for FY 2021 and Q1 2021 is provided, but with a cautious tone due to the ongoing pandemic."
+      ],
+      "score": 4.5,
+      "reasoning": "The earnings report was impacted by COVID-19, leading to mixed signals across all dimensions. While management provided guidance for FY 2021 and Q1 2021, the pandemic's ongoing impact is a concern. The score reflects the weak fundamentals and cautious tone of management's guidance."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "FIS_q4_2020",
+      "key_points": [
+        "1-day market reaction signal: FIS beats q4 adjusted earnings per share estimate with $1.62, a positive signal.",
+        "1-week momentum driver: Q1 2021 adjusted earnings per share guidance $1.20-$1.25 suggests a potential for sustained growth.",
+        "1-month fundamental positioning: FY 2021 adjusted earnings per share guidance $6.20-$6.40 indicates a positive trajectory.",
+        "Key risk or macro factor: COVID-19 continued to impact financial results in q4 2020, a risk to future growth."
+      ],
+      "score": 7.2,
+      "reasoning": "FIS's q4 earnings beat and positive guidance for FY 2021 and Q1 2021 suggest a strong bullish signal. However, the ongoing impact of COVID-19 is a key risk factor that could impact future growth. Overall, the company's fundamental positioning and guidance trajectory indicate a positive outlook, warranting a score of 7.2."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "FIS_q4_2020",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency rating due to direct Q&A responses.",
+        "Anchoring or confirmation bias observation: Management's FY 2021 EPS guidance ($6.20-$6.40) may be seen as an anchor for investor expectations.",
+        "Loss aversion or overconfidence signal: Management frames COVID-19 impact as a continued challenge, but does not appear overly defensive or overconfident."
+      ],
+      "score": 5.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames COVID-19 impact as a continued challenge."
+      },
+      "reasoning": "Management's direct Q&A responses and provision of specific guidance suggest a high level of transparency. However, the FY 2021 EPS guidance may be seen as an anchor for investor expectations, potentially influencing their perception of the company's potential. Management's framing of COVID-19 as a continued challenge suggests a cautious approach, but does not appear overly defensive or overconfident."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source_file": "MSI_q3_2021",
+  "timestamp": "2026-05-11T21:11:59.807417",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "MSI_q3_2021",
+      "key_points": [
+        "Revenue growth of 13% driven by strong demand across the business, with record Q3 backlog of $11.4 billion.",
+        "Profitability improved with non-GAAP operating margins expanding to 26.3% of sales, driven by higher sales, gross margins, and operating leverage.",
+        "Earnings quality is strong with recurring revenue growth in Command Center Software and video security and access control, but one-time components from acquisitions and favorable currency rates.",
+        "Management guidance is positive with full-year sales and EPS guidance raised, but with some uncertainty around supply chain and cash flow."
+      ],
+      "score": 8.2,
+      "reasoning": "MSI's Q3 2021 results show strong revenue growth and improved profitability, driven by demand across the business and operational efficiency. Earnings quality is also strong, but with some one-time components. Management guidance is positive, but with some uncertainty around supply chain and cash flow. Overall, the company's fundamentals are strong, but with some mixed signals."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "MSI_q3_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 13% revenue growth, 21% EPS growth, and 150 basis points operating margin expansion.",
+        "1-week momentum driver: Continued strong demand across the business, record Q3 backlog of $11.4 billion, and growth in all three technologies.",
+        "1-month fundamental positioning: Raised full-year guidance for both sales and EPS, strong cash flow generation, and strategic acquisitions.",
+        "Key risk or macro factor: Supply chain environment challenges and potential impact on future earnings."
+      ],
+      "score": 8.2,
+      "reasoning": "Motorola Solutions' Q3 2021 earnings call showed a strong 1-day market reaction signal due to a 13% revenue growth, 21% EPS growth, and 150 basis points operating margin expansion. The 1-week momentum driver was sustained by continued strong demand across the business, a record Q3 backlog of $11.4 billion, and growth in all three technologies. The 1-month fundamental positioning was solidified by raised full-year guidance for both sales and EPS, strong cash flow generation, and strategic acquisitions. However, the supply chain environment challenges pose a key risk or macro factor that could impact future earnings."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "MSI_q3_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 8.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management framed Q3 results as 'continued strong demand' and 'record Q3 backlog'"
+      },
+      "reasoning": "Management demonstrated high credibility through transparent language and consistent tone, with CFO Jason Winkler providing detailed financial results and CEO Greg Brown confidently discussing the company's growth and outlook. Anchoring effects were observed as management framed Q3 results as 'continued strong demand' and 'record Q3 backlog', setting a positive tone for investor expectations. Loss aversion framing was not evident, as management addressed no significant negatives or risks during the call."
+    }
+  }
+}

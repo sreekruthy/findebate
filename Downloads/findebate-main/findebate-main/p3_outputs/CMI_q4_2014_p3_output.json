@@ -1,0 +1,49 @@
+{
+  "source_file": "CMI_q4_2014",
+  "timestamp": "2026-05-11T20:13:59.558898",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "CMI_q4_2014",
+      "key_points": [
+        "Revenue growth of 11% in Q4 2014, driven by 20% growth in North America and 13% growth in China.",
+        "Profitability improved with EBIT margin of 13.2% in 2014, excluding one-time items, and incremental EBIT margins of 19%.",
+        "Earnings quality impacted by one-time costs and quality-related expenses, but management expects improvement in 2015.",
+        "Management guidance for 2015 includes EBIT margin improvement in Power Generation business to 8-9% and lower quality-related costs."
+      ],
+      "score": 6.5,
+      "reasoning": "Cummins' Q4 2014 earnings were driven by revenue growth in North America and China, but profitability was impacted by one-time costs and quality-related expenses. While management expects improvement in 2015, the company's earnings quality remains a concern. Overall, the company's fundamentals are mixed, with some positive signs and areas for improvement."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "CMI_q4_2014",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 11% revenue growth and 13% EBIT margin, beating expectations.",
+        "1-week momentum driver: Cummins' engine business improved performance, and the company strengthened its position as the market leader in the medium-duty truck engines market.",
+        "1-month fundamental positioning: Cummins' full year EBIT margin was 13.2% in 2014, an increase from 12.5% in 2013, driven by incremental EBIT margins of 19%.",
+        "Key risk or macro factor: Weakness in the truck market in Brazil and India, and the transition to new NS4 on-highway emission standards in China."
+      ],
+      "score": 7.5,
+      "reasoning": "Cummins' Q4 2014 earnings call showed strong earnings beat with 11% revenue growth and 13% EBIT margin, beating expectations. The engine business improved performance, and the company strengthened its position as the market leader in the medium-duty truck engines market. However, weakness in the truck market in Brazil and India, and the transition to new NS4 on-highway emission standards in China pose key risks. Overall, the company's fundamental positioning is strong, with a 13.2% full year EBIT margin in 2014, an increase from 12.5% in 2013, driven by incremental EBIT margins of 19%."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "CMI_q4_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management is transparent about misses, uses specific numbers, and maintains tone consistency.",
+        "Anchoring or confirmation bias observation from context: Management frames the 11% revenue growth as a positive, but also acknowledges misses in power generation and quality cost.",
+        "Loss aversion or overconfidence signal: Management is cautious about power generation and quality cost, but expresses confidence in improving these areas in 2015."
+      ],
+      "score": 6.0,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Cautious",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negatives in a way that emphasizes the steps being taken to address them, such as improving power generation and quality cost."
+      },
+      "reasoning": "Management's transparency about misses and specific numbers used to frame the 11% revenue growth suggest a high level of credibility. However, the acknowledgement of misses in power generation and quality cost, and the cautious tone used to discuss these areas, temper the overall sentiment. Overall, management's narrative is mixed, with both positives and negatives, which is reflected in the neutral sentiment label."
+    }
+  }
+}

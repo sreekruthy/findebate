@@ -1,0 +1,49 @@
+{
+  "source_file": "GCO_q1_2022",
+  "timestamp": "2026-05-11T20:30:33.177694",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "GCO_q1_2022",
+      "key_points": [
+        "Revenue growth of 9% exceeded expectations, driven by record first-quarter revenue and profitability at Journeys.",
+        "Profitability improved significantly, with operating profit increasing 125% over Q1 Fiscal '20, and gross margin rising by almost 500 basis points.",
+        "Earnings quality is strong, with double-digit operating margins in the online business and a healthy balance sheet.",
+        "Management guidance is positive, with the CEO highlighting the company's strong competitive positions and the success of its Footwear Focus strategy."
+      ],
+      "score": 7.5,
+      "reasoning": "Genesco's Q1 results were strong across multiple dimensions, with revenue growth exceeding expectations and profitability improving significantly. However, the company's earnings quality is not without some caveats, as the operating income growth was driven in part by a temporary boost from U.S. government stimulus and pent-up demand. Nevertheless, the company's digital investments have been generating strong results, and the appointment of a chief strategy and digital officer should help accelerate progress in this area. Overall, the company's positive guidance and strong fundamentals justify a score of 7.5."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "GCO_q1_2022",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat, record revenue, and profitability at Journeys, exceeding expectations.",
+        "1-week momentum driver: Stellar execution, temporary boost from U.S. government stimulus, and pent-up demand as the economy reopens faster than anticipated.",
+        "1-month fundamental positioning: Strong competitive positions of retail and branded concepts, Footwear Focus strategy, and digital investments driving profitability and growth.",
+        "Key risk or macro factor: Impact of COVID-19 and potential future closures or restrictions on store operations."
+      ],
+      "score": 8.2,
+      "reasoning": "Genesco's Q1 fiscal 2022 results exceeded expectations, driven by strong execution, government stimulus, and pent-up demand. The company's competitive positions, Footwear Focus strategy, and digital investments are driving profitability and growth. However, the ongoing impact of COVID-19 remains a key risk, particularly for store operations."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "GCO_q1_2022",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO's prepared remarks demonstrate transparency, language precision, and tone consistency, indicating high management credibility.",
+        "Anchoring or confirmation bias observation from context: CEO frames Q1 results as exceeding expectations, which may create an anchoring effect, reinforcing the prevailing market narrative of a strong recovery.",
+        "Loss aversion or overconfidence signal: CEO addresses negatives (pandemic impact, store closures) by highlighting the company's resilience and strong execution, but also expresses overconfidence in the digital business, citing 'stellar execution' and 'record first-quarter revenue and profit'."
+      ],
+      "score": 8.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management framed negatives by highlighting the company's resilience and strong execution, but also expressed overconfidence in the digital business."
+      },
+      "reasoning": "The CEO's prepared remarks demonstrate transparency, language precision, and tone consistency, indicating high management credibility. However, the CEO's framing of Q1 results as exceeding expectations may create an anchoring effect, reinforcing the prevailing market narrative of a strong recovery. Additionally, the CEO's expression of overconfidence in the digital business, citing 'stellar execution' and 'record first-quarter revenue and profit', raises concerns about potential overestimation of future performance."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source_file": "LNN_q3_2021",
+  "timestamp": "2026-05-11T21:07:46.643957",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "LNN_q3_2021",
+      "key_points": [
+        "Revenue beat expectations by 10.6% with $161.9M vs $146.4M Refinitiv Ibes estimate.",
+        "Profitability insights not explicitly mentioned, but CEO mentioned passing-through cost increases.",
+        "Earnings quality concerns due to raw material inflation and supply chain challenges persisting through the balance of the fiscal year.",
+        "Guidance remains optimistic about the outlook for the company's infrastructure business."
+      ],
+      "score": 6.5,
+      "reasoning": "The company's revenue beat expectations, but earnings quality concerns due to raw material inflation and supply chain challenges. Profitability insights are limited, and guidance is mixed, with optimism about the infrastructure business but concerns about cost increases persisting through the fiscal year."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "LNN_q3_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat, exceeding Refinitiv Ibes estimate of $146.4 million with $161.9 million in revenue.",
+        "1-week momentum driver: Optimistic CEO tone on infrastructure business outlook and ability to pass-through cost increases.",
+        "1-month fundamental positioning: Expectation of raw material inflation and supply chain challenges persisting, but company remains optimistic about infrastructure business.",
+        "Key risk or macro factor: Raw material inflation and supply chain challenges"
+      ],
+      "score": 7.2,
+      "reasoning": "The company reported a strong earnings beat, exceeding Refinitiv Ibes estimate of $146.4 million with $161.9 million in revenue. The CEO expressed optimism about the outlook for the company's infrastructure business, which is a positive momentum driver. However, the company also expects raw material inflation and supply chain challenges to persist, which is a key risk factor. Overall, the company's positioning and guidance trajectory suggest a mixed but leaning bullish signal."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "LNN_q3_2021",
+      "key_points": [
+        "Management credibility signal: CEO's tone is neutral, CFO's review of Q3 results is transparent, and language precision is moderate.",
+        "Anchoring or confirmation bias: Management's framing of Q3 revenue as a beat ($161.9M vs $146.4M estimate) may create an optimistic anchor for future expectations.",
+        "Loss aversion or overconfidence signal: Management acknowledges raw material inflation and supply chain challenges but remains optimistic about the outlook for the company's infrastructure business."
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames challenges as persistent but manageable, with a focus on opportunities in the infrastructure business."
+      },
+      "reasoning": "Management's tone is neutral, with a focus on both the challenges of raw material inflation and supply chain constraints and the opportunities in the infrastructure business. The CEO's framing of Q3 revenue as a beat may create an optimistic anchor for future expectations, but the CFO's review of Q3 results is transparent and language precision is moderate."
+    }
+  }
+}

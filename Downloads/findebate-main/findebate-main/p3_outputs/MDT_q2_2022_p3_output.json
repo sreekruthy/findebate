@@ -1,0 +1,49 @@
+{
+  "source_file": "MDT_q2_2022",
+  "timestamp": "2026-05-11T21:09:38.622082",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "MDT_q2_2022",
+      "key_points": [
+        "Revenue growth was impacted by COVID-19 resurgence and healthcare staffing shortages, but still achieved 6% growth outside the US, including mid teens growth in emerging markets.",
+        "Profitability was solid, with underlying earnings growth despite market headwinds, and the company maintained its market share in most businesses.",
+        "Earnings quality was strong, with a focus on managing what was in the company's control and executing to advance its pipeline and launch new products.",
+        "Management guidance was positive, with the CEO expressing confidence in the company's deep strength and positioning for growth as markets recover."
+      ],
+      "score": 7.5,
+      "reasoning": "The company's revenue growth was impacted by market headwinds, but still achieved solid growth outside the US. Profitability was strong, with underlying earnings growth and maintained market share in most businesses. Earnings quality was solid, with a focus on managing what was in the company's control and executing to advance its pipeline and launch new products. Management guidance was positive, with the CEO expressing confidence in the company's deep strength and positioning for growth as markets recover."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "MDT_q2_2022",
+      "key_points": [
+        "1-day market reaction signal: Earnings beat expectations, with 6% revenue growth outside the US, including mid teens growth in emerging markets.",
+        "1-week momentum driver: Strong underlying earnings growth, new product launches, and share gains in key businesses.",
+        "1-month fundamental positioning: Robust balance sheet, expansive pipeline of leading technology, and revitalized operating model.",
+        "Key risk or macro factor: COVID-19 resurgence and healthcare system staffing shortages affecting quarterly revenue growth."
+      ],
+      "score": 7.5,
+      "reasoning": "Medtronic's Q2 earnings report showed solid execution around new product launches and strong underlying earnings growth, despite a challenging market backdrop. The company's international markets were much stronger, with 6% revenue growth outside the US, including mid teens growth in emerging markets. This, combined with a robust balance sheet, expansive pipeline of leading technology, and revitalized operating model, suggests a strong fundamental positioning. However, the COVID-19 resurgence and healthcare system staffing shortages remain key risks, affecting quarterly revenue growth."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "MDT_q2_2022",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency, precise language, and consistent tone.",
+        "Anchoring or confirmation bias observation: Management frames Q2 revenue growth as 'solid execution' despite 'challenging market backdrop', reinforcing a positive narrative.",
+        "Loss aversion or overconfidence signal: Management addresses negatives (COVID-19 resurgence, healthcare staffing shortages) by highlighting strengths (new product launches, strong underlying earnings growth) and expressing confidence in the company's position."
+      ],
+      "score": 7.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management frames negatives as opportunities to highlight strengths and express confidence in the company's position."
+      },
+      "reasoning": "Management's high transparency, precise language, and consistent tone suggest a strong credibility signal. The anchoring bias is observed in the framing of Q2 revenue growth as 'solid execution' despite a 'challenging market backdrop', reinforcing a positive narrative. Additionally, management's overconfidence is evident in their expression of confidence in the company's position, despite acknowledging negatives such as COVID-19 resurgence and healthcare staffing shortages."
+    }
+  }
+}

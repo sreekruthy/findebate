@@ -1,0 +1,49 @@
+{
+  "source_file": "PCAR_q1_2015",
+  "timestamp": "2026-05-11T21:16:23.454893",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "PCAR_q1_2015",
+      "key_points": [
+        "Revenue growth was strong at 20% YoY, beating expectations, driven by increased truck deliveries in the U.S. and Canada.",
+        "Profitability was solid, with gross margin and operating margin expected to be slightly higher in Q2, and EPS growth of 38% YoY.",
+        "Earnings quality was good, with a natural hedge offsetting the impact of translation on profit, and strong cash flow from operations.",
+        "Management guidance was positive, with expectations for increased truck deliveries and higher gross margins in Q2, and a strong outlook for the European market."
+      ],
+      "score": 8.2,
+      "reasoning": "PCAR's Q1 2015 earnings were strong across all dimensions, with revenue growth beating expectations, solid profitability, good earnings quality, and positive management guidance. The company's ability to deliver 38,300 trucks, a 20% increase YoY, and its expectations for increased truck deliveries and higher gross margins in Q2, support a strong score. However, the impact of translation on revenues and profit was a notable risk factor, which was partially offset by a natural hedge."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "PCAR_q1_2015",
+      "key_points": [
+        "1-day market reaction signal: Positive earnings surprise, strong revenue growth, and upbeat management tone.",
+        "1-week momentum driver: Increased truck deliveries in the U.S. and Canada due to a good economy, record freight demand, and expansion of fleet capacity.",
+        "1-month fundamental positioning: PACCAR expects to increase truck deliveries in the second quarter by 5% to 7% and projects higher second-quarter gross margins.",
+        "Key risk or macro factor: Translation impact on revenues and potential impact of European Central Banks quantitative easing program on Europes economic outlook."
+      ],
+      "score": 8.2,
+      "reasoning": "PACCAR reported excellent revenues and net income for the first quarter of 2015, driven by strong truck deliveries in the U.S. and Canada. The company expects to increase truck deliveries in the second quarter and projects higher gross margins. However, the translation impact on revenues and the potential impact of the European Central Banks quantitative easing program on Europes economic outlook are key risks to consider. Overall, the positive earnings surprise and upbeat management tone suggest a strong bullish signal."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "PCAR_q1_2015",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency and language precision, with a consistent tone throughout Q&A.",
+        "Anchoring or confirmation bias observation from context: Management frames initial numbers positively, anchoring expectations for Q2 growth and margin expansion.",
+        "Loss aversion or overconfidence signal: Management addresses translation impacts on revenues and profit, but frames them as largely offset by natural hedges, indicating a cautious approach."
+      ],
+      "score": 7.2,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames translation impacts as largely offset by natural hedges, indicating a cautious approach to risk."
+      },
+      "reasoning": "Management's high transparency and language precision, as well as consistent tone throughout Q&A, suggest a credible and confident narrative. However, the anchoring effect is observed in management's framing of initial numbers, which may influence investor expectations. The cautious approach to addressing translation impacts on revenues and profit suggests a balanced risk assessment."
+    }
+  }
+}

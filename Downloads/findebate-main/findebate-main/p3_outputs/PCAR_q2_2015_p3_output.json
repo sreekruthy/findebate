@@ -1,0 +1,49 @@
+{
+  "source_file": "PCAR_q2_2015",
+  "timestamp": "2026-05-11T21:19:30.228650",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "PCAR_q2_2015",
+      "key_points": [
+        "Revenue growth 8% increase in truck deliveries, beating expectations, with strong freight demand in North America and Europe.",
+        "Profitability gross margin 15.1%, operating margin not explicitly stated, but 8.8% after-tax return on revenues.",
+        "Earnings quality 40% net income increase, driven by strong truck deliveries and cost control, with record quarterly pre-tax profits in parts business.",
+        "Guidance positive outlook for global truck market, with 2.4% GDP growth in the US and UK, and 1.5% in Europe, with increased truck deliveries expected in North America and Europe."
+      ],
+      "score": 8.0,
+      "reasoning": "PCAR's strong revenue growth, driven by 8% increase in truck deliveries, beating expectations, and positive profitability, with 15.1% gross margin, supports a strong score. The company's earnings quality is also strong, with 40% net income increase, driven by strong truck deliveries and cost control. However, the guidance is slightly mixed, with a positive outlook for global truck market, but with some cautionary notes on the European economic and truck market outlook."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "PCAR_q2_2015",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 40% net income increase, record quarterly sales and financial services revenues.",
+        "1-week momentum driver: Positive economic outlook in Europe and US, strong freight demand, and improved truck market share.",
+        "1-month fundamental positioning: PACCAR's strong balance sheet, positive cash flow, and investments in new products and facilities.",
+        "Key risk or macro factor: Summer factory shutdown in Europe and potential impact on third quarter gross margins."
+      ],
+      "score": 8.2,
+      "reasoning": "PACCAR's strong earnings beat and positive economic outlook in Europe and US suggest a bullish trend. The company's investments in new products and facilities, as well as its strong balance sheet and positive cash flow, support this view. However, the summer factory shutdown in Europe may impact third quarter gross margins, making it a key risk factor."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "PCAR_q2_2015",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency and language precision, with CEO providing specific numbers and metrics.",
+        "Anchoring or confirmation bias observation from context: CEO frames initial numbers positively, setting high expectations for future growth, and provides specific metrics to support the narrative.",
+        "Loss aversion or overconfidence signal: CEO addresses negatives (e.g., summer factory shutdown, higher percentage of deliveries to large fleets) in a matter-of-fact way, without emphasizing them, and highlights positives (e.g., strong freight demand, improved economic outlook)."
+      ],
+      "score": 8.2,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Negatives were framed as minor, temporary disruptions to the overall positive narrative."
+      },
+      "reasoning": "The CEO's high transparency and language precision, as well as his framing of initial numbers positively, suggest a strong management credibility signal. The CEO's ability to address negatives in a matter-of-fact way, without emphasizing them, and highlight positives, suggests a confident tone and a bullish sentiment. The anchoring bias is detected in the CEO's framing of initial numbers positively, and the overconfidence bias is detected in the CEO's confident tone and positive narrative."
+    }
+  }
+}

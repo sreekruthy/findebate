@@ -1,0 +1,49 @@
+{
+  "source_file": "MKC_q2_2021",
+  "timestamp": "2026-05-11T21:10:52.377064",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "MKC_q2_2021",
+      "key_points": [
+        "Revenue growth of 11% year-over-year, driven by Flavor Solutions segment, but Consumer segment declined 2% due to lapping of pandemic-driven demand surge.",
+        "Profitability metrics show adjusted operating income decline of 1% year-over-year, but adjusted operating margins expanded due to strong growth momentum.",
+        "Earnings quality is mixed, with adjusted earnings per share of $0.69, down from $0.74 year-over-year, primarily due to higher tax rate, but with strong cash flow and robust growth momentum.",
+        "Management guidance is positive, with increased 2021 outlook for sales, adjusted operating income, and adjusted earnings per share, despite cost pressures and inflation."
+      ],
+      "score": 6.5,
+      "reasoning": "While McCormick's second quarter results show strong revenue growth and profitability expansion, the decline in Consumer segment sales and adjusted earnings per share due to higher tax rate temper the overall performance. Management's positive guidance and confidence in growth trajectory are encouraging, but the company's ability to manage cost pressures and inflation will be key to sustaining momentum."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "MKC_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat, management tone positive, catalysts from Cholula and FONA acquisitions.",
+        "1-week momentum driver: Sustained shift to consumer at-home consumption, robust recovery from away-from-home customers.",
+        "1-month fundamental positioning: Balanced portfolio, diversified offerings, ability to manage through inflationary periods.",
+        "Key risk or macro factor: Broad-based inflation across commodities, packaging materials, and transportation costs."
+      ],
+      "score": 8.2,
+      "reasoning": "The company delivered a strong earnings beat, with 11% sales growth and 16% year-to-date sales growth. Management tone is positive, highlighting the effectiveness of their strategies and growth trajectory. The acquisitions of Cholula and FONA are catalysts for future growth. The company's balanced portfolio and diversified offerings position it well to sustain growth despite inflationary pressures. However, the risk of broad-based inflation across various commodities, packaging materials, and transportation costs is a concern."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "MKC_q2_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management demonstrates transparency and precision in language, with a tone consistent between prepared remarks and Q&A.",
+        "Anchoring or confirmation bias observation from context: Management frames second quarter results as strong, with double-digit two-year growth rates, and anchors expectations for future growth.",
+        "Loss aversion or overconfidence signal: Management addresses inflation costs and COVID-19 recovery with a cautious tone, but remains confident in growth trajectory and strategies."
+      ],
+      "score": 7.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames inflation costs and COVID-19 recovery as challenges, but remains confident in growth trajectory and strategies."
+      },
+      "reasoning": "Management demonstrates a confident tone and anchors expectations for future growth, while addressing challenges with a cautious tone. This suggests a balanced approach to risk management and growth strategy, which is consistent with a bullish sentiment."
+    }
+  }
+}

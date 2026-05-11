@@ -1,0 +1,49 @@
+{
+  "source_file": "DE_q1_2014",
+  "timestamp": "2026-05-11T20:17:11.585064",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "DE_q1_2014",
+      "key_points": [
+        "Revenue growth of 3% to $7.7 billion, driven by broad-based improvement across all divisions.",
+        "Profitability metrics improved, with operating profit up 4% to $797 million and EPS up 10% to $1.81.",
+        "Earnings quality is strong, with 15th consecutive quarter of record earnings and incremental margin of 30% in agriculture and turf.",
+        "Management guidance remains unchanged, with full-year earnings forecast of approximately $3.3 billion."
+      ],
+      "score": 8.0,
+      "reasoning": "Deere's Q1 2014 earnings show strong revenue growth and profitability improvement, driven by successful execution of marketing and operating plans. Earnings quality is also strong, with 15th consecutive quarter of record earnings and incremental margin of 30% in agriculture and turf. Management guidance remains unchanged, indicating confidence in the company's outlook. Overall, these factors contribute to a strong earnings performance, warranting a score of 8.0."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "DE_q1_2014",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 10% EPS growth, $681M net income, and $3.3B full year earnings forecast.",
+        "1-week momentum driver: Broad-based income growth across all three divisions, with 15th consecutive quarter of record earnings.",
+        "1-month fundamental positioning: Mixed outlook for farm machinery demand, with lower expected sales in 2014 due to economic stress and lower grain prices.",
+        "Key risk or macro factor: Uncertainty around global corn stocks used, with potential for unfavorable growing conditions and commodity price rebound."
+      ],
+      "score": 5.5,
+      "reasoning": "Deere's Q1 2014 earnings call showed a strong 1-day market reaction signal due to a 10% EPS growth and record earnings. However, the 1-week momentum driver was mixed, as broad-based income growth was offset by concerns around farm machinery demand. The 1-month fundamental positioning also showed a mixed outlook, with lower expected sales in 2014 due to economic stress and lower grain prices. The key risk or macro factor is the uncertainty around global corn stocks used, which could lead to a commodity price rebound if growing conditions are unfavorable."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "DE_q1_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management demonstrates transparency and language precision, with a tone consistency between prepared remarks and Q&A responses.",
+        "Anchoring or confirmation bias observation from context: Management frames initial numbers positively, setting a high bar for expectations, and reinforces the prevailing market narrative with a record-breaking first quarter.",
+        "Loss aversion or overconfidence signal: Management addresses negative news (forecasted decline in farm cash receipts, lower grain prices) in a neutral and matter-of-fact manner, without expressing undue optimism or overconfidence."
+      ],
+      "score": 7.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negative news in a neutral and factual manner, without expressing undue optimism or overconfidence."
+      },
+      "reasoning": "Management's transparency and language precision, as well as their tone consistency, suggest a high level of credibility. The framing of initial numbers positively and the reinforcement of the prevailing market narrative indicate anchoring bias. However, the neutral and factual addressing of negative news suggests a lack of overconfidence."
+    }
+  }
+}

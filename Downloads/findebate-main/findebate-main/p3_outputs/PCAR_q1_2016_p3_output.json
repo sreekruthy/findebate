@@ -1,0 +1,49 @@
+{
+  "source_file": "PCAR_q1_2016",
+  "timestamp": "2026-05-11T21:17:24.979192",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "PCAR_q1_2016",
+      "key_points": [
+        "Revenue growth was strong, driven by record sales in North America and Europe, with 18% increase in net income.",
+        "Profitability was excellent, with 8.4% after-tax return on revenues and highest operating margins in the industry.",
+        "Earnings quality was strong, with minimal impact from currency movements and record pre-tax income from PACCAR Parts.",
+        "Management guidance is positive, with expected growth in Class 8 truck industry retail sales and increasing market share in Europe."
+      ],
+      "score": 8.5,
+      "reasoning": "PACCAR's strong revenue growth and excellent profitability across all segments, including a 18% increase in net income and 8.4% after-tax return on revenues, justify a high score. The minimal impact from currency movements and record pre-tax income from PACCAR Parts also support a strong earnings quality. Management guidance is positive, with expected growth in Class 8 truck industry retail sales and increasing market share in Europe, further supporting a high score."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "PCAR_q1_2016",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat and management tone, 8.4% after-tax return on revenues",
+        "1-week momentum driver: Positive momentum from record revenues, net income, and operating margins",
+        "1-month fundamental positioning: Strong guidance on 2016 truck market, 3-5% growth in parts revenues",
+        "Key risk or macro factor: Currency movements impact revenue and profit, but minimal impact on profit"
+      ],
+      "score": 8.2,
+      "reasoning": "PACCAR's strong earnings beat and management tone suggest a positive market reaction. The company's record revenues, net income, and operating margins indicate sustained momentum. The guidance on 2016 truck market and 3-5% growth in parts revenues provide a solid fundamental positioning. However, currency movements may impact revenue and profit, but the impact is minimal on profit."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "PCAR_q1_2016",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 8.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management framed negatives in the context of overall strong results and growth prospects"
+      },
+      "reasoning": "Management demonstrated high credibility through transparency and language precision, particularly in addressing currency movements and their impact on operations. Anchoring effects were observed in the framing of numbers, such as record revenues and net income, which set a positive tone for the call. However, management's tone remained confident and optimistic, with a focus on growth prospects and positive market trends."
+    }
+  }
+}

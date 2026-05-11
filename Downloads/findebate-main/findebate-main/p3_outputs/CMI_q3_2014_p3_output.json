@@ -1,0 +1,49 @@
+{
+  "source_file": "CMI_q3_2014",
+  "timestamp": "2026-05-11T20:11:51.388084",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "CMI_q3_2014",
+      "key_points": [
+        "Revenue growth of 15% YoY, driven by strong demand in North America and improved operational performance.",
+        "Profitability improved with incremental EBIT margins of 24% due to operational efficiency gains.",
+        "Earnings quality concerns arise from one-time costs associated with potential cost reduction activities.",
+        "Management guidance revised downward, with revenue forecast reduced by 3-5% and EBIT forecast reduced by 50 basis points."
+      ],
+      "score": 5.5,
+      "reasoning": "Cummins' Q3 2014 earnings were mixed, with revenue growth and profitability improvements offset by concerns over earnings quality and downward revisions to management guidance. While revenue grew 15% YoY and profitability improved, the company is considering one-time costs associated with potential cost reduction activities, which raises concerns over earnings quality. Additionally, management guidance was revised downward, with revenue forecast reduced by 3-5% and EBIT forecast reduced by 50 basis points."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "CMI_q3_2014",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 15% revenue growth and 14% EBIT margin, positive management tone.",
+        "1-week momentum driver: North America demand growth, improved operational performance, and increased engine business outlook.",
+        "1-month fundamental positioning: Lowered revenue forecast for 2014, considering cost reduction actions, and decreased EBIT margin guidance.",
+        "Key risk or macro factor: Weak power generation demand and potential cost structure realignment."
+      ],
+      "score": 5.5,
+      "reasoning": "Cummins' Q3 2014 earnings call showed a strong earnings beat with 15% revenue growth and 14% EBIT margin. However, the company lowered its revenue forecast for 2014 and decreased EBIT margin guidance due to weak power generation demand and potential cost structure realignment. The positive management tone and increased engine business outlook provide some support, but the overall mixed signals result in a neutral score."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "CMI_q3_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 4.2,
+      "confidence": 0.75,
+      "sentiment_label": "Bearish",
+      "management_tone": "Cautious",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negative news (revenue decline) in a relatively neutral tone, but acknowledges challenges in power generation"
+      },
+      "reasoning": "Management credibility is signaled through transparency and language precision, with clear explanations of financial performance and outlook. However, anchoring bias is detected in the initial revenue growth announcement, which may have set overly optimistic expectations. Loss aversion framing is observed in the discussion of power generation, where management acknowledges challenges but frames the issue in a relatively neutral tone."
+    }
+  }
+}

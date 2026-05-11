@@ -1,0 +1,49 @@
+{
+  "source_file": "TK_q1_2021",
+  "timestamp": "2026-05-11T21:28:19.332275",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "TK_q1_2021",
+      "key_points": [
+        "Revenue growth was strong, with adjusted net income increasing to $11 million, or $0.11 per share, up from $3 million, or $0.03 per share in the prior quarter.",
+        "Profitability improved, with total adjusted EBITDA of $202 million, up slightly from the previous quarter, and an operating margin not explicitly stated.",
+        "Earnings quality is a concern due to the presence of one-time components, such as the costs associated with the decommissioning of the Banff FPSO.",
+        "Management guidance for the second quarter is cautious, with expectations of lower results due to a heavy dry dock schedule and non-recurring items."
+      ],
+      "score": 5.0,
+      "reasoning": "Teekay Corporation's first-quarter 2021 earnings report showed strong revenue growth, but earnings quality is a concern due to one-time components. Management guidance for the second quarter is cautious, which suggests that the company is facing challenges. Overall, the report had mixed signals, which warrants a score of 5.0."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "TK_q1_2021",
+      "key_points": [
+        "1-day market reaction signal: Teekay Corporation reports Q1 2021 adjusted net income per share $0.11, beating expectations.",
+        "1-week momentum driver: Higher spot tanker rates and long-term contracts in gas shipping business sustain weekly performance.",
+        "1-month fundamental positioning: Expecting Q2 to be lower due to dry dock schedule, non-recurring items, and charter expiration.",
+        "Key risk or macro factor: Heavy dry dock schedule in Q2 and recent expiration of fixed rate charters in tanker fleet."
+      ],
+      "score": 6.5,
+      "reasoning": "Teekay Corporation's Q1 2021 earnings report shows a positive 1-day market reaction signal with adjusted net income per share beating expectations. However, the 1-week momentum driver is sustained by higher spot tanker rates and long-term contracts, but the 1-month fundamental positioning indicates a potential decline in Q2 due to various factors. The key risk or macro factor is the heavy dry dock schedule in Q2 and recent expiration of fixed rate charters in the tanker fleet."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "TK_q1_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CFO Vince Lok uses precise language, addressing difficult Q&A questions directly, with a tone consistency of 8/10.",
+        "Anchoring or confirmation bias observation: Management frames Q1 results as 'up from 3 million, or $0.03 per share in the prior quarter', which may be seen as anchoring expectations for future growth.",
+        "Loss aversion or overconfidence signal: Management addresses the 'continued weakness in the spot conventional tanker market' and the 'heavy dry dock schedule' in Q2, but remains confident in their strategy and progress."
+      ],
+      "score": 5.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral/mixed",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negatives as 'continued weakness' and 'heavy dry dock schedule', but remains focused on progress and strategy."
+      },
+      "reasoning": "Management's tone is neutral, with a mix of positive and negative comments. The CFO uses precise language and addresses difficult Q&A questions directly, indicating a high level of transparency. However, the framing of Q1 results as 'up from 3 million' may be seen as anchoring expectations for future growth, and management's confidence in their strategy and progress may be seen as overconfidence."
+    }
+  }
+}

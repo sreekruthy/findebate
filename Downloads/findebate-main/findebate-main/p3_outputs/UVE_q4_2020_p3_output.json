@@ -1,0 +1,49 @@
+{
+  "source_file": "UVE_q4_2020",
+  "timestamp": "2026-05-11T21:31:27.114414",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "UVE_q4_2020",
+      "key_points": [
+        "Revenue growth of 14% to $939.4 million driven by organic premium volume and retention.",
+        "Weak profitability with q4 GAAP loss per share of $0.57 and qtrly adjusted loss per share of $0.84.",
+        "Earnings quality concerns due to one-time components such as reinsurance costs and enhanced conservatism.",
+        "Guidance for FY21 GAAP and non-GAAP adjusted EPS of $2.75 - $3.00 with a return on average equity between 17% and 20%."
+      ],
+      "score": 4.5,
+      "reasoning": "UVE's revenue growth is a positive sign, but weak profitability and earnings quality concerns due to one-time components offset this. Management guidance for FY21 is provided, but the company's ability to achieve this will depend on various factors, including no extraordinary weather events."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "UVE_q4_2020",
+      "key_points": [
+        "1-day market reaction signal: Q4 GAAP loss per share of $0.57 and quarterly adjusted loss per share of $0.84, but initiating FY21 guidance of $2.75-$3.00 GAAP and non-GAAP adjusted EPS.",
+        "1-week momentum driver: Strong revenue growth of 14% in 2019, driven by organic premium volume and retention, along with a record $92.3 million returned to shareholders through share repurchases and dividends.",
+        "1-month fundamental positioning: Positioning for long-term sustainable bottom line growth with a debt-to-equity ratio of 2%, a 12.4% primary rate increase in Florida, and a direct-to-consumer platform Clovered.",
+        "Key risk or macro factor: Social inflation and a hardening reinsurance market, which may impact future earnings and reserve positions."
+      ],
+      "score": 6.5,
+      "reasoning": "The 1-day market reaction signal is mixed, as the Q4 GAAP loss per share and quarterly adjusted loss per share are negative, but the initiating FY21 guidance is positive. The 1-week momentum driver is strong, with 14% revenue growth in 2019. The 1-month fundamental positioning is also positive, with a focus on long-term sustainable growth. However, the key risk or macro factor of social inflation and a hardening reinsurance market may impact future earnings and reserve positions, leading to a neutral overall score."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "UVE_q4_2020",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral/mixed",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames GAAP loss as a 'miss' and focuses on non-GAAP adjusted earnings per share guidance"
+      },
+      "reasoning": "Management credibility is neutral due to transparency in addressing Q&A questions and language precision in providing specific numbers. However, anchoring bias is detected as management frames initial numbers to set investor expectations, and loss aversion framing is observed as management addresses GAAP loss as a 'miss' while focusing on non-GAAP adjusted earnings per share guidance."
+    }
+  }
+}

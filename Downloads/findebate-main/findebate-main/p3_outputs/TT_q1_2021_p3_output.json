@@ -1,0 +1,49 @@
+{
+  "source_file": "TT_q1_2021",
+  "timestamp": "2026-05-11T21:29:11.094742",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "TT_q1_2021",
+      "key_points": [
+        "Revenue growth of 11% with broad-based market outgrowth and share gains in each segment.",
+        "Profitability improved with 400 basis points of margin expansion in every segment and 135% adjusted earnings growth.",
+        "Earnings quality is strong with double-digit bookings growth and a growing backlog.",
+        "Management guidance raised for both revenue and adjusted EPS above the high end of the prior ranges."
+      ],
+      "score": 8.5,
+      "reasoning": "The company delivered strong revenue growth and profitability improvement, with 11% revenue growth and 400 basis points of margin expansion. The earnings quality is also strong, with double-digit bookings growth and a growing backlog. Management guidance was raised, indicating confidence in the company's ability to execute its strategy and deliver strong results. Overall, the company's performance and guidance suggest a strong fundamental position."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "TT_q1_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat and management tone, with CEO Mike Lamach emphasizing Trane Technologies' commitment to sustainability and innovation.",
+        "1-week momentum driver: Robust organic bookings growth of 31% and strong revenue growth in each segment, driven by Americas segment's growth in both bookings and revenue.",
+        "1-month fundamental positioning: Trane Technologies' purpose-driven strategy, consistent operating system, and goals focused on top quartile results for stakeholders, driving market outgrowth and strong margins.",
+        "Key risk or macro factor: Limited overall visibility due to the ongoing pandemic, but strong Q1 performance, growing backlog, and improving markets give confidence to raise full year 2021 guidance."
+      ],
+      "score": 8.2,
+      "reasoning": "Trane Technologies' Q1 2021 earnings call presents a strong bullish signal, with a 31% organic bookings growth and strong revenue growth in each segment. The company's purpose-driven strategy, consistent operating system, and goals focused on top quartile results for stakeholders drive market outgrowth and strong margins. While the ongoing pandemic poses a risk, the company's confidence in raising full year 2021 guidance suggests a positive trajectory."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "TT_q1_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management demonstrates transparency and language precision, with a tone consistency between prepared remarks and Q&A responses.",
+        "Anchoring or confirmation bias observation from context: Management frames initial numbers positively, setting high expectations for the future, and reinforces the prevailing market narrative of a strong company with a clear purpose-driven strategy.",
+        "Loss aversion or overconfidence signal: Management addresses negatives (misses, risks, declines) by framing them as opportunities for growth and improvement, and expresses confidence in their ability to lead and deliver top-tier financial performance."
+      ],
+      "score": 8.2,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management frames negatives as opportunities for growth and improvement, and expresses confidence in their ability to deliver top-tier financial performance."
+      },
+      "reasoning": "Management demonstrates a strong and confident tone throughout the call, with a focus on the company's purpose-driven strategy and its ability to drive market outgrowth and share gains. The use of positive language and framing of initial numbers sets high expectations for the future, and reinforces the prevailing market narrative. However, management also addresses potential negatives by framing them as opportunities for growth and improvement, which may indicate some level of overconfidence."
+    }
+  }
+}

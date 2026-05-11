@@ -1,0 +1,49 @@
+{
+  "source_file": "CMI_q4_2015",
+  "timestamp": "2026-05-11T20:15:04.321967",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "CMI_q4_2015",
+      "key_points": [
+        "Revenue declined 6% YoY in Q4 2015, with gross margins remaining stable at 25.4%.",
+        "Profitability was impacted by unusual charges, including a $211 million impairment charge and a $60 million charge related to a quality issue.",
+        "Earnings quality is a concern due to one-time charges and lack of transparency on cash flow.",
+        "Management guidance is uncertain, with a focus on cost savings and operational improvements in 2016."
+      ],
+      "score": 5.5,
+      "reasoning": "Cummins' Q4 2015 results were mixed, with revenue decline and unusual charges impacting profitability. While gross margins remained stable, the company's earnings quality is a concern due to one-time charges and lack of transparency on cash flow. Management guidance is uncertain, with a focus on cost savings and operational improvements in 2016, which may not be enough to offset the challenges facing the company."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "CMI_q4_2015",
+      "key_points": [
+        "1-day market reaction signal: Mixed reaction to Q4 2015 earnings, with a $211 million noncash pre-tax impairment charge and a $60 million charge related to a quality issue.",
+        "1-week momentum driver: Strong execution on material cost reduction projects and lower warranty costs contributed to a 25.4% gross margin.",
+        "1-month fundamental positioning: Full-year EBIT margin was 12.5%, down from 13.2% in 2014, due to a change in other income or expense.",
+        "Key risk or macro factor: Challenging economic conditions and a stronger U.S. dollar impacted international operations, translating into fewer U.S. dollars."
+      ],
+      "score": 5.5,
+      "reasoning": "The 1-day market reaction signal is mixed due to the impairment charge and quality issue, but the 1-week momentum driver is strong due to cost reduction initiatives and lower warranty costs. The 1-month fundamental positioning is neutral, with a decline in EBIT margin due to a change in other income or expense. However, the company's execution on cost reduction projects and acquisitions is a positive sign. The key risk or macro factor is the challenging economic conditions and stronger U.S. dollar, which impacted international operations."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "CMI_q4_2015",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO's transparency and language precision on unusual charges and restructuring efforts.",
+        "Anchoring or confirmation bias observation from context: CEO frames initial numbers with a focus on unusual charges, which may influence investor perception.",
+        "Loss aversion or overconfidence signal: CEO addresses negatives (misses, risks, declines) by highlighting the company's commitment to its light-duty engine customers and confidence in growth prospects."
+      ],
+      "score": 5.0,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "CEO frames negatives by highlighting the company's commitment to its light-duty engine customers and confidence in growth prospects"
+      },
+      "reasoning": "The CEO's transparency and language precision on unusual charges and restructuring efforts indicate a moderate level of management credibility. However, the CEO's framing of initial numbers with a focus on unusual charges may influence investor perception, suggesting a potential anchoring bias. Overall, the CEO's tone is neutral, addressing negatives while highlighting the company's strengths and growth prospects."
+    }
+  }
+}

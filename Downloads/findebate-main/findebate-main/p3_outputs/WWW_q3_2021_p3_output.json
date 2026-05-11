@@ -1,0 +1,49 @@
+{
+  "source_file": "WWW_q3_2021",
+  "timestamp": "2026-05-11T21:34:07.262876",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "WWW_q3_2021",
+      "key_points": [
+        "Revenue growth of 35% YoY, beating expectations, with FY21 revenue guidance of $2.4B.",
+        "Profitability metrics not explicitly mentioned, but FY21 EPS guidance of $1.16-$1.21 suggests stable margins.",
+        "Earnings quality appears strong with FY21 adjusted EPS guidance range of $2.05-$2.10, indicating minimal one-time components.",
+        "Management guidance is cautious with a relatively narrow EPS range, but revenue growth is strong."
+      ],
+      "score": 7.0,
+      "reasoning": "Wolverine Worldwide's Q3 earnings show strong revenue growth of 35% YoY, beating expectations. However, profitability metrics are not explicitly mentioned, which is a mixed signal. The company's earnings quality appears strong with a narrow adjusted EPS guidance range, but management's cautious guidance on EPS suggests some risk. Overall, the company's fundamentals are mixed, leading to a score of 7.0."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "WWW_q3_2021",
+      "key_points": [
+        "1-day market reaction signal: Mixed reaction to Q3 EPS beat, but FY21 EPS guidance range slightly narrowed.",
+        "1-week momentum driver: Revenue growth momentum sustained with 35% YoY increase in FY revenue.",
+        "1-month fundamental positioning: Fundamental positioning remains neutral with FY21 EPS guidance range of $2.05-$2.10.",
+        "Key risk or macro factor: Potential risks from supply chain disruptions and inflationary pressures."
+      ],
+      "score": 5.5,
+      "reasoning": "Wolverine World Wide's Q3 earnings beat, but FY21 EPS guidance range was slightly narrowed, indicating some caution from management. The revenue growth momentum sustained with a 35% YoY increase in FY revenue, which is a positive sign. However, the fundamental positioning remains neutral with the FY21 EPS guidance range of $2.05-$2.10, indicating no significant changes in the company's outlook. The potential risks from supply chain disruptions and inflationary pressures are a key concern for the company's future performance."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "WWW_q3_2021",
+      "key_points": [
+        "Management credibility signal: High transparency with specific numbers, e.g., 'sees fy revenue up 35 percent'.",
+        "Anchoring bias observation: Management frames FY21 adjusted earnings per share in a narrow range ($2.05 to $2.10), potentially influencing investor expectations.",
+        "Loss aversion framing signal: Management addresses FY21 diluted earnings per share ($1.16 to $1.21) without explicitly framing it as a decline from prior expectations."
+      ],
+      "score": 6.0,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negatives (diluted earnings per share) in a range without emphasizing decline from prior expectations."
+      },
+      "reasoning": "Management demonstrates high transparency with specific numbers, but also exhibits anchoring bias by framing FY21 adjusted earnings per share in a narrow range, potentially influencing investor expectations. The tone remains neutral, neither overly cautious nor overly confident."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source_file": "DE_q4_2014",
+  "timestamp": "2026-05-11T20:22:29.572088",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "DE_q4_2014",
+      "key_points": [
+        "Revenue declined 5% to $8.965 billion, impacted by lower shipment volumes of large ag equipment.",
+        "Profitability was affected by lower production in factories, output hours down 35-55%, and negative impacts from product mix, engine emission regulations, and warranty costs.",
+        "Earnings quality was impacted by a one-time impairment charge for China operations, but cash flow was healthy with $3.5 billion returned to investors.",
+        "Management guidance indicates a 5% decline in cash receipts in 2015 due to lower commodity prices and a 17% decrease in crop receipts compared to 2012."
+      ],
+      "score": 5.5,
+      "reasoning": "Revenue declined 5% in Q4, which is a mixed signal. Profitability was impacted by various negative factors, but earnings quality was affected by a one-time impairment charge. Management guidance indicates a decline in cash receipts in 2015, which is a weak fundamental. Overall, the company's performance was solid despite weaker conditions in the global farm sector, but there are some concerns about the future."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "DE_q4_2014",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat, positive management tone, and catalysts from cost-cutting measures.",
+        "1-week momentum driver: Positive price realization, currency translation, and a decrease in production costs.",
+        "1-month fundamental positioning: Strong cash flow, dividend payments, and share repurchases, but a decline in farm income and equipment sales in targeted growth markets.",
+        "Key risk or macro factor: Unfavorable growing conditions, geopolitical tensions, and declining economic growth in targeted growth markets."
+      ],
+      "score": 5.5,
+      "reasoning": "The 1-day market reaction signal is strong due to a beat in earnings and positive management tone. The 1-week momentum driver is positive due to price realization and a decrease in production costs. However, the 1-month fundamental positioning is mixed due to a decline in farm income and equipment sales in targeted growth markets. The key risk or macro factor is the potential for unfavorable growing conditions and geopolitical tensions in targeted growth markets."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "DE_q4_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 4.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bearish",
+      "management_tone": "Cautious",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management framed negative news (e.g., weaker conditions in the global farm sector) in the context of overall solid performance."
+      },
+      "reasoning": "Management demonstrated cautious tone and transparency in addressing difficult questions, but also exhibited anchoring effects by framing initial numbers to set investor expectations. The loss aversion framing was observed in the context of overall solid performance, which mitigated the negative impact of weaker conditions in the global farm sector."
+    }
+  }
+}

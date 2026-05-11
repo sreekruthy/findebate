@@ -1,0 +1,49 @@
+{
+  "source_file": "ABM_q3_2021",
+  "timestamp": "2026-05-11T20:07:31.129947",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "ABM_q3_2021",
+      "key_points": [
+        "Revenue growth of 10.7% to $1.54 billion, beating expectations",
+        "Adjusted EPS of $0.90, but GAAP loss per share of $0.20 from continuing operations",
+        "Earnings quality concerns due to GAAP loss and one-time components",
+        "Raised adjusted EPS guidance for full year 2021 to $3.45-$3.55 per share"
+      ],
+      "score": 6.0,
+      "reasoning": "ABM's q3 revenue growth of 10.7% is a positive sign, but the GAAP loss per share of $0.20 from continuing operations raises concerns about earnings quality. The company's decision to raise adjusted EPS guidance suggests some confidence in its future prospects, but the mixed signals from the GAAP loss and one-time components prevent a stronger score."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "ABM_q3_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 10.7% revenue growth and raised guidance, positive management tone.",
+        "1-week momentum driver: Sustained momentum from earnings beat and guidance raise, potential for continued revenue growth.",
+        "1-month fundamental positioning: Improved earnings trajectory with raised guidance, potential for increased investor confidence.",
+        "Key risk or macro factor: Q3 GAAP loss per share from continuing operations, but adjusted earnings per share beat expectations."
+      ],
+      "score": 7.5,
+      "reasoning": "ABM Industries reported a strong earnings beat with 10.7% revenue growth and raised guidance, indicating a positive market reaction. The sustained momentum from this beat and guidance raise supports a bullish outlook for the next week. Looking ahead to the next month, the improved earnings trajectory and raised guidance suggest a fundamental positioning that is increasingly positive, with potential for increased investor confidence. However, the Q3 GAAP loss per share from continuing operations remains a risk factor."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "ABM_q3_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency rating due to direct Q&A responses and language precision with specific numbers.",
+        "Anchoring or confirmation bias observation: Management's initial framing of Q3 adjusted earnings per share ($0.90) may have anchored investor expectations, followed by a positive confirmation bias with raised guidance.",
+        "Loss aversion or overconfidence signal: Management's focus on adjusted earnings per share ($0.90) and raised guidance suggests a balanced approach, but may also indicate overconfidence in their ability to meet expectations."
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral/mixed",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management framed Q3 adjusted earnings per share as a positive, while addressing GAAP loss per share from continuing operations in a more neutral tone."
+      },
+      "reasoning": "Management's transparency and language precision in Q&A responses suggest a high level of credibility. However, the initial framing of Q3 adjusted earnings per share may have anchored investor expectations, and the raised guidance may indicate overconfidence. The focus on adjusted earnings per share and the balanced approach to addressing negatives suggest a neutral/mixed sentiment."
+    }
+  }
+}

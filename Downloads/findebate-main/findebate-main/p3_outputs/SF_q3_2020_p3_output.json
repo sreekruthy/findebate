@@ -1,0 +1,49 @@
+{
+  "source_file": "SF_q3_2020",
+  "timestamp": "2026-05-11T21:25:31.428764",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "SF_q3_2020",
+      "key_points": [
+        "Revenue growth of 8% YoY, driven by strong capital raising and trading activity, with record third quarter revenue and second best quarterly earnings per share.",
+        "Profitability maintained with pretax margins of 19.4% and annualized return on tangible common equity of 22.2%, despite higher compensation ratio.",
+        "Earnings quality is strong, with essentially no provision for loan losses and a stable credit quality at Stifel Bank.",
+        "Management guidance is positive, with expectations for another strong quarter for asset management revenue in Q4, driven by 8% sequential increase in fee-based client assets."
+      ],
+      "score": 8.2,
+      "reasoning": "Stifel's Q3 2020 results show strong revenue growth and maintained profitability, driven by diversified business mix and synergistic operations. Earnings quality is also strong, with minimal loan loss provisions and stable credit quality. Management guidance is positive, with expectations for continued growth in asset management revenue."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "SF_q3_2020",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with record revenue and EPS, management tone positive, and catalysts include strong capital raising and trading activity.",
+        "1-week momentum driver: Momentum sustained by continued growth in fee-based assets, strong recruiting, and record revenue and EPS.",
+        "1-month fundamental positioning: Fundamental positioning remains strong with diversified, balanced, and synergistic businesses, return on tangible common equity at 23.2%, and record revenue and EPS.",
+        "Key risk or macro factor: COVID-19 pandemic uncertainty and potential impact on U.S. economy"
+      ],
+      "score": 8.5,
+      "reasoning": "Stifel's Q3 2020 earnings call showed a strong market reaction signal with a beat in earnings and revenue, a positive management tone, and catalysts driving growth. Momentum was sustained in the following week with continued growth in fee-based assets and strong recruiting. Fundamental positioning remains strong with diversified businesses and a high return on equity. However, the COVID-19 pandemic uncertainty poses a key risk to the company's growth prospects."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "SF_q3_2020",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO Ron Kruszewski's transparent and confident tone, providing specific numbers and highlighting strengths in various business segments.",
+        "Anchoring or confirmation bias observation: CEO's emphasis on 'another great quarter' and 'record revenue' may anchor investor expectations for future performance.",
+        "Loss aversion or overconfidence signal: CEO's framing of negatives, such as decline in NII, as 'expected' and 'offset' by other strengths, suggests a balanced approach, but also hints at overconfidence."
+      ],
+      "score": 7.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "CEO framed negatives as 'expected' and 'offset' by other strengths, suggesting a balanced approach, but also hinting at overconfidence."
+      },
+      "reasoning": "CEO Ron Kruszewski's confident tone and transparent approach to discussing the company's performance suggest a bullish sentiment. However, the emphasis on 'another great quarter' and 'record revenue' may anchor investor expectations for future performance, and the framing of negatives as 'expected' and 'offset' by other strengths hints at overconfidence."
+    }
+  }
+}

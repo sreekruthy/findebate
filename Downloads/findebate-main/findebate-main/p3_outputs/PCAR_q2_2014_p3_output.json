@@ -1,0 +1,49 @@
+{
+  "source_file": "PCAR_q2_2014",
+  "timestamp": "2026-05-11T21:18:29.609878",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "PCAR_q2_2014",
+      "key_points": [
+        "Revenue growth of 6% year-over-year, driven by increased truck deliveries in the U.S. and Canada.",
+        "Profitability improved with 9% net income growth and 7% after-tax return on revenues.",
+        "Earnings quality is strong with record sales for PACCAR Parts and PACCAR Financial Services.",
+        "Management guidance is positive with expected 5% increase in truck deliveries in the third quarter."
+      ],
+      "score": 8.0,
+      "reasoning": "PACCAR's second quarter results were strong across all dimensions, with revenue growth of 6% year-over-year and 9% net income growth. Profitability improved with a 7% after-tax return on revenues. Earnings quality is strong with record sales for PACCAR Parts and PACCAR Financial Services. Management guidance is positive with expected 5% increase in truck deliveries in the third quarter, reflecting the continued strength of the North American Class 8 market."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "PCAR_q2_2014",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 9% net income increase and 10% PACCAR Parts revenue growth.",
+        "1-week momentum driver: Ongoing replacement of aging truck population and higher fleet utilization driven by record freight tonnage.",
+        "1-month fundamental positioning: Expectation of 5% truck delivery increase in Q3, with industry retail sales estimated at 230,000-250,000 trucks and 1.1% GDP growth in Europe.",
+        "Key risk or macro factor: Potential for economic slowdown in North America and Europe, with industry orders for Class 8 trucks in the U.S. and Canada increasing by 34% year-over-year."
+      ],
+      "score": 8.2,
+      "reasoning": "PACCAR's Q2 2014 earnings call showed a strong earnings beat, with 9% net income increase and 10% PACCAR Parts revenue growth. The company expects a 5% truck delivery increase in Q3, driven by ongoing replacement of aging truck population and higher fleet utilization. However, potential risks include economic slowdown in North America and Europe, with industry orders for Class 8 trucks in the U.S. and Canada increasing by 34% year-over-year, which may lead to supply chain disruptions."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "PCAR_q2_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management demonstrates transparency and language precision, with a tone consistency between prepared remarks and Q&A responses.",
+        "Anchoring or confirmation bias observation from context: Management anchors expectations with a 5% increase in truck deliveries in the third quarter, reinforcing the prevailing market narrative of a strong North American Class 8 market.",
+        "Loss aversion or overconfidence signal: Management frames negative news (aging truck population) as a positive driver of growth, and presents a confident outlook with specific numbers and targets."
+      ],
+      "score": 8.2,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management frames negative news (aging truck population) as a positive driver of growth."
+      },
+      "reasoning": "Management demonstrates a high level of transparency and language precision, with a tone consistency between prepared remarks and Q&A responses. The anchoring effect is observed in the 5% increase in truck deliveries in the third quarter, reinforcing the prevailing market narrative. Additionally, management frames negative news as a positive driver of growth, indicating overconfidence in their outlook."
+    }
+  }
+}

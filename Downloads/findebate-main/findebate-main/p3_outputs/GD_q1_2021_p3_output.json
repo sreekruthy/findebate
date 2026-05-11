@@ -1,0 +1,47 @@
+{
+  "source_file": "GD_q1_2021",
+  "timestamp": "2026-05-11T20:31:33.759626",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "GD_q1_2021",
+      "key_points": [
+        "Revenue growth of 7.3% driven by 6.6% increase in defense segment and 10.6% increase in marine segment, beating sell-side expectations by $640 million and $500 million respectively.",
+        "Operating margin of 10% is 70 basis points lower than the year-ago quarter, primarily due to a 250-basis-point lower margin rate at aerospace.",
+        "Earnings quality is strong, with a pure operations beat and no major one-time items, but cash flow is not explicitly discussed.",
+        "Management guidance is positive, with expectations for rapid improvement in the third and fourth quarters as production and deliveries increase."
+      ],
+      "score": 7.5,
+      "reasoning": "The company reported a strong quarter with revenue growth of 7.3% and operating earnings up $4 million, beating sell-side expectations. However, operating margin declined 70 basis points due to a lower margin rate at aerospace. Earnings quality is strong, but cash flow is not explicitly discussed. Management guidance is positive, with expectations for rapid improvement in the third and fourth quarters."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "GD_q1_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with $0.18 per share above consensus, driven by $500 million more in revenue and $50 million more in operating earnings.",
+        "1-week momentum driver: Aerospace segment's strong revenue growth, with a book-to-bill of 1.3:1 and a 5.7% increase in service revenue, driven by G500 and G600 deliveries.",
+        "1-month fundamental positioning: Defense segment's revenue growth, with a 6.6% increase in combat systems revenue, driven by sales of eight by eight-wheeled combat vehicles to Switzerland and Spain.",
+        "Key risk or macro factor: COVID-19 pandemic's impact on business travel and travel restrictions, which may affect demand for aerospace segment's products and services."
+      ],
+      "score": 8.5,
+      "reasoning": "The company's strong earnings beat and revenue growth across multiple segments, particularly aerospace and defense, indicate a positive trend. However, the COVID-19 pandemic's impact on business travel and travel restrictions poses a risk to demand for aerospace segment's products and services. Overall, the company's performance suggests a strong bullish signal, but with some caution due to the macro factor."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "GD_q1_2021",
+      "key_points": [
+        "Analysis failed \u2014 see reasoning"
+      ],
+      "score": 5.0,
+      "confidence": 0.7,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": false,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Not identified"
+      },
+      "reasoning": "Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kq0q3sa0f0btb3387c0d2xs1` service tier `on_demand` on tokens per day (TPD): Limit 500000, Used 499080, Requested 2448. Please try again in 4m24.0384s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    }
+  }
+}

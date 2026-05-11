@@ -1,0 +1,49 @@
+{
+  "source_file": "DNB_q2_2021",
+  "timestamp": "2026-05-11T20:23:32.866710",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "DNB_q2_2021",
+      "key_points": [
+        "Revenue growth of 24.4% YoY, beating expectations, but GAAP loss per share $0.12 indicates underlying challenges.",
+        "Profitability metrics are not explicitly mentioned, but GAAP loss per share suggests weak fundamentals.",
+        "Earnings quality is compromised due to GAAP loss, with no clear indication of recurring vs one-time components.",
+        "Management reiterates full-year 2021 outlook, but lack of specific forward-looking statements limits confidence."
+      ],
+      "score": 4.5,
+      "reasoning": "DNB's Q2 results show mixed signals, with revenue growth beating expectations, but GAAP loss per share indicating weak fundamentals. The lack of explicit profitability metrics and compromised earnings quality further reduce confidence. Management's reiteration of full-year 2021 outlook is a neutral signal, but the absence of specific forward-looking statements limits our ability to assess their confidence and risk disclosures."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "DNB_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Q2 adjusted earnings per share beat expectations ($0.25), but Q2 loss per share ($0.12) indicates mixed reaction.",
+        "1-week momentum driver: Dun & Bradstreet's 24.4% increase in GAAP revenue and 23.2% increase on a constant currency basis may sustain weekly performance.",
+        "1-month fundamental positioning: Reiterating full year 2021 outlook and mixed earnings reaction may indicate fundamental positioning and guidance trajectory uncertainty.",
+        "Key risk or macro factor: Forward-looking statements subject to risks and uncertainties, including potential material differences from projections."
+      ],
+      "score": 5.0,
+      "reasoning": "The mixed earnings reaction signal from Q2 adjusted earnings per share beat and Q2 loss per share indicates a neutral market reaction. The 24.4% increase in GAAP revenue and 23.2% increase on a constant currency basis may sustain weekly performance. However, reiterating the full year 2021 outlook and mixed earnings reaction may indicate fundamental positioning and guidance trajectory uncertainty, resulting in a neutral composite score."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "DNB_q2_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management demonstrated transparency by addressing Q&A questions directly, but language precision was lacking with vague qualitative hedges.",
+        "Anchoring or confirmation bias observation from context: Management anchored expectations with a previously provided full year 2021 outlook, reinforcing the prevailing market narrative.",
+        "Loss aversion or overconfidence signal: Management framed the loss per share ($0.12) as a 'loss' rather than a 'miss', exhibiting loss aversion framing."
+      ],
+      "score": 4.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bearish",
+      "management_tone": "Cautious",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Loss per share framed as a 'loss' rather than a 'miss'"
+      },
+      "reasoning": "Management's cautious tone and lack of language precision, combined with their anchoring of expectations and loss aversion framing, suggest a bearish sentiment. The company's GAAP revenue increase of 24.4% and adjusted revenue growth of 24.4% on a constant currency basis were overshadowed by the loss per share, contributing to the cautious tone."
+    }
+  }
+}

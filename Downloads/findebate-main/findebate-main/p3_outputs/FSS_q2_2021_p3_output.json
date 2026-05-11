@@ -1,0 +1,49 @@
+{
+  "source_file": "FSS_q2_2021",
+  "timestamp": "2026-05-11T20:29:25.306471",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "FSS_q2_2021",
+      "key_points": [
+        "Revenue growth of 24% year-over-year, exceeding expectations",
+        "Gross margin decreased to 24.4% due to commodity cost increases and supply chain disruptions",
+        "Earnings quality mixed, with one-time items affecting EPS growth",
+        "Management guidance cautious, citing ongoing supply chain disruptions and potential tax rate increase"
+      ],
+      "score": 6.5,
+      "reasoning": "Revenue growth was strong, but profitability was impacted by commodity cost increases and supply chain disruptions. Earnings quality was mixed, with one-time items affecting EPS growth. Management guidance was cautious, citing ongoing supply chain disruptions and potential tax rate increase, which contributed to a moderate overall score."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "FSS_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 24% sales growth and 37% EPS growth, management tone positive.",
+        "1-week momentum driver: High demand for public safety equipment in domestic and international markets, order intake and backlog growth.",
+        "1-month fundamental positioning: Consolidated operating income and adjusted EBITDA growth, but ESG adjusted EBITDA margin contraction.",
+        "Key risk or macro factor: Global semiconductor shortage and ongoing supply chain disruption."
+      ],
+      "score": 7.2,
+      "reasoning": "Federal Signal's Q2 earnings beat expectations with 24% sales growth and 37% EPS growth, driven by high demand for public safety equipment. However, ESG's adjusted EBITDA margin contracted due to increased commodity costs and supply chain disruptions. The company's strong order intake and backlog growth suggest sustained momentum, but the global semiconductor shortage and ongoing supply chain disruptions pose key risks."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "FSS_q2_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CFO Ian Hudson provides clear and detailed explanation of Q2 results, addressing potential concerns and highlighting strengths.",
+        "Anchoring or confirmation bias observation: Management frames Q2 results as 'outstanding' and 'exceeding expectations', setting a positive tone for investors.",
+        "Loss aversion or overconfidence signal: CFO Hudson acknowledges potential headwinds, including commodity costs and supply chain disruptions, but remains optimistic about future prospects."
+      ],
+      "score": 8.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management acknowledges potential headwinds, but frames them as manageable and emphasizes strengths."
+      },
+      "reasoning": "Management's clear and detailed explanation of Q2 results, combined with their optimistic tone and emphasis on strengths, suggests a bullish sentiment. The CFO's acknowledgement of potential headwinds is a sign of transparency and credibility, but does not detract from the overall positive narrative."
+    }
+  }
+}

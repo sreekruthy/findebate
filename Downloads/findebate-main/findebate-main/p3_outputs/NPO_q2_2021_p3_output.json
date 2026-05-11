@@ -1,0 +1,49 @@
+{
+  "source_file": "NPO_q2_2021",
+  "timestamp": "2026-05-11T21:13:58.831869",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "NPO_q2_2021",
+      "key_points": [
+        "Revenue growth beat expectations with $298.6M vs $273.6M Refinitiv Ibes estimate",
+        "Profitability showed improvement with adjusted EPS of $1.56, but guidance implies further upside",
+        "Earnings quality is strong with recurring components, but guidance excludes various one-time impacts",
+        "Management guidance is cautiously optimistic with raised sales and EPS targets"
+      ],
+      "score": 8.0,
+      "reasoning": "EnPro's Q2 results showed strong revenue growth and profitability, with adjusted EPS beating expectations. Management's guidance implies further upside, but excludes various one-time impacts, indicating a cautious optimism. Overall, the company's fundamentals are strong, with a balanced judgment leading to a final score of 8.0."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "NPO_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Beat earnings estimate, sales exceeded refinitiv ibes estimate, management tone positive.",
+        "1-week momentum driver: Strong sales growth, raised 2021 guidance ranges, positive catalysts.",
+        "1-month fundamental positioning: Improved earnings and sales trajectory, raised guidance, positive positioning.",
+        "Key risk or macro factor: COVID-19 pandemic and related governmental responses, potential impact on general economy."
+      ],
+      "score": 8.2,
+      "reasoning": "EnPro's Q2 2021 earnings beat estimate with $1.56 adjusted EPS, exceeding refinitiv ibes estimate. Sales also exceeded expectations at $298.6 million. Management tone was positive, with raised 2021 guidance ranges, indicating a strong earnings and sales trajectory. This positive positioning is sustained by strong sales growth and positive catalysts over the 1-week horizon, and is expected to continue over the 1-month horizon, with improved earnings and sales trajectory and raised guidance."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "NPO_q2_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency rating due to clear explanation of forward-looking statements and non-GAAP measures.",
+        "Anchoring or confirmation bias observation: Confirmation bias observed as management highlights beating Refinitiv IBEs estimate of $273.6 million, reinforcing positive market narrative.",
+        "Loss aversion or overconfidence signal: Loss aversion framing observed as management addresses negative news (COVID-19 impacts) in prepared remarks, but remains confident in guidance."
+      ],
+      "score": 7.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management addresses negative news (COVID-19 impacts) in prepared remarks, but remains confident in guidance."
+      },
+      "reasoning": "Management demonstrates high transparency in explaining forward-looking statements and non-GAAP measures, indicating a credible tone. The confirmation bias observed in highlighting beating Refinitiv IBEs estimate reinforces a positive market narrative. However, loss aversion framing is observed in addressing negative news, but management remains confident in guidance, indicating a bullish sentiment."
+    }
+  }
+}

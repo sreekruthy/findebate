@@ -1,0 +1,49 @@
+{
+  "source_file": "CMI_q1_2015",
+  "timestamp": "2026-05-11T20:10:47.696064",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "CMI_q1_2015",
+      "key_points": [
+        "Revenue growth of 7% YoY, driven by 17% growth in North America and 6% growth in Components segment.",
+        "Profitability declined due to 50bps decrease in gross margin and 130bps decrease in EBIT margin, offset by strong operational performance and material cost reduction.",
+        "Earnings quality is mixed, with 20% increase in joint venture income in China, but impairment of off-highway engine joint venture and higher warranty expenses.",
+        "Management guidance is positive, with expectation of lower warranty costs in H2 and increased profitability in Engine business, as well as strong incremental margins on organic growth in Distribution segment."
+      ],
+      "score": 6.0,
+      "reasoning": "Cummins' Q1 2015 earnings were mixed, with revenue growth of 7% YoY, but profitability declining due to gross margin and EBIT margin decreases. Earnings quality is also mixed, with positive joint venture income in China, but impairment of off-highway engine joint venture and higher warranty expenses. Management guidance is positive, with expectations of lower warranty costs and increased profitability in Engine business, as well as strong incremental margins on organic growth in Distribution segment. Overall, the company's fundamentals are weak, but guidance suggests potential for improvement in the future."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "CMI_q1_2015",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 7% revenue growth and 11.9% EBIT margin, offset by joint venture income decline.",
+        "1-week momentum driver: Positive guidance on acquisitions contributing 20% of earnings per share and adding $600 million in revenues.",
+        "1-month fundamental positioning: Strong operational performance, material cost reduction, and quality improvements driving profitability.",
+        "Key risk or macro factor: Currency impact reducing sales by 5% and EBIT decline due to acquisitions."
+      ],
+      "score": 7.5,
+      "reasoning": "The 1-day market reaction signal is strong due to a 7% revenue growth and 11.9% EBIT margin, despite joint venture income decline. The 1-week momentum driver is positive due to guidance on acquisitions contributing 20% of earnings per share and adding $600 million in revenues. The 1-month fundamental positioning is strong due to operational performance, material cost reduction, and quality improvements driving profitability. However, the currency impact reducing sales by 5% and EBIT decline due to acquisitions is a key risk or macro factor."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "CMI_q1_2015",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management framed negatives (joint venture income decline, warranty expenses) in context of overall strong performance"
+      },
+      "reasoning": "Management credibility is high due to transparency in discussing challenges (joint venture income decline, warranty expenses) and opportunities (acquisitions, quality improvements). Anchoring effect is detected as management frames initial numbers (7% revenue growth, 11.9% EBIT margin) to set investor expectations. Loss aversion framing is observed as management addresses negatives in context of overall strong performance."
+    }
+  }
+}

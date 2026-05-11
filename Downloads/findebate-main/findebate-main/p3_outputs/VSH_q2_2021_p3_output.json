@@ -1,0 +1,49 @@
+{
+  "source_file": "VSH_q2_2021",
+  "timestamp": "2026-05-11T21:33:17.018138",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "VSH_q2_2021",
+      "key_points": [
+        "Revenue growth was slightly below expectations, but within a narrow range.",
+        "Profitability metrics were mixed, with a slight decline in gross margin and stable operating margin.",
+        "Earnings quality was impacted by one-time components, but cash flow was strong.",
+        "Management guidance for q3 revenue was provided, but with a wide range of uncertainty."
+      ],
+      "score": 5.5,
+      "reasoning": "Vishay's q2 revenue growth was slightly below expectations, but still within a narrow range. Profitability metrics were mixed, with a slight decline in gross margin and stable operating margin. Earnings quality was impacted by one-time components, but cash flow was strong. Management guidance for q3 revenue was provided, but with a wide range of uncertainty, contributing to a mixed assessment of the company's fundamentals."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "VSH_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Earnings beat expectations, but revenue slightly missed Refinitiv IBEs estimate.",
+        "1-week momentum driver: Q3 revenue guidance within expectations, indicating potential for sustained growth.",
+        "1-month fundamental positioning: Strong earnings beat, but revenue miss and cautious Q3 guidance temper optimism.",
+        "Key risk or macro factor: Forward-looking statements subject to risks and uncertainties, which could impact actual results."
+      ],
+      "score": 5.5,
+      "reasoning": "The 1-day market reaction signal is neutral due to a slight revenue miss, but the earnings beat provides some support. The 1-week momentum driver is positive due to Q3 revenue guidance within expectations. However, the 1-month fundamental positioning is tempered by the revenue miss and cautious Q3 guidance, resulting in a mixed signal. The key risk factor is the forward-looking statements subject to risks and uncertainties, which could impact actual results."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "VSH_q2_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency rating, precise language, and consistent tone.",
+        "Anchoring or confirmation bias observation: Management frames Q3 revenue guidance as a range ($810 million to $850 million), which may anchor investor expectations.",
+        "Loss aversion or overconfidence signal: Management addresses Q2 earnings per share ($0.64) and revenue ($819 million) as 'solid' and 'in line with expectations', framing positives without downplaying negatives."
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Framed positives without downplaying negatives, e.g., 'solid' Q2 earnings per share"
+      },
+      "reasoning": "Management demonstrated high transparency, precise language, and consistent tone, indicating a high credibility signal. However, the framing of Q3 revenue guidance as a range may anchor investor expectations, and the lack of downplaying negatives suggests a neutral tone."
+    }
+  }
+}

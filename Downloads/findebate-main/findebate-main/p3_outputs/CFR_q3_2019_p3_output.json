@@ -1,0 +1,49 @@
+{
+  "source_file": "CFR_q3_2019",
+  "timestamp": "2026-05-11T20:08:47.641676",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "CFR_q3_2019",
+      "key_points": [
+        "Revenue growth was flat year-over-year, with earnings per share decreasing from $1.78 to $1.73.",
+        "Profitability was mixed, with a decrease in return on average assets from 1.49% to 1.35%, but an increase in quarterly cash dividend by 6% to $0.71 per share.",
+        "Earnings quality was strong, with low net charge-offs of 17 basis points of average loans and a decrease in energy-related problem loans.",
+        "Guidance was weak, with a decrease in new loan commitments booked during the third quarter and a higher percentage of deals lost to structure."
+      ],
+      "score": 5.0,
+      "reasoning": "The company's revenue growth was flat year-over-year, and profitability was mixed due to a decrease in return on average assets. However, earnings quality was strong, with low net charge-offs and a decrease in energy-related problem loans. Guidance was weak, with a decrease in new loan commitments booked and a higher percentage of deals lost to structure, which offsets the strong earnings quality."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "CFR_q3_2019",
+      "key_points": [
+        "1-day market reaction signal: Q3 earnings per share $1.73, beating $1.78 a share in the same quarter last year.",
+        "1-week momentum driver: Growth in C&I CRE and Consumer segments, with average loans up 5.8% from the third quarter of last year.",
+        "1-month fundamental positioning: Increase in quarterly cash dividend by 6% to $0.71 per share, with overall credit quality remaining good.",
+        "Key risk or macro factor: Increase in provision for loan losses to $8 million in the third quarter, up from $6.4 million in the second quarter of 2019."
+      ],
+      "score": 6.5,
+      "reasoning": "CFR_q3_2019 shows a mixed signal with a beat on earnings per share, but a decrease in dollar amount of new loan commitments booked during the third quarter. The increase in quarterly cash dividend suggests a positive sentiment, while the increase in provision for loan losses and net charge-offs indicates some caution. Overall, the company's credit quality remains good, but the momentum drivers are not as strong as in previous quarters."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "CFR_q3_2019",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 5.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": false,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negative news (missed EPS, higher provision for loan losses) in context of overall good credit quality and growth in C&I CRE and Consumer segments."
+      },
+      "reasoning": "Management's tone is neutral, neither overly confident nor defensive. They address negative news (missed EPS, higher provision for loan losses) but frame it in a way that emphasizes overall good credit quality and growth in key segments. This suggests a cautious but not overly pessimistic outlook."
+    }
+  }
+}

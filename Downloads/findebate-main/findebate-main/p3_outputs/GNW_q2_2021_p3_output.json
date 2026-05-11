@@ -1,0 +1,49 @@
+{
+  "source_file": "GNW_q2_2021",
+  "timestamp": "2026-05-11T21:01:02.669381",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "GNW_q2_2021",
+      "key_points": [
+        "Revenue growth was strong, driven by continued performance in U.S. mortgage insurance and long-term care insurance businesses.",
+        "Profitability was strong, with gross margin and operating margin improving due to lower losses and higher reserve strengthening.",
+        "Earnings quality was mixed, with recurring components driving results, but one-time items such as benefit reductions and legal settlements also contributing.",
+        "Management guidance was positive, with a focus on reducing holding company debt and creating financial flexibility for shareholder returns and investments."
+      ],
+      "score": 7.0,
+      "reasoning": "Genworth's Q2 2021 earnings were strong, driven by continued performance in U.S. mortgage insurance and long-term care insurance businesses. However, earnings quality was mixed, with recurring components driving results, but one-time items also contributing. Management guidance was positive, with a focus on reducing holding company debt and creating financial flexibility for shareholder returns and investments. Overall, the company's strong performance and strategic focus justify a score of 7.0."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "GNW_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with Enact's adjusted operating income of 135 million, beating prior quarter and prior-year period.",
+        "1-week momentum driver: Continued strong performance in U.S. mortgage insurance business (Enact) with lower new delinquencies and improved loss ratio.",
+        "1-month fundamental positioning: Genworth's strategic plan to reduce holding company debt and create long-term value, with a goal to reduce debt to 1 billion.",
+        "Key risk or macro factor: Risk associated with legacy LTC insurance blocks, but Genworth has made progress to reduce this risk."
+      ],
+      "score": 8.2,
+      "reasoning": "Genworth's strong earnings beat and continued momentum in Enact's performance suggest a bullish trend. However, the risk associated with legacy LTC insurance blocks remains a concern. The company's strategic plan to reduce holding company debt and create long-term value provides a solid foundation for future growth."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "GNW_q2_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management is transparent about limitations on discussing IPO plans, but provides detailed financial information.",
+        "Anchoring or confirmation bias observation from context: Management frames Enact's strong performance as a key driver of Genworth's success, reinforcing positive market narrative.",
+        "Loss aversion or overconfidence signal: Management addresses risks and challenges, but also expresses confidence in Genworth's future prospects and ability to return capital to shareholders."
+      ],
+      "score": 7.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management frames risks and challenges, but also highlights strong financial performance and future prospects."
+      },
+      "reasoning": "Management's transparency and detailed financial information suggest a high level of credibility. The framing of Enact's strong performance as a key driver of Genworth's success reinforces a positive market narrative, indicating anchoring bias. However, management's confidence in Genworth's future prospects and ability to return capital to shareholders suggests overconfidence, but also a bullish outlook."
+    }
+  }
+}

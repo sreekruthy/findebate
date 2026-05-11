@@ -1,0 +1,49 @@
+{
+  "source_file": "DE_q2_2014",
+  "timestamp": "2026-05-11T20:18:15.309233",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "DE_q2_2014",
+      "key_points": [
+        "Revenue declined 9% to $9.9 billion, with a 12% drop in Agriculture & Turf sales.",
+        "Profitability was strong, with EPS of $2.65, the second highest in company history.",
+        "Earnings quality was mixed, with a $1.2 billion operating profit in Agriculture & Turf, but a decline in construction and forestry operations.",
+        "Management guidance was cautious, with a 5-10% decline in Ag industry sales expected for the U.S. and Canada."
+      ],
+      "score": 6.2,
+      "reasoning": "The company's revenue declined 9% to $9.9 billion, which is a mixed signal. However, profitability was strong, with EPS of $2.65, the second highest in company history. Earnings quality was also mixed, with a $1.2 billion operating profit in Agriculture & Turf, but a decline in construction and forestry operations. Management guidance was cautious, with a 5-10% decline in Ag industry sales expected for the U.S. and Canada, which suggests a weak outlook for the company's fundamentals."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "DE_q2_2014",
+      "key_points": [
+        "1-day market reaction signal: Solid earnings performance with net income of $981 million and EPS of $2.65, second highest in company history.",
+        "1-week momentum driver: Positive price realization in the quarter, operating profit of $1.2 billion in Agriculture & Turf, and strong beef prices and near record milk prices in the EU 28.",
+        "1-month fundamental positioning: Lower farm cash receipts forecasted in 2014, global grain stocks to use ratios remain at sensitive levels, and differentiated picture exists by country in targeted growth markets.",
+        "Key risk or macro factor: Potential impact of geo-political tensions between Russia and Ukraine on crop production and equipment sales in the CIS."
+      ],
+      "score": 5.5,
+      "reasoning": "The 1-day market reaction signal is strong, driven by solid earnings performance. However, the 1-week momentum driver is mixed, with positive price realization and operating profit in Agriculture & Turf, but also concerns about lower farm cash receipts and global grain stocks to use ratios. The 1-month fundamental positioning is neutral, with a differentiated picture existing by country in targeted growth markets. The key risk or macro factor is the potential impact of geo-political tensions between Russia and Ukraine on crop production and equipment sales in the CIS."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "DE_q2_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management demonstrates transparency and language precision, with a tone consistency between prepared remarks and Q&A responses.",
+        "Anchoring or confirmation bias observation from context: Management frames the 9% decline in net sales as a 'solid performance' and emphasizes the company's 'broad based business lineup', which may reinforce a positive narrative.",
+        "Loss aversion or overconfidence signal: Management addresses the decline in Ag and turf profits, but frames it as a 'somewhat lower' performance, which may indicate a cautious tone."
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral/mixed",
+      "management_tone": "Cautious",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames the decline in Ag and turf profits as a 'somewhat lower' performance, which may indicate a cautious tone."
+      },
+      "reasoning": "Management demonstrates a cautious tone, acknowledging the decline in Ag and turf profits, but framing it as a 'somewhat lower' performance. The emphasis on the company's 'broad based business lineup' may reinforce a positive narrative, but the overall tone is cautious. This suggests a neutral/mixed sentiment."
+    }
+  }
+}

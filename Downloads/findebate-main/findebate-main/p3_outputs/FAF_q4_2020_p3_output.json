@@ -1,0 +1,49 @@
+{
+  "source_file": "FAF_q4_2020",
+  "timestamp": "2026-05-11T20:27:12.410570",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "FAF_q4_2020",
+      "key_points": [
+        "Revenue growth of 24% to $2.2 billion, but ARPO down 6%.",
+        "EPS of $2.49, but profitability metrics not explicitly mentioned.",
+        "Earnings quality concerns due to lack of cash flow information and one-time share repurchase plan.",
+        "Management guidance not explicitly mentioned, but forward-looking statements present."
+      ],
+      "score": 5.5,
+      "reasoning": "The company's revenue growth of 24% to $2.2 billion is a positive sign, but the decline in average revenue per order (ARPO) by 6% raises concerns. The EPS of $2.49 is also a positive, but the lack of explicit profitability metrics and cash flow information makes it difficult to assess earnings quality. The board's approval of a new $300 million share repurchase plan may be seen as a one-time event, which further clouds earnings quality. Overall, the mixed signals from these dimensions justify a score of 5.5."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "FAF_q4_2020",
+      "key_points": [
+        "1-day market reaction signal: Q4 EPS beat expectations at $2.49, with 24% revenue growth, but ARPO down 6%.",
+        "1-week momentum driver: Share repurchase plan and forward-looking statements on operational efficiency and performance.",
+        "1-month fundamental positioning: Strong revenue growth, but cautious guidance on ARPO, with risks and uncertainties from forward-looking statements.",
+        "Key risk or macro factor: Risks and uncertainties from forward-looking statements, including potential impact on ARPO and overall performance."
+      ],
+      "score": 5.5,
+      "reasoning": "The 1-day market reaction is positive due to beating EPS expectations, but cautious due to ARPO decline. The 1-week momentum driver is the share repurchase plan, which could sustain performance. However, the 1-month fundamental positioning is mixed, with strong revenue growth but cautious guidance on ARPO and risks from forward-looking statements. Overall, the score reflects a neutral to slightly bullish outlook, with a confidence level of 70-80%."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "FAF_q4_2020",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency rating due to direct Q&A engagement, precise language use, and consistent tone.",
+        "Anchoring or confirmation bias observation: Management frames q4 earnings per share ($2.49) as a positive, potentially anchoring investor expectations for future performance.",
+        "Loss aversion or overconfidence signal: Loss aversion framing observed as management addresses qtrly average revenue per order decline (6%) in the context of overall revenue growth (24%)."
+      ],
+      "score": 6.0,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management framed decline in average revenue per order as a minor setback in the context of overall revenue growth."
+      },
+      "reasoning": "Management demonstrated high transparency and precise language use, which contributed to a neutral sentiment score. However, the framing of q4 earnings per share as a positive and the loss aversion framing of the revenue per order decline suggest a cautious tone, which is consistent with a bearish sentiment. Overall, the mixed signals result in a neutral/mixed sentiment score."
+    }
+  }
+}

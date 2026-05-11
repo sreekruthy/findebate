@@ -1,0 +1,49 @@
+{
+  "source_file": "NEE_q3_2021",
+  "timestamp": "2026-05-11T21:13:30.689035",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "NEE_q3_2021",
+      "key_points": [
+        "Revenue growth was not explicitly mentioned, but the company announced an acquisition of a 100MW operating wind asset in California for $280 million.",
+        "Profitability is strong with a significant difference between GAAP EPS ($0.23) and adjusted EPS ($0.75), indicating the impact of one-time items.",
+        "Earnings quality is mixed due to the presence of one-time components from the acquisition, but cash flow is not explicitly mentioned.",
+        "Management guidance is positive with expected 2021 adjusted EPS of $2.40-$2.54 and 2022 run-rate expectations of 23% and 13% growth from 2021 adjusted EBITDA."
+      ],
+      "score": 6.5,
+      "reasoning": "The company's strong profitability and positive management guidance are offset by the presence of one-time components from the acquisition and mixed earnings quality. The significant difference between GAAP and adjusted EPS suggests that the company is managing earnings, but the guidance is still positive, leading to a score of 6.5."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "NEE_q3_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with Q3 GAAP EPS $0.23 and Q3 adj. EPS $0.75, beating expectations.",
+        "1-week momentum driver: Acquisition of 100-MW operating wind asset in California, supporting 2022 growth expectations.",
+        "1-month fundamental positioning: 2022 run-rate expectations of 23% and 13% growth from 2021 adjusted EBITDA, CAFD midpoints.",
+        "Key risk or macro factor: Continued reliance on renewable energy sector, subject to regulatory and market fluctuations."
+      ],
+      "score": 8.2,
+      "reasoning": "The company's Q3 earnings beat expectations, driven by strong adjusted EPS of $0.75. The acquisition of a 100-MW operating wind asset in California provides a catalyst for 2022 growth, with expected run-rate growth of 23% and 13% from 2021 adjusted EBITDA and CAFD midpoints. However, the company's reliance on the renewable energy sector introduces a key risk factor, subject to regulatory and market fluctuations."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "NEE_q3_2021",
+      "key_points": [
+        "Management credibility signal: High transparency rating due to direct address of Q&A questions and specific numbers.",
+        "Anchoring or confirmation bias observation: Confirmation bias detected as management reinforces prevailing market narrative with positive growth expectations.",
+        "Loss aversion or overconfidence signal: Loss aversion framing observed as management acknowledges acquisition risks but maintains confidence in adjusted earnings per share range."
+      ],
+      "score": 6.5,
+      "confidence": 0.75,
+      "sentiment_label": "Neutral/mixed",
+      "management_tone": "Neutral",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames acquisition risks as a necessary step to maintain adjusted earnings per share range."
+      },
+      "reasoning": "Management's transparency and specificity in Q&A responses contribute to a high credibility rating. However, confirmation bias is detected as management reinforces the prevailing market narrative with positive growth expectations. Loss aversion framing is observed as management acknowledges acquisition risks but maintains confidence in adjusted earnings per share range."
+    }
+  }
+}

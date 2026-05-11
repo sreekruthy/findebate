@@ -1,0 +1,49 @@
+{
+  "source_file": "CPF_q4_2019",
+  "timestamp": "2026-05-11T20:16:09.203241",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "CPF_q4_2019",
+      "key_points": [
+        "Revenue growth was strong, with net interest income increasing by $2.3 million to $47.9 million in the fourth quarter.",
+        "Profitability was solid, with a net interest margin of 3.43% and return on average equity of 10.70% in the fourth quarter.",
+        "Earnings quality was good, with a low level of non-performing assets and a strong capital position.",
+        "Management guidance was positive, with the CEO highlighting the company's RISE2020 initiative to drive stronger long-term growth and profitability."
+      ],
+      "score": 7.5,
+      "reasoning": "The company's revenue growth was strong, driven by an increase in net interest income. However, profitability was slightly mixed, with a net interest margin that was slightly lower than the prior quarter. Earnings quality was good, with a low level of non-performing assets and a strong capital position. Management guidance was positive, with the CEO highlighting the company's RISE2020 initiative to drive stronger long-term growth and profitability."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "CPF_q4_2019",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 0.50 per diluted share, 0.95% return on average assets, and 10.70% return on average equity.",
+        "1-week momentum driver: Loan and core deposit growth, solid asset quality, and capital ratios.",
+        "1-month fundamental positioning: RISE2020 initiative to enhance customer experience, drive stronger long-term growth, and improve shareholder returns.",
+        "Key risk or macro factor: Hawaii economy's reliance on tourism and construction activity, which may be affected by global economic trends."
+      ],
+      "score": 7.2,
+      "reasoning": "The 1-day market reaction signal is strong due to the earnings beat and solid financial performance. The 1-week momentum driver is driven by loan and core deposit growth, solid asset quality, and capital ratios. The 1-month fundamental positioning is positive due to the RISE2020 initiative and the company's efforts to enhance customer experience and drive stronger long-term growth. However, the key risk or macro factor is the Hawaii economy's reliance on tourism and construction activity, which may be affected by global economic trends."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "CPF_q4_2019",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis max 25 words",
+        "Anchoring or confirmation bias observation from context max 25 words",
+        "Loss aversion or overconfidence signal max 25 words"
+      ],
+      "score": 7.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": false,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management framed negatives as 'planned decreases' and 'higher cost government time deposits'"
+      },
+      "reasoning": "Management presented a confident tone, highlighting solid financial performance, loan and core deposit growth, and strong capital position. They also addressed potential negatives, such as planned decreases in deposits, in a neutral and matter-of-fact manner. The CEO's emphasis on the company's RISE2020 initiative and its progress suggests a positive outlook and confidence in the company's future."
+    }
+  }
+}

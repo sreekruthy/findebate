@@ -1,0 +1,49 @@
+{
+  "source_file": "FN_q2_2021",
+  "timestamp": "2026-05-11T20:28:27.790900",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "FN_q2_2021",
+      "key_points": [
+        "Revenue growth exceeded expectations, driven by automotive programs with 30% sequential growth and 100% YoY growth.",
+        "Profitability improved with gross margin and operating margin at their highest levels in over a year, driven by efficiency gains.",
+        "Earnings quality is strong, with recurring components driving growth, but one-time benefits from automotive programs contributed to EPS growth.",
+        "Management guidance is optimistic, with expectations for another record-breaking quarter in Q3, driven by growth from new products and programs."
+      ],
+      "score": 7.5,
+      "reasoning": "Fabrinet's Q2 results exceeded expectations, driven by strong growth in automotive programs. Profitability improved due to efficiency gains, but earnings quality is somewhat mixed due to one-time benefits. Management guidance is optimistic, but with some risk factors mentioned in the call. Overall, the company's strong revenue growth and improving profitability justify a score of 7.5."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "FN_q2_2021",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with revenue growth of 30% in automotive programs and record revenue of $453.8 million.",
+        "1-week momentum driver: Automotive revenue growth, expansion of manufacturing footprint, and optimism for Q3.",
+        "1-month fundamental positioning: Focus on driving efficiencies, improvements in gross margin and operating margin, and confidence in ability to scale business.",
+        "Key risk or macro factor: Uncertainty around datacom revenue and potential risks from COVID-19 pandemic."
+      ],
+      "score": 8.2,
+      "reasoning": "Fabrinet's Q2 earnings call showed strong momentum with a 30% growth in automotive programs, record revenue, and expansion of manufacturing footprint. The company's focus on driving efficiencies and improvements in gross margin and operating margin also bode well for future growth. However, uncertainty around datacom revenue and potential risks from the COVID-19 pandemic remain key risks to consider."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "FN_q2_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO provides specific numbers and growth rates, CFO provides detailed financial analysis, both answer Q&A directly.",
+        "Anchoring or confirmation bias observation: Management frames Q2 as a 'record quarter' and Q3 as 'another record-breaking quarter', reinforcing positive market narrative.",
+        "Loss aversion or overconfidence signal: CEO mentions 'unexpected positive surprise' from automotive programs, but also expresses optimism about future growth and expansion plans."
+      ],
+      "score": 8.2,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management frames Q2 as a 'record quarter' and Q3 as 'another record-breaking quarter', downplaying potential risks and emphasizing positive growth."
+      },
+      "reasoning": "Management's confident tone and specific numbers suggest a bullish sentiment, but the CEO's mention of an 'unexpected positive surprise' from automotive programs may indicate some degree of overconfidence. The CFO's detailed financial analysis and direct Q&A answers suggest high management credibility."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source_file": "PCAR_q1_2014",
+  "timestamp": "2026-05-11T21:15:25.862845",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "PCAR_q1_2014",
+      "key_points": [
+        "Revenue growth of 4% YoY, driven by increased truck deliveries in the U.S. and Canada.",
+        "Profitability improved, with gross margins expected to increase in the second quarter due to higher production levels and operating efficiency.",
+        "Earnings quality is strong, with 16% net income growth and 18% increase in pretax income for PACCAR Parts.",
+        "Management guidance is positive, with expected 8-10% increase in truck deliveries in the second quarter and improving economic trends in North America and Europe."
+      ],
+      "score": 8.0,
+      "reasoning": "PACCAR's first quarter results were strong across all dimensions. Revenue growth of 4% YoY was driven by increased truck deliveries in the U.S. and Canada, while profitability improved with expected higher gross margins in the second quarter. Earnings quality is also strong, with 16% net income growth and 18% increase in pretax income for PACCAR Parts. Management guidance is positive, with expected 8-10% increase in truck deliveries in the second quarter and improving economic trends in North America and Europe."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "PCAR_q1_2014",
+      "key_points": [
+        "PACCAR reported improved revenues and net income for the first quarter of 2014, with a 16% increase in net income compared to the same period last year.",
+        "Momentum drivers sustaining weekly performance include a 4% increase in truck deliveries in the U.S. and Canada, and improving construction in automotive sectors.",
+        "Fundamental positioning and guidance trajectory indicate a strong balance sheet, positive cash flow, and investment in new products and facilities.",
+        "Key risk or macro factor: potential impact of Euro 6 truck prices on European market demand"
+      ],
+      "score": 8.2,
+      "reasoning": "PACCAR's first quarter earnings call indicates a strong start to the year, with improved revenues and net income driven by increased truck deliveries in the U.S. and Canada. Momentum drivers sustaining weekly performance include the ongoing replacement of the aging truck population and improving construction in automotive sectors. Fundamental positioning and guidance trajectory suggest a strong balance sheet and positive cash flow, with investment in new products and facilities. However, the potential impact of Euro 6 truck prices on European market demand is a key risk or macro factor to consider."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "PCAR_q1_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO provides specific numbers and positive outlook, indicating transparency and confidence.",
+        "Anchoring or confirmation bias observation from context: Management frames Q1 results as 'improved' and '16% increase' to set a positive tone and reinforce market narrative.",
+        "Loss aversion or overconfidence signal: CEO addresses negatives (aging truck population, Euro 5 vehicle prices) in a matter-of-fact manner, without expressing undue concern or overconfidence."
+      ],
+      "score": 7.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management addresses negatives in a matter-of-fact manner, without expressing undue concern or overconfidence."
+      },
+      "reasoning": "The CEO's specific numbers and positive outlook indicate transparency and confidence. The framing of Q1 results as 'improved' and '16% increase' is an example of anchoring, reinforcing the market narrative. However, the CEO's matter-of-fact address of negatives suggests a balanced tone, rather than overconfidence."
+    }
+  }
+}

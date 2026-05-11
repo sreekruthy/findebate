@@ -1,3 +1,6 @@
+# sentiment_agent.py — Person 3 | Group A | Module 2
+# Updated with confidence clamp (70-80%), source_file, behavioral_flags
+
 import json
 import os
 from groq import Groq
@@ -5,7 +8,6 @@ from dotenv import load_dotenv
 from sentiment_analyst.prompts import SENTIMENT_SYSTEM_PROMPT, build_sentiment_user_prompt
 
 load_dotenv()
-
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 
@@ -28,10 +30,7 @@ def _error_result(company: str, error_msg: str) -> dict:
     }
 
 
-def run_sentiment_analyst(
-    company: str,
-    context_chunks: list,
-) -> dict:
+def run_sentiment_analyst(company: str, context_chunks: list) -> dict:
     if not context_chunks:
         return _error_result(company, "No context chunks provided.")
 
@@ -47,7 +46,7 @@ def run_sentiment_analyst(
             model="llama-3.1-8b-instant",
             messages=[
                 {"role": "system", "content": SENTIMENT_SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt}
+                {"role": "user",   "content": user_prompt}
             ],
             temperature=0.3,
             max_tokens=1200,
@@ -62,16 +61,16 @@ def run_sentiment_analyst(
 
         result = json.loads(raw_text)
 
-        # Clamp score between 0 and 10
+        # Clamp score 0-10
         result["score"] = max(0.0, min(10.0, float(result["score"])))
 
-        # Clamp confidence between 0.70 and 0.80 (calibration requirement)
+        # Enforce 70-80% confidence calibration requirement
         result["confidence"] = round(max(0.70, min(0.80, float(result.get("confidence", 0.75)))), 2)
 
-        # Add source_file if model didn't include it
+        # Add source_file if missing
         result.setdefault("source_file", "clean_clean_clean_earnings_q1.txt / clean_news1.txt")
 
-        # Add behavioral_flags if model didn't include it
+        # Add behavioral_flags if missing
         result.setdefault("behavioral_flags", {
             "anchoring_detected": False,
             "overconfidence_detected": False,

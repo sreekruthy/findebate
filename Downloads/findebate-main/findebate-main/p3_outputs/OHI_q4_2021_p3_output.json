@@ -1,0 +1,49 @@
+{
+  "source_file": "OHI_q4_2021",
+  "timestamp": "2026-05-11T21:14:35.227713",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "OHI_q4_2021",
+      "key_points": [
+        "Revenue growth was flat due to paused skilled nursing facility occupancy recovery and labor force stress.",
+        "Profitability was maintained with adjusted FFO per share at $0.77 and funds available for distribution at $0.72 per share.",
+        "Earnings quality is mixed due to one-time components from rent deferrals and restructuring efforts.",
+        "Guidance is cautious with uncertainty around industry occupancy recovery and labor force pressures."
+      ],
+      "score": 5.5,
+      "reasoning": "The company's revenue growth was flat due to the paused skilled nursing facility occupancy recovery and labor force stress. However, profitability was maintained with adjusted FFO per share at $0.77 and funds available for distribution at $0.72 per share. Earnings quality is mixed due to one-time components from rent deferrals and restructuring efforts. Management guidance is cautious with uncertainty around industry occupancy recovery and labor force pressures, which suggests a mixed outlook for the company's future performance."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "OHI_q4_2021",
+      "key_points": [
+        "1-day market reaction signal: Earnings beat with $0.77 adjusted FFO per share, but Omicron COVID impact on SNF occupancy recovery and labor shortages are concerns.",
+        "1-week momentum driver: Neutral momentum due to mixed signals from earnings call, with some positive aspects (e.g., 21% of facilities at or above pre-COVID occupancy levels) offset by negative ones (e.g., labor shortages and occupancy decline).",
+        "1-month fundamental positioning: Neutral fundamental positioning due to ongoing labor shortages and uncertainty around industry occupancy recovery, but also some positive signs (e.g., maintained quarterly dividend and cushioned dividend payout ratio).",
+        "Key risk or macro factor: Labor shortages and uncertainty around industry occupancy recovery due to Omicron COVID impact."
+      ],
+      "score": 5.5,
+      "reasoning": "The earnings call provided mixed signals, with a beat on adjusted FFO per share but concerns around Omicron COVID impact on SNF occupancy recovery and labor shortages. While there are some positive signs, such as maintained quarterly dividend and cushioned dividend payout ratio, the overall fundamental positioning is neutral due to ongoing labor shortages and uncertainty around industry occupancy recovery. The key risk or macro factor is the labor shortages and uncertainty around industry occupancy recovery due to Omicron COVID impact."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "OHI_q4_2021",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: CEO Taylor Pickett provides specific numbers and acknowledges challenges in the skilled nursing facility industry, but maintains a hopeful tone.",
+        "Anchoring or confirmation bias observation: Management frames adjusted FFO per share at $0.77, which may anchor investor expectations, but also highlights the impact of Omicron on occupancy recovery.",
+        "Loss aversion or overconfidence signal: Management addresses negative news (staffing shortages, labor force stress) but frames it as 'rapid and transitory' and expresses hope for full occupancy recovery over time."
+      ],
+      "score": 4.5,
+      "confidence": 0.75,
+      "sentiment_label": "Bearish",
+      "management_tone": "Cautious",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negative news as 'rapid and transitory' to mitigate its impact on investor expectations."
+      },
+      "reasoning": "Management's cautious tone and specific numbers suggest a bearish sentiment, while their hopeful framing of negative news may anchor investor expectations. However, the acknowledgment of challenges in the skilled nursing facility industry and the impact of Omicron on occupancy recovery temper the overall sentiment."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source_file": "KMT_q1_2022",
+  "timestamp": "2026-05-11T21:04:44.330754",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "KMT_q1_2022",
+      "key_points": [
+        "Revenue growth of 19% organically year-over-year, outpacing seasonal trend, with growth in all regions and end markets.",
+        "Adjusted EBITDA margin improved significantly by 730 basis points to 18.6%, demonstrating operating leverage.",
+        "Adjusted EPS improved to $0.44, with free cash flow approximately breakeven.",
+        "Guidance for Q2 sales up 9-14% year-over-year, with relative strength in end markets outside of transportation."
+      ],
+      "score": 7.5,
+      "reasoning": "Kennametal's Q1 2022 results show strong revenue growth and improved profitability, with adjusted EBITDA margin increasing by 730 basis points. However, guidance for Q2 sales is cautious due to supply chain bottlenecks and uncertainties, which may impact customer production levels. Despite this, the company remains confident in driving strong underlying operating leverage for the full year."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "KMT_q1_2022",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat, 19% organic sales growth, and improved EBITDA margin.",
+        "1-week momentum driver: Momentum sustained by strong commercial and operational excellence initiatives, and improvement in underlying demand.",
+        "1-month fundamental positioning: Expectation of 9-14% year-over-year sales growth in Q2, and continued focus on commercial excellence initiatives.",
+        "Key risk or macro factor: Supply chain bottlenecks and chip shortages affecting customer production levels, and potential power disruptions in China."
+      ],
+      "score": 7.2,
+      "reasoning": "Kennametal's Q1 2022 earnings call showed a strong market reaction signal, with a 19% organic sales growth and improved EBITDA margin. The momentum driver is sustained by the company's commercial and operational excellence initiatives, and improvement in underlying demand. Looking ahead, the company expects 9-14% year-over-year sales growth in Q2, driven by its focus on commercial excellence initiatives. However, supply chain bottlenecks and chip shortages, as well as potential power disruptions in China, pose key risks to the company's growth prospects."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "KMT_q1_2022",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency and language precision, CEO and CFO provide detailed explanations and specific numbers.",
+        "Anchoring or confirmation bias observation: Management frames Q2 sales growth as 9% to 14% year-over-year, which may anchor investor expectations.",
+        "Loss aversion or overconfidence signal: CEO remains confident in driving strong underlying operating leverage for the full year, despite existing market and supply chain uncertainties."
+      ],
+      "score": 7.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management addresses negatives (chip shortages, supply chain challenges) by framing them as temporary and manageable, while highlighting positives (strong underlying demand, growth in other end markets)."
+      },
+      "reasoning": "Management demonstrates high transparency and language precision, providing detailed explanations and specific numbers. However, the CEO's framing of Q2 sales growth may anchor investor expectations, and the management's confidence in driving strong underlying operating leverage for the full year, despite existing market and supply chain uncertainties, may indicate overconfidence. Overall, the tone is confident and bullish, with a focus on the company's strengths and growth prospects."
+    }
+  }
+}

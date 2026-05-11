@@ -1,0 +1,49 @@
+{
+  "source_file": "UNH_q2_2014",
+  "timestamp": "2026-05-11T21:30:16.170752",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "UNH_q2_2014",
+      "key_points": [
+        "Revenue growth accelerated to 7% in the second half of 2014, driven by strong Medicaid growth and steadily strengthening Medicare and international performance.",
+        "Operating margin of 6.1% in UnitedHealthcare, driven by a strong operating margin and growing mix of public and senior sector businesses.",
+        "Earnings quality is high, with solid cash flows from operations of $1 billion for the quarter and $2.4 billion for the first half of the year, approximately one times net income.",
+        "Management guidance is positive, with a raised 2014 revenue outlook to $130 billion and a strengthened 2014 earnings projection to a tighter range of $5.50 to $5.60 per share."
+      ],
+      "score": 8.0,
+      "reasoning": "UnitedHealth Group's Q2 2014 earnings report shows strong revenue growth, high operating margin, and solid cash flows from operations. Management guidance is also positive, with a raised revenue outlook and strengthened earnings projection. The company's Medicaid growth and steadily strengthening Medicare and international performance are key drivers of its success. Overall, the company's fundamentals are strong, with a balanced performance across various product categories."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "UNH_q2_2014",
+      "key_points": [
+        "1-day market reaction signal: UNH beats Q2 2014 earnings expectations with revenue growth of 7% and EPS of $1.42, management tone is positive, citing acceleration of earnings growth rate in 2016 and beyond.",
+        "1-week momentum driver: Strong Medicaid growth, steadily strengthening Medicare and international performance, deeper entry into new, more established public exchange markets, and continuing strong growth and earnings momentum at Optum.",
+        "1-month fundamental positioning: UnitedHealth Group raises 2014 revenue outlook to $130 billion, strengthens 2014 earnings projection to a tighter range of $5.50 to $5.60 per share, and expects to grow both revenues and earnings per share in 2015.",
+        "Key risk or macro factor: The Congressional budget office estimates that more than 75% of the exchange market is yet to develop, which may impact the company's growth in public exchanges."
+      ],
+      "score": 8.2,
+      "reasoning": "UnitedHealth Group's Q2 2014 earnings call shows a strong market reaction signal, with the company beating earnings expectations and raising its revenue outlook. The momentum driver is strong, with Medicaid growth, Medicare strengthening, and Optum's continued growth. The fundamental positioning is also positive, with a tightened earnings projection and expected growth in 2015. However, the key risk factor is the development of the exchange market, which may impact the company's growth in public exchanges."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "UNH_q2_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: Management demonstrates transparency and language precision, with a tone consistency between prepared remarks and Q&A responses.",
+        "Anchoring or confirmation bias observation from context: Management anchors expectations with a raised 2014 revenue outlook to $130 billion and a tightened earnings projection to $5.50 to $5.60 per share.",
+        "Loss aversion or overconfidence signal: Management frames negatives, such as reduced Medicare program funding, as opportunities for growth and emphasizes the company's ability to adapt to changing market conditions."
+      ],
+      "score": 7.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": false,
+        "loss_aversion_framing": "Management frames negatives as opportunities for growth and emphasizes the company's ability to adapt to changing market conditions."
+      },
+      "reasoning": "Management's transparency and language precision, as well as their tone consistency, suggest a high level of credibility. The anchoring effect is evident in the raised revenue outlook and tightened earnings projection, which suggests that management is confident in their ability to meet expectations. However, management's framing of negatives as opportunities for growth suggests a cautious approach, which tempers the overall bullish sentiment."
+    }
+  }
+}

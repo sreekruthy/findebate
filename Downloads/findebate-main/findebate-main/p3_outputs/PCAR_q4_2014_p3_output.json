@@ -1,0 +1,49 @@
+{
+  "source_file": "PCAR_q4_2014",
+  "timestamp": "2026-05-11T21:22:41.127984",
+  "agents": {
+    "earnings": {
+      "agent": "Earnings Analyst",
+      "source_file": "PCAR_q4_2014",
+      "key_points": [
+        "Revenue growth was strong, with record revenues of $18.9 billion in 2014, driven by the strongest North America heavy truck market retail sales since 2006.",
+        "Profitability was excellent, with net income increasing 16% to $1.36 billion, and operating margins at the highest level in the industry.",
+        "Earnings quality was strong, with a high proportion of recurring revenue from parts and financial services, and a low level of one-time components.",
+        "Management guidance was positive, with expectations of continued growth in the North America heavy truck market, and increased production in the U.S. and Canada."
+      ],
+      "score": 8.5,
+      "reasoning": "PACCAR's strong revenue growth and excellent profitability across all segments, including parts and financial services, drove a high score. The company's ability to maintain high operating margins and deliver strong shareholder returns also contributed to the score. However, the score is not a perfect 10 due to some mixed signals in the guidance, such as the estimate of a 1% to 1.5% improvement in truck and other margins in the first quarter of 2015."
+    },
+    "market": {
+      "agent": "Market Analyst",
+      "source_file": "PCAR_q4_2014",
+      "key_points": [
+        "1-day market reaction signal: Strong earnings beat with 16% net income increase, record revenues, and positive guidance.",
+        "1-week momentum driver: Sustained momentum from strong freight tonnage, high fleet utilization, and innovative products and services.",
+        "1-month fundamental positioning: Record revenues, net income, and shareholder returns, with a strong growth outlook for the industry.",
+        "Key risk or macro factor: Economic growth, diesel prices, and interest rates may impact European truck market conditions."
+      ],
+      "score": 8.2,
+      "reasoning": "PACCAR's Q4 2014 earnings call showed a strong reaction signal with a 16% net income increase and record revenues. The momentum driver is sustained by strong freight tonnage, high fleet utilization, and innovative products and services. The fundamental positioning is strong, with record revenues, net income, and shareholder returns. However, the European truck market conditions may be impacted by economic growth, diesel prices, and interest rates."
+    },
+    "sentiment": {
+      "agent": "Sentiment Analyst",
+      "source_file": "PCAR_q4_2014",
+      "key_points": [
+        "Management credibility signal with behavioral finance basis: High transparency and language precision, with consistent tone throughout Q&A.",
+        "Anchoring or confirmation bias observation from context: Management anchors expectations with strong 2014 results, while confirming market narrative of industry growth.",
+        "Loss aversion or overconfidence signal: Management frames negatives (e.g., diesel prices, interest rates) as potential positives, with no notable loss aversion framing."
+      ],
+      "score": 8.0,
+      "confidence": 0.75,
+      "sentiment_label": "Bullish",
+      "management_tone": "Confident",
+      "behavioral_flags": {
+        "anchoring_detected": true,
+        "overconfidence_detected": true,
+        "loss_aversion_framing": "Management frames negatives as potential positives, e.g., 'lower diesel prices' as a positive stimulus."
+      },
+      "reasoning": "Management demonstrates high transparency and language precision, with consistent tone throughout Q&A. They anchor expectations with strong 2014 results and confirm the market narrative of industry growth. Additionally, they frame negatives as potential positives, indicating overconfidence. These factors contribute to a bullish sentiment label."
+    }
+  }
+}
