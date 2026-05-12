@@ -20,7 +20,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 sys.path.insert(0, str(Path(__file__).parent))
-import configs.config as config
+import debate.configs.config as config
 
 
 def get_all_source_files(p4_dir: str) -> list[str]:

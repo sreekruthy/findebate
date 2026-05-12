@@ -15,10 +15,10 @@ import sys, json, os
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from src.prompts   import (TRUST_SYSTEM_PROMPT, SKEPTIC_SYSTEM_PROMPT, LEADER_SYSTEM_PROMPT,
+from debate.src.prompts   import (TRUST_SYSTEM_PROMPT, SKEPTIC_SYSTEM_PROMPT, LEADER_SYSTEM_PROMPT,
                             build_trust_prompt, build_skeptic_prompt, build_leader_prompt)
-from src.algorithm1 import has_recommendations, core_compromised, run_safe_debate
-from src.llm_client import safe_parse_json
+from debate.src.algorithm1 import has_recommendations, core_compromised, run_safe_debate
+from debate.src.llm_client import safe_parse_json
 
 
 # ── Mock LLM client ────────────────────────────────────────────────────────────

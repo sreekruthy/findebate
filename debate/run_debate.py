@@ -24,9 +24,9 @@ from pathlib import Path
 # Allow running from any working directory
 sys.path.insert(0, str(Path(__file__).parent))
 
-import configs.config as config
-from src.llm_client  import build_client
-from src.algorithm1  import run_safe_debate
+import debate.configs.config as config
+from debate.src.llm_client  import build_client
+from debate.src.algorithm1  import run_safe_debate
 
 
 # ─────────────────────────────────────────────────────────────────────────────
