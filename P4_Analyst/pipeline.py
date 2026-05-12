@@ -12,12 +12,12 @@ nltk.download('punkt', quiet=True)
 nltk.download('punkt_tab', quiet=True)
 
 # ── Config ───────────────────────────────────────────────────
-GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
-CHROMA_PATH     = os.path.expanduser("~/findebate/chromadb")
-OUTPUT_DIR      = os.path.expanduser("~/findebate/outputs")
-GITHUB_REPO     = "sreekruthy/findebate"
-GITHUB_TOKEN    = os.environ.get("GITHUB_TOKEN", "")
-GITHUB_BRANCH   = "Person4"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+CHROMA_PATH    = os.path.expanduser("~/findebate/findebate_chromadb")  # FIXED
+OUTPUT_DIR     = os.path.expanduser("~/findebate/outputs")
+GITHUB_REPO    = "sreekruthy/findebate"
+GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_BRANCH  = "Person4"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -145,7 +145,7 @@ def get_agent_context(agent_name, source_file=None, top_k=5):
     dimensions = AGENT_DIMENSION_MAP[agent_name]
     seen, chunks = set(), []
     for dim in dimensions:
-        for r in retrieve_by_dimension(dim, top_k=top_k*3):
+        for r in retrieve_by_dimension(dim, top_k=top_k*20):
             if source_file and r["source_file"] != source_file:
                 continue
             uid = f"{r['source_file']}_chunk_{r['chunk_id']}"
@@ -153,6 +153,11 @@ def get_agent_context(agent_name, source_file=None, top_k=5):
                 seen.add(uid)
                 chunks.append(r)
     chunks.sort(key=lambda x: x["score"], reverse=True)
+    # If no chunks found for source_file, fall back to general retrieval
+    #but now we are skipping the files instead of making them hallicinate
+    if not chunks:
+        print(f"  ERROR: No chunks found for {source_file}, skipping")
+        return []
     return chunks[:top_k]
 
 def chunks_to_text(chunks):
@@ -163,7 +168,7 @@ def chunks_to_text(chunks):
 
 # ── Agents ───────────────────────────────────────────────────
 def run_valuation_agent(source_file=None, top_k=5):
-    print(f"  Running Valuation Agent...")
+    print(f"  Running Valuation Agent on {source_file}...")
     chunks       = get_agent_context("valuation_agent", source_file=source_file, top_k=top_k)
     context_text = chunks_to_text(chunks)
 
@@ -176,13 +181,14 @@ STANDARDS:
 - Apply sector-specific DCF considerations
 - Use dynamic weight allocation across valuation methods"""
 
-    user_prompt = f"""Based on the following earnings call excerpts, produce an institutional-grade 
-valuation analysis.
+    user_prompt = f"""CRITICAL: Return ONLY valid JSON. No markdown. No explanation. No text outside JSON.
+
+Based on the following earnings call excerpts, produce an institutional-grade valuation analysis.
 
 EARNINGS CALL EXCERPTS:
 {context_text}
 
-OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
+Return ONLY this exact JSON structure:
 {{
     "agent": "Valuation Analyst",
     "source_file": "{source_file or 'all'}",
@@ -206,11 +212,11 @@ OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
         "base_case": "brief base case",
         "bear_case": "brief bear case"
     }},
-    "score": 0.0,
+    "score": <number between 0-10 based on your analysis where 0-3 is weak, 4-6 is mixed, 7-8 is strong, 9-10 is exceptional>,
     "reasoning": "Concise paragraph justifying stance and score"
 }}"""
 
-    raw = call_gemini(system_prompt, user_prompt, max_tokens=3000)
+    raw = call_gemini(system_prompt, user_prompt, max_tokens=5000)
     if not raw:
         return None
     try:
@@ -228,7 +234,7 @@ OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
 
 
 def run_risk_agent(source_file=None, top_k=5):
-    print(f"  Running Risk Agent...")
+    print(f"  Running Risk Agent on {source_file}...")
     chunks       = get_agent_context("risk_agent", source_file=source_file, top_k=top_k)
     context_text = chunks_to_text(chunks)
 
@@ -241,13 +247,14 @@ STANDARDS:
 - Maintain realistic confidence levels between 70-80%
 - Deliver actionable position sizing guidance"""
 
-    user_prompt = f"""Based on the following earnings call excerpts, produce an institutional-grade 
-risk assessment.
+    user_prompt = f"""CRITICAL: Return ONLY valid JSON. No markdown. No explanation. No text outside JSON.
+
+Based on the following earnings call excerpts, produce an institutional-grade risk assessment.
 
 EARNINGS CALL EXCERPTS:
 {context_text}
 
-OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
+Return ONLY this exact JSON structure:
 {{
     "agent": "Risk Analyst",
     "source_file": "{source_file or 'all'}",
@@ -273,11 +280,11 @@ OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
         "hedge_strategies": ["strategy 1", "strategy 2"]
     }},
     "risk_triggers": ["Trigger 1", "Trigger 2", "Trigger 3"],
-    "score": 0.0,
+    "score": <number between 0-10 based on risk level where 0-3 is very high risk, 4-6 is moderate, 7-8 is low risk, 9-10 is minimal risk>,
     "reasoning": "Concise paragraph justifying overall risk rating"
 }}"""
 
-    raw = call_gemini(system_prompt, user_prompt, max_tokens=3000)
+    raw = call_gemini(system_prompt, user_prompt, max_tokens=5000)
     if not raw:
         return None
     try:
@@ -295,7 +302,7 @@ OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
 
 
 def run_report_synthesizer(agent_outputs, source_file=None):
-    print(f"  Running Report Synthesizer...")
+    print(f"  Running Report Synthesizer on {source_file}...")
     agents_summary = json.dumps(agent_outputs, indent=2)
 
     system_prompt = """You are a Managing Director at a top-tier investment bank.
@@ -307,12 +314,21 @@ STANDARDS:
 - Maintain realistic conviction levels between 70-80%
 - Never contradict yourself across timeframes"""
 
-    user_prompt = f"""Synthesize these analyst outputs into a single institutional investment report.
+    user_prompt = f"""CRITICAL: Return ONLY valid JSON. No markdown. No explanation. No text outside JSON.
+The JSON must contain EXACTLY these keys: agent, source_file, timestamp, overall_stance,
+overall_conviction, executive_summary, multi_dimensional_synthesis, investment_recommendations,
+risk_reward, investment_conclusion, agent_scores_summary, reasoning.
+The investment_recommendations key must contain EXACTLY: one_day, one_week, one_month.
+Each of those must contain EXACTLY: position, conviction, expected_direction.
+
+Synthesize these analyst outputs into a single institutional investment report.
 
 ANALYST OUTPUTS:
 {agents_summary}
 
-OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
+IMPORTANT: Do NOT default to NEUTRAL. Make a decisive BULLISH or BEARISH call based on the evidence. Only use NEUTRAL if evidence is truly mixed and contradictory.
+
+Return ONLY this exact JSON structure:
 {{
     "agent": "Report Synthesizer",
     "source_file": "{source_file or 'all'}",
@@ -331,20 +347,17 @@ OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
         "one_day": {{
             "position": "LONG or SHORT or NEUTRAL",
             "conviction": "75%",
-            "expected_direction": "brief direction",
-            "key_catalyst": "specific catalyst"
+            "expected_direction": "brief direction"
         }},
         "one_week": {{
             "position": "LONG or SHORT or NEUTRAL",
             "conviction": "75%",
-            "expected_direction": "brief direction",
-            "momentum_drivers": "key drivers"
+            "expected_direction": "brief direction"
         }},
         "one_month": {{
             "position": "LONG or SHORT or NEUTRAL",
             "conviction": "75%",
-            "expected_direction": "brief direction",
-            "fundamental_catalysts": "key catalysts"
+            "expected_direction": "brief direction"
         }}
     }},
     "risk_reward": {{
@@ -363,14 +376,14 @@ OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
         ]
     }},
     "agent_scores_summary": {{
-        "valuation_score": 0.0,
-        "risk_score": 0.0,
-        "composite_score": 0.0
+        "valuation_score": <copy the score from valuation agent output>,
+        "risk_score": <copy the score from risk agent output>,
+        "composite_score": <average of valuation and risk scores>
     }},
     "reasoning": "Concise paragraph explaining synthesis"
 }}"""
 
-    raw = call_gemini(system_prompt, user_prompt, max_tokens=4000)
+    raw = call_gemini(system_prompt, user_prompt, max_tokens=8000)
     if not raw:
         return None
     try:
@@ -389,7 +402,6 @@ OUTPUT FORMAT — Return ONLY valid JSON, no markdown, no extra text:
 
 # ── GitHub Push ──────────────────────────────────────────────
 def push_to_github(filename, content, repo, branch, token):
-    """Push a single JSON file to GitHub."""
     import base64
     import requests
 
@@ -400,13 +412,11 @@ def push_to_github(filename, content, repo, branch, token):
         "Accept"       : "application/vnd.github.v3+json"
     }
 
-    # Check if file exists to get SHA
     sha = None
     check = requests.get(url, headers=headers)
     if check.status_code == 200:
         sha = check.json()["sha"]
 
-    # Encode content
     encoded = base64.b64encode(
         json.dumps(content, indent=2).encode()
     ).decode()
@@ -424,7 +434,7 @@ def push_to_github(filename, content, repo, branch, token):
         print(f"  Pushed to GitHub: {path}")
         return True
     else:
-        print(f"  GitHub push failed: {response.status_code} {response.text[:200]}")
+        print(f"  GitHub push failed: {response.status_code}")
         return False
 
 
@@ -455,11 +465,11 @@ def run_full_pipeline(source_file, top_k=5):
                 }
             }
 
-            # Save locally first
+            # Save locally
             local_path = f"{OUTPUT_DIR}/{source_file}_p4_output.json"
             with open(local_path, "w") as f:
                 json.dump(output, f, indent=2)
-            print(f"  Saved locally: {local_path}")
+            print(f"  Saved: {local_path}")
 
             # Push to GitHub
             if GITHUB_TOKEN:
@@ -469,13 +479,19 @@ def run_full_pipeline(source_file, top_k=5):
                     GITHUB_TOKEN
                 )
 
+            # FIXED — safe key access with .get()
+            recommendations = synthesis.get("investment_recommendations", {})
+            one_day         = recommendations.get("one_day", {})
+            one_week        = recommendations.get("one_week", {})
+            one_month       = recommendations.get("one_month", {})
+
             return {
                 "source_file" : source_file,
                 "status"      : "success",
-                "stance"      : synthesis.get("overall_stance"),
-                "1day"        : synthesis["investment_recommendations"]["one_day"]["position"],
-                "1week"       : synthesis["investment_recommendations"]["one_week"]["position"],
-                "1month"      : synthesis["investment_recommendations"]["one_month"]["position"],
+                "stance"      : synthesis.get("overall_stance", "UNKNOWN"),
+                "1day"        : one_day.get("position", "UNKNOWN"),
+                "1week"       : one_week.get("position", "UNKNOWN"),
+                "1month"      : one_month.get("position", "UNKNOWN"),
             }
         else:
             return {"source_file": source_file, "status": "partial_failure"}
@@ -503,13 +519,15 @@ def get_all_source_files():
     return source_files
 
 
-def run_batch(file_list, top_k=5, start_from=0):
+def run_batch(file_list, top_k=5, start_from=0, end_at=None):
     total        = len(file_list)
-    files_to_run = file_list[start_from:]
+    end_at       = end_at if end_at else total
+    files_to_run = file_list[start_from:end_at]
     results      = []
     failed       = []
 
     print(f"Starting batch: {len(files_to_run)} transcripts")
+    print(f"Resuming from index: {start_from}")
 
     for i, source_file in enumerate(files_to_run):
         idx    = start_from + i
@@ -534,12 +552,12 @@ def run_batch(file_list, top_k=5, start_from=0):
             print(f"Checkpoint saved at {idx+1}/{total}")
 
     summary = {
-        "timestamp"  : datetime.now().isoformat(),
-        "total"      : total,
-        "successful" : len([r for r in results if r["status"] == "success"]),
-        "failed"     : len(failed),
+        "timestamp"   : datetime.now().isoformat(),
+        "total"       : total,
+        "successful"  : len([r for r in results if r["status"] == "success"]),
+        "failed"      : len(failed),
         "failed_files": failed,
-        "results"    : results
+        "results"     : results
     }
 
     with open(f"{OUTPUT_DIR}/batch_summary.json", "w") as f:
@@ -552,13 +570,13 @@ def run_batch(file_list, top_k=5, start_from=0):
     return summary
 
 
-# ── Main ─────────────────────────────────────────────────────
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode",       default="batch",  help="batch or single")
-    parser.add_argument("--file",       default=None,     help="single file name")
-    parser.add_argument("--top_k",      default=5,        type=int)
-    parser.add_argument("--start_from", default=0,        type=int)
+    parser.add_argument("--mode",       default="batch", help="batch or single")
+    parser.add_argument("--file",       default=None,    help="single file name")
+    parser.add_argument("--top_k",      default=5,       type=int)
+    parser.add_argument("--start_from", default=0,       type=int)
+    parser.add_argument("--end_at", default=None, type=int)
     args = parser.parse_args()
 
     if args.mode == "single":
@@ -567,4 +585,4 @@ if __name__ == "__main__":
     else:
         all_files = get_all_source_files()
         print(f"Found {len(all_files)} transcripts")
-        run_batch(all_files, top_k=args.top_k, start_from=args.start_from)
+        run_batch(all_files, top_k=args.top_k, start_from=args.start_from, end_at=args.end_at)
