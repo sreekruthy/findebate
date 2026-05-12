@@ -9,10 +9,8 @@ data/
 chroma_db/
 chromadb/
 *.db
-outputs/
 chunks.json
 debate_output_*.json
-*.json
 !sample_output.json
 test_*.py
 .ipynb_checkpoints/
