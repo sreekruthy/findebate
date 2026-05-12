@@ -9,7 +9,6 @@ data/
 chroma_db/
 chromadb/
 *.db
-outputs/
 chunks.json
 debate_output_*.json
 *.json
