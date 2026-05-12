@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-05-11T16:18:32.558655",
+  "total": 64,
+  "successful": 4,
+  "failed": 0,
+  "failed_files": [],
+  "results": [
+    {
+      "source_file": "VMI_q1_2021",
+      "status": "success",
+      "stance": "BULLISH",
+      "1day": "LONG",
+      "1week": "LONG",
+      "1month": "LONG"
+    },
+    {
+      "source_file": "VSH_q2_2021",
+      "status": "success",
+      "stance": "UNKNOWN",
+      "1day": "UNKNOWN",
+      "1week": "UNKNOWN",
+      "1month": "UNKNOWN"
+    },
+    {
+      "source_file": "WWW_q3_2021",
+      "status": "success",
+      "stance": "BULLISH",
+      "1day": "LONG",
+      "1week": "LONG",
+      "1month": "LONG"
+    },
+    {
+      "source_file": "WYNN_q2_2014",
+      "status": "success",
+      "stance": "BULLISH",
+      "1day": "LONG",
+      "1week": "LONG",
+      "1month": "LONG"
+    }
+  ]
+}
