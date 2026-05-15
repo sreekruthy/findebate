@@ -1,0 +1,3 @@
+Place all *_p5_output.json files from Person 5 here.
+You already have 64 of these files in your existing outputs/ folder.
+Just copy them: cp /path/to/old/outputs/*_p5_output.json ./
