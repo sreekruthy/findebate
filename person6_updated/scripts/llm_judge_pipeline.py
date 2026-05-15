@@ -275,6 +275,9 @@ def run_judge(args):
             continue
 
         report_text = extract_report_text(data)
+        # Trim to 3000 chars — sufficient to score all 8 dimensions without
+        # wasting tokens on repetitive tail sections of long debate reports.
+        report_text = report_text[:3000]
         prompt = JUDGE_PROMPT.format(**DIMENSION_DEFINITIONS, report=report_text)
 
         logger.info(f"[{i+1}/{len(batch_files)}] Judging: {file_name} (~{len(prompt)//4} tokens)")

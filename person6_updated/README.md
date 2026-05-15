@@ -46,8 +46,8 @@ evaluation_project/
 │   └── statistical_analysis.py  ← Task 2: Paired t-tests + charts
 │
 ├── slurm_jobs/
-│   ├── run_llm_judge.sh         ← SLURM array (4 batches of ~16 files)
-│   ├── run_cross_model_benchmark.sh ← SLURM array (5 tasks, 1/model)
+│   ├── run_llm_judge.sh         ← SLURM array (2 parallel batches of 32 files)
+│   ├── run_cross_model_benchmark.sh ← SLURM single job (5 models run sequentially)
 │   └── run_statistics.sh        ← SLURM job (runs after above)
 │
 ├── configs/
@@ -82,12 +82,17 @@ evaluation_project/
 1. Go to https://aistudio.google.com/app/apikey
 2. Click "Create API Key"
 3. Free tier: 15 requests/minute, 1500/day for `gemini-2.0-flash`
+4. **Recommended**: Create a **second key** under the same account for the judge calls (separate RPM counter). Both keys are free.
 
-**OpenRouter (required for Llama, DeepSeek, Claude):**
+**NVIDIA NIM (required for Llama 4 Maverick + DeepSeek-R1):**
+1. Go to https://build.nvidia.com/
+2. Sign in → top-right → "Get API Key"
+3. Free tier available for `meta/llama-4-maverick-17b-128e-instruct` and `deepseek-ai/deepseek-r1`
+
+**OpenRouter (required for Claude Sonnet 4 only):**
 1. Go to https://openrouter.ai/
 2. Create account → "Keys" → "Create Key"
-3. Free models: append `:free` to model ID
-4. Models used: `meta-llama/llama-4-maverick:free`, `deepseek/deepseek-r1:free`, `anthropic/claude-sonnet-4-5:free`
+3. Free model: `anthropic/claude-sonnet-4-5:free`
 
 ---
 
@@ -153,8 +158,10 @@ pip install -r requirements.txt
 cp configs/env_template .env
 nano .env
 # Fill in:
-#   GEMINI_API_KEY=AIza...
-#   OPENROUTER_API_KEY=sk-or-...
+#   GEMINI_API_KEY=AIza...         ← your primary Gemini key
+#   GEMINI_JUDGE_KEY=AIza...       ← optional second Gemini key (recommended)
+#   NVIDIA_API_KEY=nvapi-...       ← for Llama 4 + DeepSeek-R1
+#   OPENROUTER_API_KEY=sk-or-...   ← for Claude Sonnet 4
 ```
 
 ---
@@ -175,23 +182,37 @@ scp -r /path/to/p5_outputs/*.json se23ucse176@10.59.121.172:~/findebate/evaluati
 
 ---
 
-### Step 6: Submit SLURM Jobs
+### Step 6: Submit SLURM Jobs (Run in Order)
+
+**⚠️ Important: Run Task 1 first, then Task 2. Do NOT submit them simultaneously.**
 
 ```bash
 cd ~/findebate/evaluation_project
-bash setup_and_run.sh
-```
 
-This submits 3 job groups:
-1. **LLM Judge** (`sbatch --array=0-3`) — 4 parallel batches judging all 64 p5 outputs
-2. **Cross-Model Benchmark** (`sbatch --array=0-4`) — 5 parallel tasks, one per model
-3. **Statistical Analysis** — runs after both above finish (SLURM dependency)
+# ── Task 1: LLM Judge (submit first) ─────────────────────────────────────────
+JUDGE_JOB=$(sbatch --parsable slurm_jobs/run_llm_judge.sh)
+echo "Judge job submitted: $JUDGE_JOB"
+# This runs 2 parallel batches of 32 files each.
+# Safe: 2 tasks × 6 calls/min = 12 RPM combined (under 15 RPM free limit).
+# Expected time: ~55 minutes.
+
+# ── Task 2: Cross-Model Benchmark (submit after judge finishes) ───────────────
+# Option A — submit with automatic dependency (recommended):
+BENCH_JOB=$(sbatch --parsable --dependency=afterok:$JUDGE_JOB slurm_jobs/run_cross_model_benchmark.sh)
+echo "Benchmark job submitted: $BENCH_JOB (will start after job $JUDGE_JOB)"
+
+# Option B — submit manually once judge shows as COMPLETED in squeue:
+#   sbatch slurm_jobs/run_cross_model_benchmark.sh
+
+# ── Task 3: Statistical Analysis (submit after benchmark finishes) ────────────
+sbatch --dependency=afterok:$BENCH_JOB slurm_jobs/run_statistics.sh
+```
 
 **Monitor jobs:**
 ```bash
 squeue -u se23ucse176
 tail -f logs/llm_judge_<JOBID>_0.out
-tail -f logs/benchmark_<JOBID>_0.out
+tail -f logs/benchmark_<JOBID>.out
 ```
 
 ---
@@ -200,7 +221,7 @@ tail -f logs/benchmark_<JOBID>_0.out
 
 Request a compute node first:
 ```bash
-srun -N1 --ntasks-per-node=4 --gres=gpu:a100_1g.5gb:1 --mem=16G --time=06:00:00 --partition=gpu_student --pty /bin/bash
+srun -N1 --ntasks-per-node=1 --gres=gpu:a100_1g.5gb:1 --mem=8G --time=06:00:00 --partition=gpu_student --pty /bin/bash
 ```
 
 Then run sequentially:
@@ -208,15 +229,15 @@ Then run sequentially:
 cd ~/findebate/evaluation_project
 conda activate findebate
 
-# Task 1: LLM Judge
+# Task 1: LLM Judge (all 64 files, sequential)
 python scripts/llm_judge_pipeline.py
 
-# Task 2a: Cross-model benchmark (run each model separately)
-python scripts/cross_model_benchmark.py --model gemini_25_flash
+# Task 2a: Cross-model benchmark — one model at a time
+python scripts/cross_model_benchmark.py --model gemini_20_flash
+python scripts/cross_model_benchmark.py --model gpt4o_equiv
 python scripts/cross_model_benchmark.py --model llama4_maverick
 python scripts/cross_model_benchmark.py --model deepseek_r1
 python scripts/cross_model_benchmark.py --model claude_sonnet4
-python scripts/cross_model_benchmark.py --model gpt4o_equiv
 
 # Task 2b: Statistical analysis + charts
 python scripts/statistical_analysis.py
@@ -232,7 +253,7 @@ After all jobs finish:
 wc -l outputs/llm_judge/llm_judge_results.csv
 
 # Check benchmark results
-for model in gemini_25_flash llama4_maverick deepseek_r1 claude_sonnet4 gpt4o_equiv; do
+for model in gemini_20_flash llama4_maverick deepseek_r1 claude_sonnet4 gpt4o_equiv; do
     echo "$model: $(wc -l < outputs/stats/benchmark_${model}.csv) rows"
 done
 
@@ -248,13 +269,15 @@ scp -r se23ucse176@10.59.121.172:~/findebate/evaluation_project/charts ./
 
 ## Rate Limits Reference
 
-| API | Model | Free Limit | Safe Sleep |
-|-----|-------|-----------|------------|
-| Google AI Studio | gemini-2.0-flash | 15 RPM, 1500 RPD | 4s |
-| Google AI Studio | gemini-2.5-flash | 10 RPM, 500 RPD | 6s |
-| OpenRouter | llama-4-maverick:free | 20 RPM | 3s |
-| OpenRouter | deepseek-r1:free | 20 RPM | 3s |
-| OpenRouter | claude-sonnet-4-5:free | 20 RPM | 3s |
+| API | Model | Free Limit | Safe Sleep | Used for |
+|-----|-------|-----------|------------|----------|
+| Google AI Studio | gemini-2.0-flash | 15 RPM, 1500 RPD | 10s (judge, 2-task parallel) | LLM judge + generation |
+| Google AI Studio | gemini-1.5-pro | 15 RPM | 5s | gpt4o_equiv generation |
+| NVIDIA NIM | llama-4-maverick | free tier | 3s | Llama 4 generation |
+| NVIDIA NIM | deepseek-r1 | free tier | 3s | DeepSeek-R1 generation |
+| OpenRouter | claude-sonnet-4-5:free | 20 RPM | 3s | Claude Sonnet 4 generation |
+
+**Why 2 parallel judge tasks are safe:** Each task sleeps 10s between calls → 6 calls/min per task. Combined = 12 RPM, safely under the 15 RPM free limit.
 
 ---
 

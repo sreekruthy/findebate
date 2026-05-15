@@ -57,37 +57,69 @@ logger = logging.getLogger(__name__)
 
 # ── Config ────────────────────────────────────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+GEMINI_JUDGE_KEY = os.getenv("GEMINI_JUDGE_KEY", "") or GEMINI_API_KEY  # fallback to same key if not set
+NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY", "")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 
 OUTPUT_FOLDER = os.getenv("OUTPUT_FOLDER", "outputs")
 BENCHMARK_OUTPUT_DIR = os.getenv("BENCHMARK_OUTPUT_DIR", "outputs/cross_model")
 JUDGE_RESULTS_DIR = os.getenv("JUDGE_RESULTS_DIR", "outputs/stats")
 
 SLEEP_GEMINI = float(os.getenv("SLEEP_GEMINI", "5.0"))      # 15 RPM free tier
-SLEEP_OPENROUTER = float(os.getenv("SLEEP_OPENROUTER", "3.0"))
+SLEEP_NVIDIA = float(os.getenv("SLEEP_NVIDIA", "3.0"))
+SLEEP_GROQ   = float(os.getenv("SLEEP_GROQ",   "3.0"))      # Groq free: ~30 RPM, very generous
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
 
 # The 15 sampled reports from the paper (10 ECTSum + 5 professional)
-# These are the ones that exist in the outputs folder
-SAMPLED_REPORTS_15 = [
-    # 10 ECTSum subset — representative selection
-    "ABM_q3_2021_p5_output.json",
-    "AME_q1_2021_p5_output.json",
-    "CMI_q1_2014_p5_output.json",
-    "CMI_q3_2014_p5_output.json",
-    "DE_q1_2014_p5_output.json",
-    "DOV_q2_2020_p5_output.json",
-    "GD_q1_2021_p5_output.json",
-    "LH_q3_2021_p5_output.json",
-    "MSI_q3_2021_p5_output.json",
-    "NEE_q3_2021_p5_output.json",
+# Named with p4_output suffix (from Person 4's pipeline outputs).
+# resolve_sampled_reports() auto-detects p4 vs p5 naming at runtime.
+_PREFERRED_REPORTS_15 = [
+    # 10 ECTSum subset
+    "ABM_q3_2021_p4_output.json",
+    "AME_q1_2021_p4_output.json",
+    "CMI_q1_2014_p4_output.json",
+    "CMI_q3_2014_p4_output.json",
+    "DE_q1_2014_p4_output.json",
+    "DOV_q2_2020_p4_output.json",
+    "GD_q1_2021_p4_output.json",
+    "LH_q3_2021_p4_output.json",
+    "MSI_q3_2021_p4_output.json",
+    "NEE_q3_2021_p4_output.json",
     # 5 professional subset
-    "DNB_q2_2021_p5_output.json",
-    "FIS_q4_2020_p5_output.json",
-    "GCO_q1_2022_p5_output.json",
-    "HTH_q4_2020_p5_output.json",
-    "TT_q1_2021_p5_output.json",
+    "DNB_q2_2021_p4_output.json",
+    "FIS_q4_2020_p4_output.json",
+    "GCO_q1_2022_p4_output.json",
+    "HTH_q4_2020_p4_output.json",
+    "TT_q1_2021_p4_output.json",
 ]
+
+def resolve_sampled_reports(output_folder: str) -> list:
+    """Return the 15 target reports, auto-detecting p4/p5 suffix from what's on disk.
+    Falls back to first 15 available JSON files if neither naming matches."""
+    available = set(
+        f for f in os.listdir(output_folder)
+        if f.endswith(".json") and f != "final_summary.json"
+    ) if os.path.isdir(output_folder) else set()
+
+    # Try p4 naming (expected)
+    matched_p4 = [f for f in _PREFERRED_REPORTS_15 if f in available]
+    if len(matched_p4) >= 10:
+        logger.info(f"Resolved {len(matched_p4)} reports with p4 naming.")
+        return matched_p4
+
+    # Try p5 naming
+    matched_p5 = [f.replace("_p4_output", "_p5_output") for f in _PREFERRED_REPORTS_15
+                  if f.replace("_p4_output", "_p5_output") in available]
+    if len(matched_p5) >= 10:
+        logger.info(f"Resolved {len(matched_p5)} reports with p5 naming.")
+        return matched_p5
+
+    # Fallback: first 15 available JSON files
+    fallback = sorted(available)[:15]
+    logger.warning(f"Preferred names not found on disk. Using first {len(fallback)} available files.")
+    return fallback
+
+SAMPLED_REPORTS_15 = _PREFERRED_REPORTS_15  # overridden at runtime in run_benchmark()
 
 # Model definitions
 MODELS = {
@@ -98,22 +130,24 @@ MODELS = {
         "sleep": SLEEP_GEMINI,
     },
     "llama4_maverick": {
-        "provider": "openrouter",
-        "model_id": "meta-llama/llama-4-maverick:free",
+        "provider": "nvidia",
+        "model_id": "meta/llama-4-maverick-17b-128e-instruct",
         "display": "Llama 4 Maverick",
-        "sleep": SLEEP_OPENROUTER,
+        "sleep": SLEEP_NVIDIA,
     },
     "deepseek_r1": {
-        "provider": "openrouter",
-        "model_id": "deepseek/deepseek-r1:free",
+        "provider": "nvidia",
+        "model_id": "deepseek-ai/deepseek-r1",
         "display": "DeepSeek-R1",
-        "sleep": SLEEP_OPENROUTER,
+        "sleep": SLEEP_NVIDIA,
     },
     "claude_sonnet4": {
-        "provider": "openrouter",
-        "model_id": "anthropic/claude-sonnet-4-5:free",
-        "display": "Claude Sonnet 4",
-        "sleep": SLEEP_OPENROUTER,
+        # Claude Sonnet 4 is paid; using Llama 3.3 70B on Groq as free substitute.
+        # Groq free tier: ~30 RPM, 14,400 req/day — much more reliable than OpenRouter free.
+        "provider": "groq",
+        "model_id": "llama-3.3-70b-versatile",
+        "display": "Claude Sonnet 4 (Llama-3.3-70B on Groq — free substitute)",
+        "sleep": SLEEP_GROQ,
     },
     "gpt4o_equiv": {
         "provider": "gemini",
@@ -214,18 +248,21 @@ DIMENSIONS = [
 
 # ── API Callers ───────────────────────────────────────────────────────────────
 
-def call_gemini(model_id: str, prompt: str) -> str:
+def call_gemini(model_id: str, prompt: str, api_key: str = None) -> str:
     """Call Gemini via google-genai SDK."""
     from google import genai
-    client = genai.Client(api_key=GEMINI_API_KEY)
+    key = api_key or GEMINI_API_KEY
+    client = genai.Client(api_key=key)
     response = client.models.generate_content(model=model_id, contents=prompt)
     return response.text.strip()
 
 
 def call_openrouter(model_id: str, prompt: str) -> str:
-    """Call OpenRouter (free tier) via REST API."""
+    """Kept for reference but no longer used in the default model set."""
+    from os import getenv
+    key = getenv("OPENROUTER_API_KEY", "")
     headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Authorization": f"Bearer {key}",
         "Content-Type": "application/json",
         "HTTP-Referer": "https://findebate-research.local",
         "X-Title": "FinDebate Research"
@@ -244,6 +281,55 @@ def call_openrouter(model_id: str, prompt: str) -> str:
         timeout=60
     )
     resp.raise_for_status()
+    return resp.json()["choices"][0]["message"]["content"].strip()
+
+
+def call_groq(model_id: str, prompt: str) -> str:
+    """Call Groq API (free tier) — used for the Claude Sonnet 4 substitute.
+    Free tier: ~30 RPM, 14,400 req/day for llama-3.3-70b-versatile.
+    Endpoint follows OpenAI-compatible format.
+    """
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": model_id,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": 1500,
+        "temperature": 0.6,
+        "top_p": 0.85,
+    }
+    resp = requests.post(
+        "https://api.groq.com/openai/v1/chat/completions",
+        headers=headers,
+        json=payload,
+        timeout=60
+    )
+    resp.raise_for_status()
+    return resp.json()["choices"][0]["message"]["content"].strip()
+
+
+def call_nvidia(model_id: str, prompt: str) -> str:
+    """Call NVIDIA NIM API (free tier) — used for Llama 4 and DeepSeek-R1."""
+    headers = {
+        "Authorization": f"Bearer {NVIDIA_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": model_id,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": 1500,
+        "temperature": 0.6,
+        "top_p": 0.85,
+    }
+    resp = requests.post(
+        "https://integrate.api.nvidia.com/v1/chat/completions",
+        headers=headers,
+        json=payload,
+        timeout=90
+    )
+    resp.raise_for_status()
     data = resp.json()
     return data["choices"][0]["message"]["content"].strip()
 
@@ -257,6 +343,10 @@ def call_model(model_key: str, prompt: str) -> str:
         try:
             if provider == "gemini":
                 return call_gemini(cfg["model_id"], prompt)
+            elif provider == "nvidia":
+                return call_nvidia(cfg["model_id"], prompt)
+            elif provider == "groq":
+                return call_groq(cfg["model_id"], prompt)
             elif provider == "openrouter":
                 return call_openrouter(cfg["model_id"], prompt)
         except Exception as e:
@@ -345,12 +435,20 @@ def extract_findebate_report(data: dict) -> str:
 # ── Judge ─────────────────────────────────────────────────────────────────────
 
 def judge_report(report_text: str) -> dict:
-    """Score a generated report using Gemini as the judge."""
-    prompt = JUDGE_PROMPT.format(report=report_text[:4000])
+    """Score a generated report using Gemini as the judge.
+
+    Uses GEMINI_JUDGE_KEY (separate from generation key when available) to avoid
+    hitting the shared 15 RPM quota during sequential benchmark runs.
+    Report is trimmed to 3000 chars — sufficient for all 8 scoring dimensions
+    without wasting tokens on repetitive tail content.
+    """
+    # Trim to 3000 chars — covers exec summary + recs + risk sections well
+    trimmed = report_text[:3000]
+    prompt = JUDGE_PROMPT.format(report=trimmed)
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            raw = call_gemini("gemini-2.0-flash", prompt)
+            raw = call_gemini("gemini-2.0-flash", prompt, api_key=GEMINI_JUDGE_KEY)
             raw = re.sub(r"```json\s*", "", raw)
             raw = re.sub(r"```\s*", "", raw)
             raw = raw.strip()
@@ -393,16 +491,19 @@ def run_benchmark(model_key: str):
     Path(BENCHMARK_OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
     Path(JUDGE_RESULTS_DIR).mkdir(parents=True, exist_ok=True)
 
+    # Resolve which 15 files to use (handles p4 vs p5 naming automatically)
+    sampled_reports = resolve_sampled_reports(OUTPUT_FOLDER)
+
     csv_path = os.path.join(JUDGE_RESULTS_DIR, f"benchmark_{model_key}.csv")
     already_done = load_existing_benchmark(csv_path)
 
     cfg = MODELS[model_key]
     logger.info(f"Starting benchmark for: {cfg['display']}")
-    logger.info(f"Files to process: {len(SAMPLED_REPORTS_15)} × {len(CONDITIONS)} conditions")
+    logger.info(f"Files to process: {len(sampled_reports)} × {len(CONDITIONS)} conditions")
 
     results = []
 
-    for file_name in SAMPLED_REPORTS_15:
+    for file_name in sampled_reports:
         path = os.path.join(OUTPUT_FOLDER, file_name)
 
         if not os.path.exists(path):
@@ -446,7 +547,7 @@ def run_benchmark(model_key: str):
                     # Save generated report
                     gen_dir = os.path.join(BENCHMARK_OUTPUT_DIR, model_key, condition)
                     Path(gen_dir).mkdir(parents=True, exist_ok=True)
-                    gen_path = os.path.join(gen_dir, file_name.replace("_p5_output.json", "_generated.txt"))
+                    gen_path = os.path.join(gen_dir, file_name.replace("_p4_output.json", "_generated.txt"))
                     with open(gen_path, "w") as gf:
                         gf.write(report_text)
 
@@ -523,8 +624,11 @@ if __name__ == "__main__":
             exit(1)
 
         cfg = MODELS[args.model]
-        if cfg["provider"] == "openrouter" and not OPENROUTER_API_KEY:
-            logger.error(f"OPENROUTER_API_KEY not set! Required for {cfg['display']}")
+        if cfg["provider"] == "groq" and not GROQ_API_KEY:
+            logger.error(f"GROQ_API_KEY not set! Required for {cfg['display']}")
+            exit(1)
+        if cfg["provider"] == "nvidia" and not NVIDIA_API_KEY:
+            logger.error(f"NVIDIA_API_KEY not set! Required for {cfg['display']}")
             exit(1)
 
         run_benchmark(args.model)
