@@ -51,7 +51,7 @@ class LLMClient:
 
     Usage:
         client = LLMClient(provider="gemini", api_key="AIza...",
-                           model="gemini-2.5-flash-preview-05-20")
+                           model="gemini-2.0-flash")
         text = client.chat(system_prompt, user_prompt)
     """
 
