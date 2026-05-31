@@ -1,0 +1,43 @@
+# evaluation_project/.env
+# Copy this file to .env in the evaluation_project/ directory and fill in your keys.
+
+# ── Required: Gemini (Google AI Studio — FREE) ────────────────────────────────
+# Get your free key at: https://aistudio.google.com/app/apikey
+# Free tier: 15 RPM, 1500 RPD for gemini-2.0-flash
+# Used for: LLM judge + gemini_20_flash + gpt4o_equiv generation
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# ── Optional: Second Gemini key for judge (recommended) ───────────────────────
+# Create a second key under the SAME Google account in AI Studio (free, instant).
+# Keeps judge RPM separate from generation RPM during benchmark.
+# Falls back to GEMINI_API_KEY if left blank.
+GEMINI_JUDGE_KEY=
+
+# ── Required for Llama 4 Maverick + DeepSeek-R1: NVIDIA NIM (FREE) ────────────
+# Get your free key at: https://build.nvidia.com/
+NVIDIA_API_KEY=your_nvidia_api_key_here
+
+# ── Required for Claude Sonnet 4 substitute: Groq (FREE) ─────────────────────
+# Get your free key at: https://console.groq.com/keys
+# Free tier: ~30 RPM, 14,400 req/day — very generous
+# Model used: llama-3.3-70b-versatile (substitute for Claude Sonnet 4)
+GROQ_API_KEY=your_groq_api_key_here
+
+# ── Tuning ─────────────────────────────────────────────────────────────────────
+SLEEP_BETWEEN_CALLS=10.0     # LLM judge: 6 calls/min × 2 tasks = 12 RPM combined
+SLEEP_GEMINI=5.0
+SLEEP_NVIDIA=3.0
+SLEEP_GROQ=3.0
+MAX_RETRIES=3
+
+# ── Paths ──────────────────────────────────────────────────────────────────────
+OUTPUT_FOLDER=outputs
+RESULTS_CSV=outputs/llm_judge/llm_judge_results.csv
+BENCHMARK_OUTPUT_DIR=outputs/cross_model
+JUDGE_RESULTS_DIR=outputs/stats
+FINAL_STATS_OUTPUT=outputs/stats/final_statistics.json
+CHARTS_DIR=charts
+
+# ── Batch control (set automatically by SLURM — do not change manually) ───────
+BATCH_START=0
+BATCH_END=999

@@ -1,0 +1,13 @@
+# Core
+python-dotenv>=1.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+matplotlib>=3.7.0
+requests>=2.31.0
+
+# Gemini (free tier)
+google-genai>=1.0.0
+
+# Note: Do NOT install google-generativeai alongside google-genai — they conflict.
+# Run: pip install --break-system-packages -r requirements.txt
