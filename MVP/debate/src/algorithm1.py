@@ -124,11 +124,11 @@ def run_safe_debate(
         7. if core_compromised(R*, R0): return R0
         8. return R*, L
     """
-    from debate.src.prompts import (
+    from MVP.debate.src.prompts import (
         TRUST_SYSTEM_PROMPT, SKEPTIC_SYSTEM_PROMPT, LEADER_SYSTEM_PROMPT,
         build_trust_prompt, build_skeptic_prompt, build_leader_prompt,
     )
-    from debate.src.llm_client import safe_parse_json
+    from MVP.debate.src.llm_client import safe_parse_json
 
     debate_log = {
         "source_file":    synthesis.get("source_file", "unknown"),

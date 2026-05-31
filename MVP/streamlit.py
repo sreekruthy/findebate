@@ -1,6 +1,6 @@
-import streamlit as st
+import MVP.streamlit as st
 import plotly.graph_objects as go
-from debate_engine import run_debate
+from MVP.debate_engine import run_debate
 import json
 import os
 

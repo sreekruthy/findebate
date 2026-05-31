@@ -9,7 +9,7 @@ import re
 from datetime import datetime
 from dotenv import load_dotenv
 from groq import Groq
-from rag_module import initialize_rag, retrieve_filtered
+from MVP.rag_module import initialize_rag, retrieve_filtered
 
 load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))

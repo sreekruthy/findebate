@@ -39,7 +39,7 @@ sys.path.insert(0, BASE_DIR)  # for sentiment_analyst package
 # ── Import actual prompt builders from your agent files ───────────────────────
 from earnings_agent import EARNINGS_SYSTEM_PROMPT, build_earnings_user_prompt
 from market_agent import MARKET_SYSTEM_PROMPT, build_market_user_prompt
-from sentiment_analyst.prompts import SENTIMENT_SYSTEM_PROMPT, build_sentiment_user_prompt
+from MVP.sentiment_analyst.prompts import SENTIMENT_SYSTEM_PROMPT, build_sentiment_user_prompt
 
 # ── Groq client ───────────────────────────────────────────────────────────────
 from groq import Groq

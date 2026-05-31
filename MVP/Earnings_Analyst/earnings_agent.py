@@ -1,7 +1,7 @@
 # earnings_agent.py
 
 import os
-from rag_module import initialize_rag, retrieve_filtered
+from MVP.rag_module import initialize_rag, retrieve_filtered
 from dotenv import load_dotenv
 load_dotenv()
 

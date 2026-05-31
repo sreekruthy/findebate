@@ -19,7 +19,7 @@ import argparse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-import debate.configs.config as config
+import MVP.debate.configs.config as config
 
 
 def get_all_source_files(p4_dir: str) -> list[str]:

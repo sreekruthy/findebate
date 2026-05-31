@@ -2,7 +2,7 @@ import json
 import os
 from groq import Groq
 from dotenv import load_dotenv
-from risk_analyst.prompts import RISK_SYSTEM_PROMPT, build_risk_user_prompt
+from MVP.risk_analyst.prompts import RISK_SYSTEM_PROMPT, build_risk_user_prompt
 
 load_dotenv()
 

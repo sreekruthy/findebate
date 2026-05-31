@@ -33,7 +33,7 @@ from risk_agent import run_risk_analyst
 from sentiment_agent import run_sentiment_analyst
 
 # ── RAG imports ───────────────────────────────────────────────────────────────
-from rag_module import initialize_rag, retrieve_filtered
+from MVP.rag_module import initialize_rag, retrieve_filtered
 
 load_dotenv()
 

@@ -5,7 +5,7 @@ import json
 import os
 from groq import Groq
 from dotenv import load_dotenv
-from sentiment_analyst.prompts import SENTIMENT_SYSTEM_PROMPT, build_sentiment_user_prompt
+from MVP.sentiment_analyst.prompts import SENTIMENT_SYSTEM_PROMPT, build_sentiment_user_prompt
 
 load_dotenv()
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
