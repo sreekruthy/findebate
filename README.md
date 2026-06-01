@@ -107,7 +107,7 @@ The retrieval system is used by all downstream analyst agents.
 
 ---
 
-### 2. P3: Market, Earnings, and Sentiment Agents
+### 2. Market, Earnings, and Sentiment Agents
 
 Located in:
 
@@ -136,7 +136,7 @@ Market + Sentiment + Earnings/p3_outputs/
 
 ---
 
-### 3. P4: Valuation, Risk, and Report Synthesis
+### 3. Valuation, Risk, and Report Synthesis
 
 Located in:
 
@@ -167,7 +167,7 @@ Valuation + Risk + Report Synthesis/P4_outputs/
 
 ---
 
-### 4. P5: Debate Refinement
+### 4. Debate Refinement
 
 Located in:
 
@@ -261,7 +261,7 @@ http://localhost:5174
 
 ### Portal Modes
 
-- **Precomputed Mode**: Uses existing P5 output JSON files.
+- **Precomputed Mode**: Uses existing debate output JSON files.
 - **Live Mode**: Runs RAG, Agents, Debate, and Evaluation dynamically.
 
 Example live input:
@@ -338,7 +338,7 @@ Large generated files, logs, `.env` files, and local databases should not be com
 ## Example End-to-End Workflow
 
 ```bash
-# 1. Run P3 agents
+# 1. Run P3(market,sentiment,earnings) agents
 cd "Market + Sentiment + Earnings"
 python run_p3_agents.py
 
@@ -379,6 +379,3 @@ bash start.sh
 
 ---
 
-## Contributors
-
-This project was developed as a collaborative implementation of the FinDebate multi-agent financial analysis pipeline.
