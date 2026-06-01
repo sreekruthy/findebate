@@ -1,0 +1,6 @@
+Base Model,Zero-shot,Standard RAG,Multi-agent w/o Debate,FinDebate,Overall Improvement
+Gemini 2.5 Flash,3.57,3.49,3.7,3.7,0.13
+Llama 4 Maverick,3.55,3.49,3.68,3.69,0.14
+DeepSeek-R1,3.63,3.51,3.7,3.74,0.11
+Claude Sonnet 4,3.5,3.55,3.7,3.72,0.23
+GPT-4o / Gemini-Pro,3.61,3.49,3.73,3.71,0.1
