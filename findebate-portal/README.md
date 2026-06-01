@@ -9,7 +9,7 @@ bash start.sh
 ```
 
 Backend: `http://localhost:8000`  
-Frontend: `http://localhost:5174`
+Frontend: `http://localhost:5173`
 
 ## Modes
 
