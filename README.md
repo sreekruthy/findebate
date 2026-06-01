@@ -256,7 +256,7 @@ http://localhost:8000
 Frontend:
 
 ```text
-http://localhost:5174
+http://localhost:5173
 ```
 
 ### Portal Modes
