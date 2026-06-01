@@ -15,6 +15,7 @@ BACKEND_DIR = Path(__file__).resolve().parent
 load_dotenv(BACKEND_DIR / ".env")
 
 P3_PATHS = [
+    "/Users/sreekruthyreddy/Documents/GitHub/findebate/Market + Sentiment + Earnings",
     "/Users/sreekruthyreddy/Documents/GitHub/findebate",
     "/Users/sreekruthyreddy/Documents/GitHub/findebate/MVP",
     os.path.expanduser("~/findebate/findebate-main/findebate-main"),
@@ -56,6 +57,23 @@ def _add_paths(paths: list[str]) -> None:
 
 _add_paths(P3_PATHS)
 _disable_import_time_nltk_downloads()
+
+
+def _install_p3_import_shims() -> None:
+    import types
+
+    if "MVP" not in sys.modules:
+        mvp_module = types.ModuleType("MVP")
+        mvp_module.__path__ = []
+        sys.modules["MVP"] = mvp_module
+    if "MVP.rag_module" not in sys.modules:
+        rag_module = types.ModuleType("MVP.rag_module")
+        rag_module.initialize_rag = lambda *args, **kwargs: None
+        rag_module.retrieve_filtered = lambda *args, **kwargs: []
+        sys.modules["MVP.rag_module"] = rag_module
+
+
+_install_p3_import_shims()
 
 try:
     from groq import Groq

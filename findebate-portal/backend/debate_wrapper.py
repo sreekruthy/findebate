@@ -15,6 +15,8 @@ PIPELINE_AVAILABLE = False
 PIPELINE_ERROR = ""
 
 P5_PATHS = [
+    "/Users/sreekruthyreddy/Documents/GitHub/findebate/Debate",
+    "/Users/sreekruthyreddy/Documents/GitHub/findebate/Debate/p5_debate",
     os.path.expanduser("~/findebate/p5_debate/p5_debate"),
     "/Users/sreekruthyreddy/Downloads/p5_debate/p5_debate",
 ]
@@ -41,7 +43,7 @@ class PortalDebateClient:
             "gemini-2.5-flash" if self.provider == "gemini" else "llama-3.1-8b-instant",
         )
         self.temperature = float(os.getenv("FINDEBATE_P5_TEMPERATURE", str(p5_config.TEMPERATURE)))
-        self.max_tokens = int(os.getenv("FINDEBATE_P5_MAX_TOKENS", "5000"))
+        self.max_tokens = int(os.getenv("FINDEBATE_P5_MAX_TOKENS", "1200"))
         self.top_p = float(os.getenv("FINDEBATE_P5_TOP_P", str(p5_config.TOP_P)))
         self.max_retries = int(os.getenv("FINDEBATE_P5_MAX_RETRIES", "2"))
         self.retry_delay = float(os.getenv("FINDEBATE_P5_RETRY_DELAY_SEC", "8"))
@@ -77,7 +79,7 @@ class PortalDebateClient:
     def _fit_prompt_for_provider(self, user_prompt: str) -> str:
         if self.provider != "groq":
             return user_prompt
-        max_chars = 14000 if self.role == "leader" else 17000
+        max_chars = int(os.getenv("FINDEBATE_P5_GROQ_MAX_PROMPT_CHARS", "5200"))
         if len(user_prompt) <= max_chars:
             return user_prompt
         head = user_prompt[: max_chars // 2]
