@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-"""
-FinDebate — Person 5
-Single-file debate runner.
-
-Usage (local or one SLURM task):
-    python run_debate.py --source_file ABM_q3_2021
-
-The script:
-  1. Loads  <P4_OUTPUT_DIR>/<source_file>_p4_output.json
-  2. Loads  <P3_OUTPUT_DIR>/<source_file>_p3_output.json  (optional context)
-  3. Runs Algorithm 1 (Trust → Skeptic → Leader)
-  4. Writes <P5_OUTPUT_DIR>/<source_file>_p5_output.json
-"""
-
 import sys
 import os
 import json
@@ -28,8 +13,6 @@ import configs.config as config
 from src.llm_client  import build_client
 from src.algorithm1  import run_safe_debate
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 def setup_logging(source_file: str, log_dir: str):
     log_path = Path(log_dir) / f"{source_file}_p5.log"
     log_path.parent.mkdir(parents=True, exist_ok=True)
@@ -56,7 +39,6 @@ def already_done(source_file: str, out_dir: str) -> bool:
     return out_path.exists()
 
 
-# ─────────────────────────────────────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(description="FinDebate Person 5 — single file debate")
     parser.add_argument("--source_file", required=True,
@@ -72,14 +54,13 @@ def main():
     source_file = args.source_file
     logger = setup_logging(source_file, args.log_dir)
 
-    # ── Skip if already done ─────────────────────────────────────────────────
     if not args.force and already_done(source_file, args.out_dir):
         logger.info(f"Output already exists for {source_file} — skipping. Use --force to re-run.")
         sys.exit(0)
 
     logger.info(f"=== FinDebate P5: {source_file} ===")
 
-    # ── Load P4 output ────────────────────────────────────────────────────────
+    # Load P4 output
     p4_path = Path(args.p4_dir) / f"{source_file}_p4_output.json"
     p4_data = load_json(p4_path)
     if p4_data is None:
@@ -95,19 +76,19 @@ def main():
     if "source_file" not in synthesis:
         synthesis["source_file"] = source_file
 
-    # ── Load P3 output (optional, used as context) ────────────────────────────
+    # Load P3 output 
     p3_path = Path(args.p3_dir) / f"{source_file}_p3_output.json"
     p3_data = load_json(p3_path)
     if p3_data is None:
         logger.warning(f"P3 output not found at {p3_path} — proceeding without P3 context.")
 
-    # ── Build LLM clients ─────────────────────────────────────────────────────
+    # Build LLM clients
     logger.info("Building LLM clients...")
     trust_client   = build_client("trust",   config)
     skeptic_client = build_client("skeptic", config)
     leader_client  = build_client("leader",  config)
 
-    # ── Run Algorithm 1 ───────────────────────────────────────────────────────
+    # Run Algorithm 1
     logger.info("Running Safe Collaborative Debate (Algorithm 1)...")
     optimized, debate_log = run_safe_debate(
         synthesis      = synthesis,
@@ -118,7 +99,7 @@ def main():
         leader_client  = leader_client,
     )
 
-    # ── Build output record ───────────────────────────────────────────────────
+    # Build output record 
     output = {
         "source_file":  source_file,
         "timestamp":    datetime.now(timezone.utc).isoformat(),
@@ -147,7 +128,7 @@ def main():
         },
     }
 
-    # ── Write output ──────────────────────────────────────────────────────────
+    # Write output
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{source_file}_p5_output.json"

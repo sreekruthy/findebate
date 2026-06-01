@@ -1,37 +1,3 @@
-"""
-cross_model_benchmark.py
-========================
-Person 6 — Task 2: Cross-Model Benchmark Runs
-
-Runs 5 LLMs across 4 conditions on 15 sampled reports:
-  Models: Gemini 2.5 Flash, Llama 4 Maverick (via OpenRouter),
-          DeepSeek-R1 (via OpenRouter), Claude Sonnet 4 (free tier),
-          GPT-4o → replaced with Gemini Pro (free) since GPT-4o is paid
-
-  Conditions:
-    1. zero_shot     — no RAG, direct generation
-    2. standard_rag  — RAG with generic embedding
-    3. multi_agent   — multi-agent without debate
-    4. findebate     — full FinDebate pipeline (p5 outputs already done)
-
-  For conditions 1-3, we SIMULATE by having the LLM generate a report
-  from just the executive_summary + investment context extracted from
-  the p5 JSON (since we don't have the raw transcripts in this module).
-
-  The LLM-as-judge then scores each generated report on the 8 dimensions.
-
-BATCHING: Use SLURM_ARRAY_TASK_ID to split across nodes.
-  - Each array task handles one model
-  - Within each model, iterate over files sequentially
-
-FREE API SOURCES:
-  - Gemini 2.5 Flash: Google AI Studio (free tier, 15 RPM)
-  - Llama 4 Maverick: via OpenRouter free tier
-  - DeepSeek-R1: via OpenRouter free tier
-  - Claude Sonnet 4: via OpenRouter free tier (limited)
-  - "GPT-4o equivalent": Gemini 1.5 Pro (free) as substitute
-"""
-
 import os
 import json
 import time
@@ -55,7 +21,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── Config ────────────────────────────────────────────────────────────────────
+
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 GEMINI_JUDGE_KEY = os.getenv("GEMINI_JUDGE_KEY", "") or GEMINI_API_KEY  # fallback to same key if not set
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY", "")
@@ -168,7 +134,7 @@ MODELS = {
 
 CONDITIONS = ["zero_shot", "standard_rag", "multi_agent", "findebate"]
 
-# ── Prompt templates for each condition ───────────────────────────────────────
+# Prompt templates for each condition 
 
 ZERO_SHOT_PROMPT = """You are a professional financial analyst.
 Based on the following brief context about a company's earnings, write a concise institutional investment report.
@@ -255,7 +221,7 @@ DIMENSIONS = [
 ]
 
 
-# ── API Callers ───────────────────────────────────────────────────────────────
+# API Callers 
 
 def call_gemini(model_id: str, prompt: str, api_key: str = None) -> str:
     """Call Gemini via google-genai SDK."""
@@ -369,7 +335,7 @@ def call_model(model_key: str, prompt: str) -> str:
     return ""
 
 
-# ── Data Extraction ───────────────────────────────────────────────────────────
+# Data Extraction 
 
 def extract_context_from_p5(data: dict) -> tuple[str, str]:
     """Extract company name and context from p5 output for simulation."""
@@ -441,7 +407,7 @@ def extract_findebate_report(data: dict) -> str:
     return "\n".join(parts)
 
 
-# ── Judge ─────────────────────────────────────────────────────────────────────
+# Judge 
 
 def judge_report(report_text: str) -> dict:
     """Score a generated report using Gemini as the judge.
@@ -479,7 +445,7 @@ def judge_report(report_text: str) -> dict:
     return {dim: 0 for dim in DIMENSIONS}
 
 
-# ── Main Benchmark Loop ───────────────────────────────────────────────────────
+# Main Benchmark Loop
 
 def load_existing_benchmark(csv_path: str) -> set:
     """Load (model, condition, file) tuples already processed."""

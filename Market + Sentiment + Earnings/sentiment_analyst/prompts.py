@@ -1,8 +1,3 @@
-# prompts.py — Person 3 | Group A | Module 2
-# 2-level prompt structure per FinDebate Section 2.2
-# Level 1: behavioral finance specialist identity
-# Level 2: anchoring, confirmation bias, loss aversion + 70-80% confidence calibration
-
 SENTIMENT_SYSTEM_PROMPT = """You are a behavioral finance specialist and former institutional \
 investor with deep expertise in management evaluation and investor psychology. You have 15+ years \
 of experience at leading hedge funds developing frameworks for quantifying management credibility \

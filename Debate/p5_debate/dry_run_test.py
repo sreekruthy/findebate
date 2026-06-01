@@ -1,16 +1,3 @@
-#!/usr/bin/env python3
-"""
-FinDebate — Person 5
-dry_run_test.py
-
-Tests the full debate pipeline with a MOCK LLM (no API calls).
-Run this to verify everything works before using real API keys.
-
-Usage:
-    cd /home/claude/p5_debate
-    python dry_run_test.py
-"""
-
 import sys, json, os
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
@@ -21,7 +8,7 @@ from src.algorithm1 import has_recommendations, core_compromised, run_safe_debat
 from src.llm_client import safe_parse_json
 
 
-# ── Mock LLM client ────────────────────────────────────────────────────────────
+# Mock LLM client
 class MockClient:
     """Returns realistic-looking but fake LLM responses."""
 
@@ -68,12 +55,12 @@ class MockClient:
                    f"Recommendations preserved: LONG LONG LONG."
 
 
-# ── Load a real P4 file for testing ───────────────────────────────────────────
+# Load a real P4 file for testing
 P4_FILE = "/dgxa_home/se23ucse176/findebate/outputs/ABM_q3_2021_p4_output.json"
 P3_FILE = "/dgxa_home/se23ucse176/findebate/p3_outputs/ABM_q3_2021_p3_output.json"
 
 def test_safety_checks():
-    print("\n── Test: Safety Checks ──────────────────────────────────")
+    print("\n── Test: Safety Checks ──")
     with open(P4_FILE) as f:
         p4 = json.load(f)
     synthesis = p4["agents"]["synthesis"]
@@ -101,7 +88,7 @@ def test_safety_checks():
 
 
 def test_prompt_builders():
-    print("\n── Test: Prompt Builders ────────────────────────────────")
+    print("\n── Test: Prompt Builders ──")
     with open(P4_FILE) as f:
         p4 = json.load(f)
     with open(P3_FILE) as f:
@@ -125,7 +112,7 @@ def test_prompt_builders():
 
 
 def test_full_pipeline():
-    print("\n── Test: Full Algorithm 1 Pipeline (Mock) ───────────────")
+    print("\n── Test: Full Algorithm 1 Pipeline (Mock) ──")
     with open(P4_FILE) as f:
         p4 = json.load(f)
     with open(P3_FILE) as f:
@@ -153,7 +140,7 @@ def test_full_pipeline():
 
 
 def test_json_parser():
-    print("\n── Test: JSON Parser ────────────────────────────────────")
+    print("\n── Test: JSON Parser ──")
     # With fences
     fenced = '```json\n{"key": "value"}\n```'
     r = safe_parse_json(fenced)

@@ -1,23 +1,3 @@
-"""
-llm_judge_pipeline.py
-=====================
-Person 6 — Task 1: LLM-as-Judge Pipeline
-Uses GPT-4o evaluation framework with all 8 scoring dimensions from Appendix E.
-Since GPT-4o is paid, we use Gemini (free) as the judge LLM.
-
-Dimensions (from paper Appendix E):
-1. Readability
-2. Linguistic Abstractness
-3. Coherence
-4. Financial Key Point Coverage
-5. Background Context Adequacy
-6. Management Sentiment Conveyance
-7. Future Outlook Analysis
-8. Factual Accuracy
-
-Scale: 1 (poor) to 4 (excellent)
-"""
-
 import os
 import json
 import time
@@ -39,7 +19,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── Config ────────────────────────────────────────────────────────────────────
+#  Config 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 OUTPUT_FOLDER = os.getenv("OUTPUT_FOLDER", "outputs")
 RESULTS_CSV = os.getenv("RESULTS_CSV", "outputs/llm_judge/llm_judge_results.csv")

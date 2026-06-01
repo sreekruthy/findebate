@@ -1,18 +1,3 @@
-"""
-statistical_analysis.py
-=======================
-Person 6 — Task 2 (Part B): Paired t-tests and Statistical Significance
-
-Runs paired t-tests across conditions (as described in the paper):
-  "run all 5 LLMs across all 4 conditions on the 15 sampled reports,
-   then run paired t-tests for statistical significance"
-
-Also generates:
-  - Summary tables (like Table 1 in the paper)
-  - Per-dimension comparison charts
-  - Per-model improvement plots
-"""
-
 import os
 import json
 import logging
@@ -31,7 +16,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── Config ────────────────────────────────────────────────────────────────────
+# Config 
 STATS_DIR = os.getenv("JUDGE_RESULTS_DIR", "outputs/stats")
 CHARTS_DIR = os.getenv("CHARTS_DIR", "charts")
 FINAL_OUTPUT = os.getenv("FINAL_STATS_OUTPUT", "outputs/stats/final_statistics.json")
@@ -91,7 +76,7 @@ def load_all_benchmark_results() -> pd.DataFrame:
     return df
 
 
-# ── Main Table (Paper Table 1) ────────────────────────────────────────────────
+# Main Table (Paper Table 1)
 
 def generate_main_table(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -127,7 +112,7 @@ def generate_main_table(df: pd.DataFrame) -> pd.DataFrame:
     return table
 
 
-# ── Paired t-tests ────────────────────────────────────────────────────────────
+# Paired t-tests 
 
 def run_paired_ttests(df: pd.DataFrame) -> dict:
     """
@@ -186,7 +171,7 @@ def run_paired_ttests(df: pd.DataFrame) -> dict:
     return results
 
 
-# ── Per-Dimension Analysis ────────────────────────────────────────────────────
+# Per-Dimension Analysis
 
 def dimension_breakdown(df: pd.DataFrame) -> dict:
     """Mean score per dimension per condition, averaged across all models."""
@@ -201,7 +186,7 @@ def dimension_breakdown(df: pd.DataFrame) -> dict:
     return breakdown
 
 
-# ── Chart Generation ──────────────────────────────────────────────────────────
+#Chart Generation
 
 def plot_main_table(table: pd.DataFrame, save_dir: str):
     """Bar chart: FinDebate vs baselines per model."""
@@ -326,7 +311,7 @@ def plot_ttest_significance(ttest_results: dict, save_dir: str):
     logger.info("Saved: ttest_significance.png")
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# Main
 
 def run_analysis():
     Path(STATS_DIR).mkdir(parents=True, exist_ok=True)

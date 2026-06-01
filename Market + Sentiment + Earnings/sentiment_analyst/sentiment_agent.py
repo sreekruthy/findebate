@@ -1,6 +1,3 @@
-# sentiment_agent.py — Person 3 | Group A | Module 2
-# Updated with confidence clamp (70-80%), source_file, behavioral_flags
-
 import json
 import os
 from groq import Groq

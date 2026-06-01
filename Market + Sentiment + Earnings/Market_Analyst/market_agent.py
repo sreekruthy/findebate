@@ -1,8 +1,3 @@
-# market_agent.py — Person 3 | Group A | Module 2
-# 2-level prompt structure per FinDebate Section 2.2
-# Level 1 — System Prompt: professional identity
-# Level 2 — User Prompt: 3-horizon framework + RAG context
-
 import os
 import json
 import re

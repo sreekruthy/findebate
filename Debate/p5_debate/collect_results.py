@@ -1,20 +1,3 @@
-#!/usr/bin/env python3
-"""
-FinDebate — Person 5
-collect_results.py
-
-Run this AFTER all SLURM tasks (or batch) complete.
-  1. Counts how many P5 outputs exist
-  2. Checks safety-check pass rates
-  3. Prints a summary table (stance + positions per file)
-  4. Writes p5_outputs/final_summary.json
-  5. Lists any missing files so you can re-run just those
-
-Usage:
-    python collect_results.py
-    python collect_results.py --rerun_missing   # prints re-run commands
-"""
-
 import sys
 import os
 import json
@@ -115,7 +98,7 @@ def main():
             for sf in missing:
                 print(f"  python run_debate.py --source_file {sf}")
 
-    # ── Write final summary ───────────────────────────────────────────────────
+    # final summary
     summary = {
         "timestamp":      datetime.now(timezone.utc).isoformat(),
         "total_expected": total,

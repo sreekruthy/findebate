@@ -1,25 +1,3 @@
-"""
-run_p3_agents.py — Person 3 | Group A | Module 2
-=================================================
-Runs Earnings, Market, Sentiment agents on all 64 ECTSum companies
-using the ACTUAL agent implementations:
-  - earnings_agent.py   (Earnings_Analyst/)
-  - market_agent.py     (Market_Analyst/)
-  - sentiment_analyst/prompts.py + sentiment_agent.py
-
-This means the 2-level prompt structure, behavioral finance theories,
-and 70-80% confidence calibration from your agent files are actually
-used to generate the outputs — not inline prompts.
-
-SETUP:
-1. Place this file in findebate-main/findebate-main/
-2. findebate_chromadb/ must contain chroma.sqlite3 + two UUID folders
-3. .env must have GROQ_API_KEY
-4. Run: python run_p3_agents.py
-
-OUTPUT: p3_outputs/ABM_q3_2021_p3_output.json ... (64 files)
-"""
-
 import os
 import sys
 import json

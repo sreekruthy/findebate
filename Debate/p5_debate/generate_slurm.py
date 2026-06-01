@@ -1,18 +1,3 @@
-#!/usr/bin/env python3
-"""
-FinDebate — Person 5
-SLURM job array generator.
-
-Run this script ONCE on the login node to generate two files:
-  1. slurm/job_array.sh     — the SLURM submission script
-  2. slurm/file_list.txt    — one source_file name per line (indexed by $SLURM_ARRAY_TASK_ID)
-
-Then submit with:
-    sbatch slurm/job_array.sh
-
-Each SLURM task processes exactly one file → all 64 run in parallel.
-"""
-
 import os
 import sys
 import argparse
@@ -53,7 +38,7 @@ def main():
     n = len(files)
     print(f"Found {n} files.")
 
-    # ── Write file list ───────────────────────────────────────────────────────
+    # Write file list
     slurm_dir = Path("slurm")
     slurm_dir.mkdir(exist_ok=True)
 
@@ -63,7 +48,7 @@ def main():
             f.write(sf + "\n")
     print(f"Written: {file_list_path}  ({n} entries)")
 
-    # ── Write SLURM script ────────────────────────────────────────────────────
+    # Write SLURM script
     account_line = f"#SBATCH --account={args.account}" if args.account else "# no account specified"
 
     script = f"""#!/bin/bash
@@ -81,15 +66,15 @@ def main():
 #SBATCH --output={args.log_dir}/slurm_%A_%a.out
 #SBATCH --error={args.log_dir}/slurm_%A_%a.err
 
-# ── Environment ──────────────────────────────────────────────────────────────
+# ── Environment ───
 source $HOME/miniconda3/etc/profile.d/conda.sh   # adjust path if needed
 conda activate {args.conda_env}
 
-# ── API Key (FREE — get yours at https://aistudio.google.com/apikey) ─────────
+# ── API Keys ───
 # Add this to ~/.bashrc on the cluster, or uncomment and paste here:
 # export GEMINI_API_KEY="AIza..."
 
-# ── Resolve source file from SLURM task ID ────────────────────────────────────
+# ── Resolve source file from SLURM task ID ──
 PROJECT_DIR={args.project_dir}
 FILE_LIST=$PROJECT_DIR/slurm/file_list.txt
 SOURCE_FILE=$(sed -n "${{SLURM_ARRAY_TASK_ID}}p" $FILE_LIST)
@@ -99,7 +84,7 @@ echo "Task  : $SLURM_ARRAY_TASK_ID / {n}"
 echo "File  : $SOURCE_FILE"
 echo "=============================="
 
-# ── Run ───────────────────────────────────────────────────────────────────────
+# ── Run ───
 cd $PROJECT_DIR
 python run_debate.py \\
     --source_file "$SOURCE_FILE" \\

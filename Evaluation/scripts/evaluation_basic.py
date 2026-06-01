@@ -69,7 +69,7 @@ print("\nEvaluation Summary\n")
 
 print(df.head())
 
-# ---------------- STANCE COUNTS ----------------
+# STANCE COUNTS
 stance_counts = df["stance"].value_counts()
 
 plt.figure(figsize=(6,6))
@@ -78,7 +78,7 @@ plt.title("Stance Distribution")
 plt.ylabel("")
 plt.savefig("charts/stance_distribution.png")
 
-# ---------------- SAFETY ----------------
+# SAFETY
 safety_counts = df["safety_passed"].value_counts()
 
 plt.figure(figsize=(6,4))
@@ -86,7 +86,7 @@ safety_counts.plot(kind="bar")
 plt.title("Debate Safety Results")
 plt.savefig("charts/safety_results.png")
 
-# ---------------- PHASE LENGTHS ----------------
+# PHASE LENGTHS
 avg_lengths = [
     df["trust_length"].mean(),
     df["skeptic_length"].mean(),

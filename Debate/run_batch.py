@@ -1,15 +1,3 @@
-#!/usr/bin/env python3
-"""
-FinDebate — Person 5
-Batch runner — processes all P4 files sequentially (local machine).
-For parallel HPC runs, use the SLURM scripts instead.
-
-Usage:
-    python run_batch.py
-    python run_batch.py --force          # re-run everything
-    python run_batch.py --max_files 5    # test on first 5 files
-"""
-
 import sys
 import os
 import json
@@ -86,7 +74,7 @@ def main():
         results.append({"source_file": sf, "status": status})
         logger.info(f"[{i}/{total}] {sf}: {status}")
 
-    # ── Write batch summary ───────────────────────────────────────────────────
+    # Write batch summary
     summary = {
         "timestamp":  datetime.now(timezone.utc).isoformat(),
         "total":      total,
