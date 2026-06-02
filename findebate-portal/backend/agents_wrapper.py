@@ -15,11 +15,11 @@ BACKEND_DIR = Path(__file__).resolve().parent
 load_dotenv(BACKEND_DIR / ".env")
 
 P3_PATHS = [
-    "/Users/sreekruthyreddy/Documents/GitHub/findebate/Market + Sentiment + Earnings",
-    "/Users/sreekruthyreddy/Documents/GitHub/findebate",
     "/Users/sreekruthyreddy/Documents/GitHub/findebate/MVP",
+    "/Users/sreekruthyreddy/Documents/GitHub/findebate",
     os.path.expanduser("~/findebate/findebate-main/findebate-main"),
     "/Users/sreekruthyreddy/Documents/GitHub/findebate/Downloads/findebate-main/findebate-main",
+    "/Users/sreekruthyreddy/Documents/GitHub/findebate/Market + Sentiment + Earnings",
 ]
 P4_PATHS = [
     os.path.expanduser("~/findebate/P4_Analyst/P4_Analyst"),
@@ -80,10 +80,16 @@ try:
     from earnings_agent import EARNINGS_SYSTEM_PROMPT, build_earnings_user_prompt
     from market_agent import MARKET_SYSTEM_PROMPT, build_market_user_prompt
 
-    try:
-        from sentiment_analyst.prompts import SENTIMENT_SYSTEM_PROMPT, build_sentiment_user_prompt
-    except Exception:
-        from MVP.sentiment_analyst.prompts import SENTIMENT_SYSTEM_PROMPT, build_sentiment_user_prompt
+    import importlib.util
+
+    sentiment_prompts_path = Path(
+        "/Users/sreekruthyreddy/Documents/GitHub/findebate/Market + Sentiment + Earnings/sentiment_analyst/prompts.py"
+    )
+    spec = importlib.util.spec_from_file_location("findebate_portal_sentiment_prompts", sentiment_prompts_path)
+    sentiment_prompts = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(sentiment_prompts)
+    SENTIMENT_SYSTEM_PROMPT = sentiment_prompts.SENTIMENT_SYSTEM_PROMPT
+    build_sentiment_user_prompt = sentiment_prompts.build_sentiment_user_prompt
 
     groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
     PIPELINE_AVAILABLE = bool(os.getenv("GROQ_API_KEY") and os.getenv("GEMINI_API_KEY"))
