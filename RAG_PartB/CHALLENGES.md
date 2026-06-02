@@ -9,15 +9,11 @@ This document describes the real challenges encountered during implementation an
 
 ---
 
-## Challenge 1 — Getting P1's ChromaDB
+## Challenge 1 — Getting ChromaDB
 
-The first challenge was simply accessing P1's ChromaDB. Since ChromaDB is stored on Google Drive, and each Colab session mounts only the user's own Drive, there was no direct way to access a teammate's database. We explored three options:
+The first challenge was simply accessing ChromaDB. Since ChromaDB is stored on Google Drive, and each Colab session mounts only the user's own Drive, there was no direct way to access a teammate's database.
 
-- Sharing via Google Drive shortcuts — didn't work, Colab can't read shortcuts
-- Sharing the folder link — worked, but required downloading and re-uploading
-- Re-running P1's ingestion code — would have worked but required the original dataset
-
-The solution was to download the `findebate_chromadb` folder from P1's Drive to MacBook, then upload it to my own Drive. This gave me a working local copy with 6,963 chunks confirmed. A simple problem in hindsight, but it took significant back-and-forth to figure out the right approach.
+So I thought the obvious solution was to download the `findebate_chromadb` folder from P1's Drive to MacBook, then upload it to my own Drive. This gave me a working local copy with 6,963 chunks confirmed. A simple problem in hindsight, but it took significant back-and-forth to figure out the right approach.
 
 ---
 
@@ -27,16 +23,16 @@ Once connected, ChromaDB threw a version mismatch warning. P1's code used `chrom
 
 Similarly, the Google Generative AI package was deprecated mid-project. The old `google.generativeai` package was replaced by `google.genai`, causing FutureWarning messages in every run. While not breaking, it added noise to logs and created confusion about whether outputs were reliable.
 
+These were only the setup problems.
+
 ---
 
 ## Challenge 3 — HPC Login and Setup
 
 Logging into HPC for the first time introduced several small but time-consuming issues:
 
-- The `~` vs `~/` distinction in Linux caused an accidental folder named `~findebate` instead of `~/findebate` — the folder had to be deleted and recreated correctly
 - The `module load python/3.10` command in `setup_env.sh` failed because this HPC doesn't use the module system — the line had to be removed
-- `sentence-transformers` failed to install the first time due to a known pip resolver bug in older pip versions — fixed by upgrading pip first
-- The `Ctrl+C` command in the terminal was misunderstood as potentially cancelling the running HPC job — it only stops the log viewer, not the job itself
+- Then the total working, how to cancel, how to sequence jobs was needed.
 
 Each of these was small individually but cumulatively consumed significant time during setup.
 
@@ -62,7 +58,7 @@ Over the course of two days, this required:
 - Identifying and rerunning 8 transcripts that had old timestamps after prompt fixes
 
 **Prompt fixes discovered mid-run:**
-During execution, it was discovered that P4's prompts had hardcoded `"score": 0.0` as an example value — causing Gemini to always output 0.0 for scores. Additionally, almost all outputs showed NEUTRAL stance due to the model defaulting to safe outputs. Both issues were fixed directly on HPC using nano, and all 64 transcripts were rerun with the corrected prompts.
+During execution, it was discovered that prompts had hardcoded `"score": 0.0` as an example value — causing Gemini to always output 0.0 for scores. Additionally, almost all outputs showed NEUTRAL stance due to the model defaulting to safe outputs. Both issues were fixed directly on HPC using nano, and all 64 transcripts were rerun with the corrected prompts.
 
 ---
 
@@ -91,4 +87,4 @@ After completing all 64 transcripts, pushing outputs to GitHub via the API retur
 
 ## Time Investment
 
-The P2 implementation (multi-level retrieval + SLURM setup) took approximately one full day. Supporting P4's pipeline execution across two days added significant additional effort, involving continuous monitoring, debugging, API key rotation, and prompt fixes. The total active working time across both tasks spanned multiple sessions over several days, with the bulk of effort going into problem diagnosis and resolution rather than the initial implementation itself.
+The implementation (multi-level retrieval + SLURM setup) took approximately one full day. Supporting pipeline execution across two days added significant additional effort, involving continuous monitoring, debugging, API key rotation, and prompt fixes. The total active working time across both tasks spanned multiple sessions over several days, with the bulk of effort going into problem diagnosis and resolution rather than the initial implementation itself.
